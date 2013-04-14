@@ -1,0 +1,40 @@
+<%- model_class = RegAnswer -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th>Patient</th>
+      <th>Question</th>
+      <th>Answer</th>
+      <th><%= model_class.human_attribute_name(:updated_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reg_answers.each do |reg_answer| %>
+      <tr>
+        <td><%= link_to reg_answer.id, reg_answer_path(reg_answer) %></td>
+        <td><%= reg_answer.patient.first_name %></td>
+        <td><%= reg_answer.reg_question.content %></td>
+        <td><%= reg_answer.content %></td>
+        <td><%=l reg_answer.updated_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_reg_answer_path(reg_answer), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      reg_answer_path(reg_answer),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_reg_answer_path,
+            :class => 'btn btn-primary' %>

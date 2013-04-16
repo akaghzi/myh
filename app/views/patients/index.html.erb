@@ -2,6 +2,14 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
+						<%= form_tag patients_path, :method => 'get' do %>
+						    <%= text_field_tag :search, params[:search] %>
+						    <%= submit_tag "Search Patients", class: "btn btn-primary", :name => nil %>
+						<% end %>
+						<%= link_to t('.new', :default => t("helpers.links.new")),
+						            new_patient_path,
+						            :class => 'btn btn-primary' %>
+						
 <table class="table table-striped">
   <thead>
     <tr>
@@ -30,7 +38,7 @@
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_patient_path(patient), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+          <%#= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       patient_path(patient),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
@@ -40,7 +48,3 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_patient_path,
-            :class => 'btn btn-primary' %>

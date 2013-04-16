@@ -40,12 +40,6 @@
 		<% if @patient.reg_answers.blank? %>
 			<p>This is not registration information available for this patient as yet.
 			</p>
-		  <div class="form-actions">
-		    <%= f.submit nil, class:  'btn btn-primary' %>
-		    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-		                patients_path, class:  'btn' %>
-		  </div>
-			
 		<% else %>
 		<div class="controls">
 			<%= f.fields_for :reg_answers do |ans| %>
@@ -59,4 +53,11 @@
 		
 		<% end%>
   </div>
+  <div class="form-actions">
+    <%= f.submit nil, class:  'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                patients_path, class:  'btn' %>
+  </div>
+	
+	
 <% end %>

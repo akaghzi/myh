@@ -13,7 +13,17 @@ class Patient < ActiveRecord::Base
   before_save { |patient| patient.last_name = last_name.downcase }
   before_save { |patient| patient.sex = sex.downcase }
   after_create :add_answers_for_patient
-  def patient_age
+  def full_name
+    self.last_name + ', ' + self.first_name + ' ' + self.middle_name
+  end
+  # def search(search)
+  #   if search
+  #     find(:all, :conditions => ["last_name||' '||first_name||' '||middle_name LIKE ?", "%#{search}%"])
+  #   else
+  #     find(:all)
+  #   end
+  # end
+  def age
     Date.today.year-self.date_of_birth.year
   end
   private
@@ -22,7 +32,7 @@ class Patient < ActiveRecord::Base
   end
   def add_answers_for_patient
     # find all relevant questions
-    questions = RegQuestion.where("(sex='both' OR sex='#{self.sex}') AND minimum_age<'#{self.patient_age}'")
+    questions = RegQuestion.where("(sex='both' OR sex='#{self.sex}') AND minimum_age<'#{self.age}'")
     # prepare answers for patient registration
     questions.each do | question |
       self.reg_answers.create(patient_id: self.id,reg_question_id: question.id)

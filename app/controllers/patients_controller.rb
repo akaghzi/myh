@@ -1,10 +1,10 @@
 class PatientsController < ApplicationController
-  before_action :set_patient, only: [:show, :edit, :update, :destroy]
+  before_action :set_patient, only: [:show, :edit, :update]
 
   # GET /patients
   # GET /patients.json
   def index
-    @patients = Patient.all
+    @patients = self.search(params[:search]) || Patient.all
   end
 
   # GET /patients/1
@@ -50,16 +50,21 @@ class PatientsController < ApplicationController
       end
     end
   end
+  def search(search_string)
+    @patients = Patient.where("last_name||' '||first_name||' '||middle_name like lower('%#{search_string}%')")
+    # notice: "No patient found with that spelling try with alternate one" if @patients.blank?
+  end
 
   # DELETE /patients/1
   # DELETE /patients/1.json
-  def destroy
-    @patient.destroy
-    respond_to do |format|
-      format.html { redirect_to patients_url }
-      format.json { head :no_content }
-    end
-  end
+  # NO PATIENT ALLOWED TO BE DELETED FROM SYSTEM - ASIM KAGHZI
+  # def destroy
+  #   @patient.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to patients_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

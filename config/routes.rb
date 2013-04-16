@@ -1,9 +1,11 @@
 Myh::Application.routes.draw do  
   root to: "patients#index"
-  resources :patients
+  resources :patients do
+    get 'find', on: :collection
+  end
   resources :reg_questions
   resources :reg_answers
-
+  # get 'patients/find_patient', to: 'patients#find_patient', as: 'find_patient'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

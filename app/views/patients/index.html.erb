@@ -1,13 +1,13 @@
 <%- model_class = Patient -%>
 <div class="page-header">
-  <span><h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1></span>
-	<span><%= form_tag patients_path, :method => 'get' do %>
-	  <%= search_field_tag :search, params[:search], class: "search-query" %>
-	  <%= submit_tag "Search Patients", class: "btn btn-primary", :name => nil %>
-		<%= link_to t('.new', :default => t("helpers.links.new")),
-		            new_patient_path,
-		            :class => 'btn btn-primary' %>
-	<% end %>
+  <span><%#= model_class %>
+	  <%= form_tag patients_path, :method => 'get' do %>
+		  <%= search_field_tag :search, params[:search], class: "search-query" , placeholder: "patient name"%>
+		  <%= submit_tag "Search Patients", class: "btn btn-primary", :name => nil %>
+			<%= link_to t('.new', :default => t("helpers.links.new")),
+			            new_patient_path,
+			            :class => 'btn btn-primary' %>
+	  <% end %>
   </span>
 </div>
 <div>
@@ -29,11 +29,11 @@
     <% @patients.each do |patient| %>
       <tr>
         <td><%= link_to patient.id, patient_path(patient) %></td>
-        <td><%= link_to patient.full_name, patient_path(patient) %></td>
+        <td><%= link_to patient.full_name.titleize, patient_path(patient) %></td>
         <td><%= patient.date_of_birth %></td>
-        <td><%= patient.sex %></td>
+        <td><%= patient.sex.capitalize %></td>
         <td><%= patient.phone %></td>
-        <td><%=l patient.created_at %></td>
+        <td><%= patient.created_at %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                       patient_path(patient), :class => 'btn btn-mini btn-success' %>

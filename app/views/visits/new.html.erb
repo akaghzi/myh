@@ -1,5 +1,15 @@
 <%- model_class = Visit -%>
 <div class="page-header">
-<h1><%= "New Visit for #{@patient.full_name.titleize}" %></h1>	
+  <h1>
+		<span class="titlehighlight">
+			<%= @patient.full_name.titleize %>
+		</span>
+		<span class="sexhighlight">
+		<%= @patient.sex.titleize %>
+	</span>
+		<span class="titlehighlight">
+			<%= @patient.age %>
+		</span>
+	</h1>
 </div>
 <%= render :partial => 'form' %>

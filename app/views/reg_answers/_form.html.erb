@@ -1,4 +1,14 @@
 <%= form_for @reg_answer, :html => { :class => 'form-horizontal' } do |f| %>
+	<% if @reg_answer.errors.any? %>
+	  <div class="alert">
+	    <h2><%= pluralize(@reg_answer.errors.count, "error") %> prohibited this reg_answer from being saved:</h2>
+	    <ul>
+	    <% @reg_answer.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	<% end %>
   <div class="control-group">
     <%= f.label :reg_question_id, :class => 'control-label' %>
     <div class="controls">

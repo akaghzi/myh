@@ -1,0 +1,5 @@
+<%- model_class = Visit -%>
+<div class="page-header">
+  <h1><%= "Update Visit for #{@visit.patient.full_name.titleize}" %></h1>
+</div>
+<%= render :partial => 'form' %>

@@ -1,6 +1,12 @@
-.titlehighlight{
-	background:#FFFFCC;
+.answer{
+	color:#336699;
+}
+.registration{
+	font-size:16px;
 }
 .sexhighlight{
 	background:lightblue;
+}
+.titlehighlight{
+	background:#FFFFCC;
 }

@@ -1,0 +1,12 @@
+<%= fields_for :visits do| visit | %>
+	<%= visit.label :visit_date, class: "control-label" %>
+	<%= visit.date_field :visit_date, class: "datepicker", data: {"date-format" => "yyyy-mm-dd"} %>
+	<%= visit.label :visit_reason, class: "control-label" %>
+	<%= visit.text_field :visit_reason, class: "text_field" %>
+	<%= visit.label :visit_note, class: "control-label" %>
+	<%= visit.text_area :visit_note, rows: 4, length: 80 %>
+	<div class="form-actions">
+	  <%= visit.submit nil, class:  'btn btn-primary' %>
+	  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+	              patients_path, class:  'btn' %>
+<% end %>

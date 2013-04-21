@@ -1,4 +1,14 @@
 <%- model_class = Patient -%>
+<% if @patient.errors.any? %>
+  <div class="alert">
+    <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+    <ul>
+    <% @patient.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 <div class="page-header">
   <h1>
 		<span class="titlehighlight">
@@ -12,12 +22,34 @@
 		</span>
 	</h1>
 	<h2>
-		Date of Birth: <%= @patient.date_of_birth.to_s+ ' Phone: '+  @patient.phone %>
+		Date of Birth: <%= "#{@patient.date_of_birth} Phone: #{@patient.phone}" %>
 	</h2> 
 </div>
-
+<h3>Registration Information</h3>
+<div class="registration">
+<% @patient.reg_answers.each do|ans| %>
+<p>
+  <strong>Question: </strong><span class="question"><%= ans.reg_question_text.capitalize %></span><br />
+  <strong>Answer:   </strong><span class="answer"><%= ans.content  %></span>
+</p>
+<% end %>
+</div>
 <h3>Visit Information:</h3>
-
+<div class="visit">
+<% @patient.visits.each do|visit| %>
+	<p>
+	  <strong>Visit Date:   </strong><span class="note"><%= visit.visit_date %></span><br />
+	  <strong>Visit Reason: </strong><span class="note"><%= visit.visit_reason.capitalize %></span><br />
+	  <strong>Visit Note:   </strong><span class="note"><%= visit.visit_note.capitalize %></span><br />
+		<% if (visit.visit_date >= Date.today) %>
+		  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+		              edit_visit_path(visit.id), :class => 'btn' %>
+		<% end %>
+		<hr />
+	</p>
+<% end %>
+</div>
+<%= link_to 'Add Visit', new_visit_path(patient_id: @patient.id), class: "btn btn-primary" %>
 <!-- <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:date_of_birth) %>:</strong></dt>
   <dd><%= @patient.date_of_birth %></dd>

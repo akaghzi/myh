@@ -1,8 +1,8 @@
 Myh::Application.routes.draw do  
+  resources :visits
+
   root to: "patients#index"
-  resources :patients do
-    get 'find', on: :collection
-  end
+  resources :patients
   resources :reg_questions
   resources :reg_answers
   # get 'patients/find_patient', to: 'patients#find_patient', as: 'find_patient'

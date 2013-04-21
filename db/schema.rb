@@ -11,10 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130421031118) do
+ActiveRecord::Schema.define(version: 20130421215006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "med_test_types", force: true do |t|
+    t.string   "full_name"
+    t.string   "short_name"
+    t.string   "unit_of_measure"
+    t.string   "lab_type"
+    t.boolean  "essential"
+    t.decimal  "minimum_threshold"
+    t.decimal  "maximum_threshold"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "minimum_age"
+  end
+
+  create_table "med_tests", force: true do |t|
+    t.integer  "patient_id"
+    t.integer  "visit_id"
+    t.integer  "med_test_type_id"
+    t.decimal  "measurement"
+    t.text     "mearsurement_note"
+    t.datetime "ordered_at"
+    t.datetime "reviewed_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "patients", force: true do |t|
     t.string   "first_name"

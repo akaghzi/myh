@@ -1,4 +1,8 @@
 Myh::Application.routes.draw do  
+  resources :med_tests
+
+  resources :med_test_types
+
   resources :visits
 
   root to: "patients#index"

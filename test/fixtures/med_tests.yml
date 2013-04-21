@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  patient_id: 1
+  visit_id: 1
+  med_test_type_id: 1
+  measurement: 9.99
+  mearsurement_note: MyText
+  ordered_at: 2013-04-21 15:50:06
+  reviewed_at: 2013-04-21 15:50:06
+
+two:
+  patient_id: 1
+  visit_id: 1
+  med_test_type_id: 1
+  measurement: 9.99
+  mearsurement_note: MyText
+  ordered_at: 2013-04-21 15:50:06
+  reviewed_at: 2013-04-21 15:50:06

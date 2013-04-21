@@ -22,7 +22,7 @@
 		</span>
 	</h1>
 	<h3>
-		DOB: <%= "#{@patient.date_of_birth} Phone: #{@patient.phone} ExternalId: #{@patient.externalid}" %>
+		DOB: <%= "#{@patient.date_of_birth} Phone: #{@patient.phone} Externalid: #{@patient.externalid}" %>
 	</h3> 
 </div>
 <h3>Registration Information</h3>
@@ -36,7 +36,7 @@
 </div>
 <h3>Visit Information:</h3>
 <div class="visit">
-<% @patient.visits.each do|visit| %>
+<% @patient.visits.order("visit_date").each do|visit| %>
 	<p>
 	  <strong>Visit Date:   </strong><span class="note"><%= visit.visit_date %></span><br />
 	  <strong>Visit Reason: </strong><span class="note"><%= visit.visit_reason.capitalize %></span><br />

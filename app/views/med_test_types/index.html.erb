@@ -1,0 +1,48 @@
+<%- model_class = MedTestType -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:full_name) %></th>
+      <th><%= model_class.human_attribute_name(:short_name) %></th>
+      <th><%= model_class.human_attribute_name(:unit_of_measure) %></th>
+      <th><%= model_class.human_attribute_name(:lab_type) %></th>
+      <th><%= model_class.human_attribute_name(:essential) %></th>
+      <th><%= model_class.human_attribute_name(:minimum_threshold) %></th>
+      <th><%= model_class.human_attribute_name(:maximum_threshold) %></th>
+      <th><%= model_class.human_attribute_name(:minimum_age) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @med_test_types.each do |med_test_type| %>
+      <tr>
+        <td><%= link_to med_test_type.id, med_test_type_path(med_test_type) %></td>
+        <td><%= med_test_type.full_name %></td>
+        <td><%= med_test_type.short_name %></td>
+        <td><%= med_test_type.unit_of_measure %></td>
+        <td><%= med_test_type.lab_type %></td>
+        <td><%= med_test_type.essential %></td>
+        <td><%= med_test_type.minimum_threshold %></td>
+        <td><%= med_test_type.maximum_threshold %></td>
+        <td><%= med_test_type.minimum_age %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_med_test_type_path(med_test_type), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      med_test_type_path(med_test_type),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_med_test_type_path,
+            :class => 'btn btn-primary' %>

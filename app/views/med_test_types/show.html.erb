@@ -1,0 +1,33 @@
+<%- model_class = MedTestType -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:full_name) %>:</strong></dt>
+  <dd><%= @med_test_type.full_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:short_name) %>:</strong></dt>
+  <dd><%= @med_test_type.short_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:unit_of_measure) %>:</strong></dt>
+  <dd><%= @med_test_type.unit_of_measure %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:lab_type) %>:</strong></dt>
+  <dd><%= @med_test_type.lab_type %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:essential) %>:</strong></dt>
+  <dd><%= @med_test_type.essential %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:minimum_threshold) %>:</strong></dt>
+  <dd><%= @med_test_type.minimum_threshold %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:maximum_threshold) %>:</strong></dt>
+  <dd><%= @med_test_type.maximum_threshold %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              med_test_types_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_med_test_type_path(@med_test_type), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              med_test_type_path(@med_test_type),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

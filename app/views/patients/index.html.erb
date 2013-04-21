@@ -21,7 +21,7 @@
       <th><%= model_class.human_attribute_name(:date_of_birth) %></th>
       <th><%= model_class.human_attribute_name(:sex) %></th>
       <th><%= model_class.human_attribute_name(:phone) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:externalid) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -33,7 +33,7 @@
         <td><%= patient.date_of_birth %></td>
         <td><%= patient.sex.capitalize %></td>
         <td><%= patient.phone %></td>
-        <td><%= patient.created_at %></td>
+        <td><%= patient.externalid %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                       patient_path(patient), :class => 'btn btn-mini btn-success' %>

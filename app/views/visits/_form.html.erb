@@ -28,6 +28,27 @@
       <%= f.text_field :visit_reason, :class => 'text_field' %>
     </div>
   </div>
+	<!-- Add the test done in-house and order the tests that are outsourced here -->
+	<h3> Medical tests:</h3>
+	<div class="med-tests">
+		<!-- :patient_id, :visit_id, :med_test_type_id, :measurement, :mearsurement_note, :ordered_at, :reviewed_at -->
+		<%= f.fields_for :med_tests do | med_test | %>
+		<!-- HIDDEN FIELD START HERE -->
+			<%#= med_test.label :patient_id , class: "control-label"%>
+			<%= med_test.hidden_field :patient_id, class: "number_field"%>
+			<%#= med_test.label :visit_id , class: "control-label"%>
+			<%= med_test.hidden_field :visit_id, class: "number_field"%>
+			<%#= med_test.label :med_test_type_id , class: "control-label"%>
+			<%= med_test.hidden_field :med_test_type_id, class: "number_field"%>
+			<!-- HIDDEN FIELD END HERE -->
+			<%= med_test.text_field :med_test_type_short_name, disabled: "true" %>
+			<%#= med_test.label :measurement , class: "control-label"%>
+			<%= med_test.number_field :measurement, class: "number_field"%>
+			<%#= med_test.label :mearsurement_note , class: "control-label"%>
+			<%= med_test.text_area :mearsurement_note, class: "input-xlarge"%>
+		<% end %>
+	</div>
+	<!-- tests end here -->
   <div class="control-group">
     <%= f.label :visit_note, :class => 'control-label' %>
     <div class="controls">

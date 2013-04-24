@@ -14,7 +14,9 @@ class VisitsController < ApplicationController
 
   # GET /visits/new
   def new
+    # find patient for the visit
     @patient = Patient.find(params[:patient_id])
+    # build the visit for the patient
     @visit = @patient.visits.build(patient_id: @patient.id)
     # @visit = Visit.new
   end
@@ -22,6 +24,10 @@ class VisitsController < ApplicationController
   # GET /visits/1/edit
   def edit
     @visit = Visit.find(params[:id])
+    @med_test_types = MedTestType.where("minimum_age <= ?", @visit.patient.age)
+    @med_test_types.each do | med_test |
+      med_test = @visit.med_tests.build(patient_id: @visit.patient.id, visit_id: @visit.id, med_test_type_id: med_test.id)
+    end
   end
 
   # POST /visits
@@ -80,7 +86,8 @@ class VisitsController < ApplicationController
     def visit_params
       params.require(:visit).permit(:patient_id, :visit_date, :visit_reason, 
                                     :visit_note,
-                                    :med_tests_attributes: {:id, :visit_id, :patient:id, :med_test_type_id,
-                                    :measurement, :measurement_note, :ordered_at, :reviewed_at})
+                                    {:med_tests_attributes => [:id, :visit_id, :patient_id, :measurement, 
+                                     :measurement_note, :med_test_type_id, :ordered_at, :reviewed_at]}
+                                    )
     end
 end

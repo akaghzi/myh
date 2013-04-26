@@ -40,7 +40,7 @@
 	<p>
 	  <strong>Visit Date:   </strong><span class="note"><%= visit.visit_date %></span><br />
 	  <strong>Visit Reason: </strong><span class="note"><%= visit.visit_reason.capitalize %></span><br />
-	  <strong>Visit Note:   </strong><span class="note"><%= visit.visit_note.capitalize %></span><br />
+	  <strong>Visit Note:   </strong><span class="note"><%= visit.visit_note %></span><br />
 		<% if (visit.visit_date >= Date.today) %>
 		  <%= link_to t('.edit', :default => t("helpers.links.edit")),
 		              edit_visit_path(visit.id), :class => 'btn' %>

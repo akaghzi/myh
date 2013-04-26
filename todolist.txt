@@ -1,0 +1,3 @@
+Add tests for visit type
+Add user authentication
+Add tests ordered_on and reviewed_on

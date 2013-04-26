@@ -6,10 +6,11 @@ class Visit < ActiveRecord::Base
   after_create :add_med_tests
   private
   def add_med_tests
-    # patient = Patient.find(visit.patient_id)
-    med_test_types = MedTestType.where("minimum_age <= ?", self.patient.age)
-    med_test_types.each do | med_test_type |
-      self.med_tests.create(patient_id: self.patient_id, visit_id: self.id, med_test_type_id: med_test_type.id)
+    # find all relevant med_test_types
+    med_test_types = MedTestType.where("minimum_age <= ?", patient.age)
+    # prepare med_tests for patient visit
+    med_test_types.sort.each do | med_test_type |
+      med_tests.create(patient_id: patient_id, visit_id: id, med_test_type_id: med_test_type.id)
     end
-  end
+  end 
 end

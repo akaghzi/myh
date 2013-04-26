@@ -53,13 +53,13 @@ class MedTestTypesController < ApplicationController
 
   # DELETE /med_test_types/1
   # DELETE /med_test_types/1.json
-  def destroy
-    @med_test_type.destroy
-    respond_to do |format|
-      format.html { redirect_to med_test_types_url }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+#     @med_test_type.destroy
+#     respond_to do |format|
+#       format.html { redirect_to med_test_types_url }
+#       format.json { head :no_content }
+#     end
+#   end
 
   private
     # Use callbacks to share common setup or constraints between actions.

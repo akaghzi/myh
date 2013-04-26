@@ -24,10 +24,10 @@ class VisitsController < ApplicationController
   # GET /visits/1/edit
   def edit
     @visit = Visit.find(params[:id])
-    @med_test_types = MedTestType.where("minimum_age <= ?", @visit.patient.age)
-    @med_test_types.each do | med_test |
-      med_test = @visit.med_tests.build(patient_id: @visit.patient.id, visit_id: @visit.id, med_test_type_id: med_test.id)
-    end
+    # @med_test_types = MedTestType.where("minimum_age <= ?", @visit.patient.age)
+    # @med_test_types.each do | med_test |
+    #   med_test = @visit.med_tests.build(patient_id: @visit.patient.id, visit_id: @visit.id, med_test_type_id: med_test.id)
+    # end
   end
 
   # POST /visits
@@ -67,13 +67,13 @@ class VisitsController < ApplicationController
 
   # DELETE /visits/1
   # DELETE /visits/1.json
-  def destroy
-    @visit.destroy
-    respond_to do |format|
-      format.html { redirect_to visits_url }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @visit.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to visits_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

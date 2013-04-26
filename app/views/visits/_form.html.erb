@@ -41,11 +41,13 @@
 			<%#= med_test.label :med_test_type_id , class: "control-label"%>
 			<%= med_test.hidden_field :med_test_type_id, class: "number_field"%>
 			<!-- HIDDEN FIELD END HERE -->
-			<%= med_test.text_field :med_test_type_short_name, disabled: "true" %>
+			<strong>
+			  <%= med_test.text_field :med_test_type_short_name, disabled: "true" %>
+		  </strong>
 			<%#= med_test.label :measurement , class: "control-label"%>
 			<%= med_test.number_field :measurement, class: "number_field"%>
 			<%#= med_test.label :mearsurement_note , class: "control-label"%>
-			<%= med_test.text_area :mearsurement_note, class: "input-xlarge"%>
+			<%= med_test.text_area :mearsurement_note, rows: 1, class: "input-large"%><br />
 		<% end %>
 	</div>
 	<!-- tests end here -->

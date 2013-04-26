@@ -7,6 +7,7 @@ class Patient < ActiveRecord::Base
   validates :sex, inclusion: {in: VALID_SEX}
   validates :phone, format: {with: VALID_PHONE_REGEX}
   validates :first_name, :middle_name, :last_name, length: {maximum: 40}
+  validates :externalid, uniqueness: true
   # validate :valid_date_of_birth
   accepts_nested_attributes_for :reg_answers, :visits, :med_tests
   before_save { |patient| patient.first_name = first_name.downcase }
@@ -29,7 +30,7 @@ class Patient < ActiveRecord::Base
     # find all relevant questions
     questions = RegQuestion.where("(sex='both' OR sex='#{self.sex}') AND minimum_age<'#{self.age}'")
     # prepare answers for patient registration
-    questions.each do | question |
+    questions.sort.each do | question |
       self.reg_answers.create(patient_id: self.id,reg_question_id: question.id)
     end
   end 

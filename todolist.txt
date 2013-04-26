@@ -1,3 +1,8 @@
 Add tests for visit type
 Add user authentication
 Add tests ordered_on and reviewed_on
+Fix Navigation
+Add pages:
+	landing page
+	help page
+	contact us page

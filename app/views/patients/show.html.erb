@@ -26,11 +26,11 @@
 	</h3> 
 </div>
 <h3>Registration Information</h3>
-<div class="registration">
+<div class="control-group">
 <% @patient.reg_answers.each do|ans| %>
 <p>
-  <strong>Question: </strong><span class="question"><%= ans.reg_question_text.capitalize %></span><br />
-  <strong>Answer:   </strong><span class="answer"><%= ans.content  %></span>
+  <strong>Question: </strong><span class="control-label"><%= ans.reg_question_text.capitalize %></span><br />
+  <strong>Answer:   </strong><span class="control-label"><%= ans.content  %></span>
 </p>
 <% end %>
 </div>
@@ -38,9 +38,9 @@
 <div class="visit">
 <% @patient.visits.order("visit_date").each do|visit| %>
 	<p>
-	  <strong>Visit Date:   </strong><span class="note"><%= visit.visit_date %></span><br />
-	  <strong>Visit Reason: </strong><span class="note"><%= visit.visit_reason.capitalize %></span><br />
-	  <strong>Visit Note:   </strong><span class="note"><%= visit.visit_note %></span><br />
+	  <strong>Visit Date:   </strong><span class="control-label"><%= visit.visit_date %></span><br />
+	  <strong>Visit Reason: </strong><span class="control-label"><%= visit.visit_reason.capitalize %></span><br />
+	  <strong>Visit Note:   </strong><span class="control-label"><%= visit.visit_note %></span><br />
 		<% if (visit.visit_date >= Date.today) %>
 		  <%= link_to t('.edit', :default => t("helpers.links.edit")),
 		              edit_visit_path(visit.id), :class => 'btn' %>

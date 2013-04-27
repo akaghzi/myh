@@ -59,13 +59,19 @@
 			<p>This is not registration information available for this patient as yet.
 			</p>
 		<% else %>
-		<div class="controls">
+		<div class="control-group">
 			<%= f.fields_for :reg_answers do |ans| %>
 				<strong>Question :</strong>
+		    <div class="controls">
 				<%= ans.hidden_field :reg_question_id %>
-				<%= ans.text_field :reg_question_text, disabled: true, class: "text_field" %><br />
+				<%= ans.text_field :reg_question_text, disabled: true, rows: 2, class: "input-xxlarge" %><br />
+			</div>
 				<strong>Answer:   </strong>
+				<div class="control-group">
+		    <div class="controls">
 				<%= ans.text_field :content %><br />
+			</div>
+			</div>
 			<% end %>
 		</div>
 		

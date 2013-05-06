@@ -7,7 +7,7 @@ class Visit < ActiveRecord::Base
   private
   def add_med_tests
     # find all relevant med_test_types
-    med_test_types = MedTestType.where("minimum_age <= ?", patient.age)
+    med_test_types = MedTestType.where("lab_type='inhouse' AND minimum_age <= ?", patient.age)
     # prepare med_tests for patient visit
     med_test_types.sort.each do | med_test_type |
       med_tests.create(patient_id: patient_id, visit_id: id, med_test_type_id: med_test_type.id)

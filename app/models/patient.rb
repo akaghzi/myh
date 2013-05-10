@@ -3,6 +3,7 @@ class Patient < ActiveRecord::Base
   has_many :questions, through: :reg_answers
   has_many :visits
   has_many :med_tests
+  has_many :vital_signs
   validates :date_of_birth, :first_name, :last_name, :phone, :sex, presence: true
   validates :sex, inclusion: {in: VALID_SEX}
   validates :phone, format: {with: VALID_PHONE_REGEX}

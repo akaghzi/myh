@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @vital_sign.patient_id %>
+</p>
+
+<p>
+  <strong>Visit:</strong>
+  <%= @vital_sign.visit_id %>
+</p>
+
+<p>
+  <strong>Temperature:</strong>
+  <%= @vital_sign.temperature %>
+</p>
+
+<p>
+  <strong>Heart rate:</strong>
+  <%= @vital_sign.heart_rate %>
+</p>
+
+<p>
+  <strong>Bp systolic:</strong>
+  <%= @vital_sign.bp_systolic %>
+</p>
+
+<p>
+  <strong>Bp diastolic:</strong>
+  <%= @vital_sign.bp_diastolic %>
+</p>
+
+<p>
+  <strong>Respiratory rate:</strong>
+  <%= @vital_sign.respiratory_rate %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @vital_sign.weight %>
+</p>
+
+
+<%= link_to 'Edit', edit_vital_sign_path(@vital_sign) %> |
+<%= link_to 'Back', vital_signs_path %>

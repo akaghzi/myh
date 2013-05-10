@@ -1,0 +1,49 @@
+<%= form_for(@vital_sign) do |f| %>
+  <% if @vital_sign.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vital_sign.errors.count, "error") %> prohibited this vital_sign from being saved:</h2>
+
+      <ul>
+      <% @vital_sign.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :patient_id %><br />
+    <%= f.number_field :patient_id %>
+  </div>
+  <div class="field">
+    <%= f.label :visit_id %><br />
+    <%= f.number_field :visit_id %>
+  </div>
+  <div class="field">
+    <%= f.label :temperature %><br />
+    <%= f.text_field :temperature %>
+  </div>
+  <div class="field">
+    <%= f.label :heart_rate %><br />
+    <%= f.number_field :heart_rate %>
+  </div>
+  <div class="field">
+    <%= f.label :bp_systolic %><br />
+    <%= f.number_field :bp_systolic %>
+  </div>
+  <div class="field">
+    <%= f.label :bp_diastolic %><br />
+    <%= f.number_field :bp_diastolic %>
+  </div>
+  <div class="field">
+    <%= f.label :respiratory_rate %><br />
+    <%= f.number_field :respiratory_rate %>
+  </div>
+  <div class="field">
+    <%= f.label :weight %><br />
+    <%= f.number_field :weight %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

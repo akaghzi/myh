@@ -1,4 +1,6 @@
 Myh::Application.routes.draw do  
+  resources :vital_signs
+
   resources :med_tests
 
   resources :med_test_types

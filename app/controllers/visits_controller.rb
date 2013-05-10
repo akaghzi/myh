@@ -87,7 +87,9 @@ class VisitsController < ApplicationController
       params.require(:visit).permit(:patient_id, :visit_date, :visit_reason, 
                                     :visit_note,
                                     {:med_tests_attributes => [:id, :visit_id, :patient_id, :measurement, 
-                                     :measurement_note, :med_test_type_id, :ordered_at, :reviewed_at]}
+                                     :measurement_note, :med_test_type_id, :ordered_at, :reviewed_at]},
+                                     {:vital_signs_attributes => [:id, :patient_id, :visit_id, :temperature,
+                                       :heart_rate, :bp_systolic, :bp_diatolic, :repiratory_rate, :weight]}
                                     )
     end
 end

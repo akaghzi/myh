@@ -1,4 +1,11 @@
 Myh::Application.routes.draw do  
+  # get "users/index"
+  # get "users/new"
+  # get "users/create"
+  # get "users/edit"
+  # get "users/update"
+  # get "users/destroy"
+  resources :users
   resources :vital_signs
 
   resources :med_tests

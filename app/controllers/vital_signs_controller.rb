@@ -63,7 +63,7 @@ class VitalSignsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-      dfghjdef set_vital_sign
+      def set_vital_sign
       @vital_sign = VitalSign.find(params[:id])
     end
 

@@ -20,7 +20,7 @@ development:
   database: myh_development
   pool: 5
   username: akaghzi
-  password:
+  password: hussain7
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -49,7 +49,7 @@ test:
   database: myh_test
   pool: 5
   username: akaghzi
-  password:
+  password: hussain7
 
 production:
   adapter: postgresql

@@ -7,13 +7,9 @@ Myh::Application.routes.draw do
   # get "users/destroy"
   resources :users
   resources :vital_signs
-
   resources :med_tests
-
   resources :med_test_types
-
   resources :visits
-
   root to: "patients#index"
   resources :patients
   resources :reg_questions

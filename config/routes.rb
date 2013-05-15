@@ -1,19 +1,23 @@
 Myh::Application.routes.draw do  
-  # get "users/index"
-  # get "users/new"
   # get "users/create"
   # get "users/edit"
   # get "users/update"
   # get "users/destroy"
+  root to: "static_pages#home"
+  resources :sessions, only: [:new, :create, :destroy]
+  get "/help", to: "static_pages#help"
+  get "/contact", to: "static_pages#contact"
+  # match "/signup", to: "users#new", via: :get
+  # match "/signin", to: "sessions#new", via: :get
+  # match "/signout", to: "sessions#destroy", via: :delete
+  resources :patients
+  resources :reg_questions
+  resources :reg_answers
   resources :users
   resources :vital_signs
   resources :med_tests
   resources :med_test_types
   resources :visits
-  root to: "patients#index"
-  resources :patients
-  resources :reg_questions
-  resources :reg_answers
   # get 'patients/find_patient', to: 'patients#find_patient', as: 'find_patient'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

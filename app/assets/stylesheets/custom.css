@@ -10,3 +10,6 @@
 .titlehighlight{
 	background:#FFFFCC;
 }
+.lowercase{
+	text-transform: lowercase;
+}

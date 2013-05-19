@@ -5,12 +5,16 @@
 		<span class="titlehighlight">
 			<%= @visit.patient.full_name.titleize %>
 		</span>
-		<span class="sexhighlight">
+		<span class="bluehighlight">
 		<%= @visit.patient.sex.titleize %>
 	</span>
 		<span class="titlehighlight">
 			<%= @visit.patient.age %>
 		</span>
+		<span class="bluehighlight">
+			DOB: <%= @visit.patient.date_of_birth %>
+		</span>
+		
 	</h1>
 </div>
 <%= render :partial => 'form' %>

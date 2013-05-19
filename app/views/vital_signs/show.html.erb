@@ -1,45 +1,35 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = VitalSign -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
 
-<p>
-  <strong>Patient:</strong>
-  <%= @vital_sign.patient_id %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:patient_id) %>:</strong></dt>
+  <dd><%= @vital_sign.patient_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:visit_id) %>:</strong></dt>
+  <dd><%= @vital_sign.visit_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:temperature) %>:</strong></dt>
+  <dd><%= @vital_sign.temperature %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:heart_rate) %>:</strong></dt>
+  <dd><%= @vital_sign.heart_rate %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:bp_systolic) %>:</strong></dt>
+  <dd><%= @vital_sign.bp_systolic %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:bp_diastolic) %>:</strong></dt>
+  <dd><%= @vital_sign.bp_diastolic %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:respiratory_rate) %>:</strong></dt>
+  <dd><%= @vital_sign.respiratory_rate %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:weight) %>:</strong></dt>
+  <dd><%= @vital_sign.weight %></dd>
+</dl>
 
-<p>
-  <strong>Visit:</strong>
-  <%= @vital_sign.visit_id %>
-</p>
-
-<p>
-  <strong>Temperature:</strong>
-  <%= @vital_sign.temperature %>
-</p>
-
-<p>
-  <strong>Heart rate:</strong>
-  <%= @vital_sign.heart_rate %>
-</p>
-
-<p>
-  <strong>Bp systolic:</strong>
-  <%= @vital_sign.bp_systolic %>
-</p>
-
-<p>
-  <strong>Bp diastolic:</strong>
-  <%= @vital_sign.bp_diastolic %>
-</p>
-
-<p>
-  <strong>Respiratory rate:</strong>
-  <%= @vital_sign.respiratory_rate %>
-</p>
-
-<p>
-  <strong>Weight:</strong>
-  <%= @vital_sign.weight %>
-</p>
-
-
-<%= link_to 'Edit', edit_vital_sign_path(@vital_sign) %> |
-<%= link_to 'Back', vital_signs_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              vital_signs_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_vital_sign_path(@vital_sign), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              vital_sign_path(@vital_sign),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

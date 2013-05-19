@@ -69,6 +69,8 @@ class VitalSignsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vital_sign_params
-      params.require(:vital_sign).permit(:patient_id, :visit_id, :temperature, :heart_rate, :bp_systolic, :bp_diastolic, :respiratory_rate, :weight)
+      params.require(:vital_sign).permit(:patient_id, :visit_id, :temperature, :heart_rate, 
+                                         :bp_systolic, :bp_diastolic, :respiratory_rate, 
+                                         :weight)
     end
 end

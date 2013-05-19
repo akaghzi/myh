@@ -14,14 +14,14 @@
 		<span class="titlehighlight">
 			<%= @patient.full_name.titleize %>
 		</span>
-		<span class="sexhighlight">
+		<span class="bluehighlight">
 		<%= @patient.sex.titleize %>
 	</span>
 		<span class="titlehighlight">
 			<%= @patient.age %>
 		</span>
 	</h1>
-	<h3>
+	<h3 class="bluehighlight">
 		DOB: <%= "#{@patient.date_of_birth} Phone: #{@patient.phone} Externalid: #{@patient.externalid}" %>
 	</h3> 
 </div>

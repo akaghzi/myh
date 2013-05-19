@@ -29,31 +29,26 @@
     </div>
   </div>
 	<!-- Add the test done in-house and order the tests that are outsourced here -->
-	<h3> Medical tests:</h3>
-	<div class="control-group">
-		<!-- :patient_id, :visit_id, :med_test_type_id, :measurement, :mearsurement_note, :ordered_at, :reviewed_at -->
-		<%= f.fields_for :med_tests do | med_test | %>
-		<!-- HIDDEN FIELD START HERE -->
-			<%#= med_test.label :patient_id , class: "control-label"%>
-			<%= med_test.hidden_field :patient_id, class: "number_field"%>
-			<%#= med_test.label :visit_id , class: "control-label"%>
-			<%= med_test.hidden_field :visit_id, class: "number_field"%>
-			<%#= med_test.label :med_test_type_id , class: "control-label"%>
-			<%= med_test.hidden_field :med_test_type_id, class: "number_field"%>
-			<!-- HIDDEN FIELD END HERE -->
-			<div class="controls">
-			<strong>
-			  <%= med_test.text_field :med_test_type_short_name, disabled: "true" %>
-		  </strong>
-			<%#= med_test.label :measurement , class: "control-label"%>
-			<%= med_test.number_field :measurement, class: "number_field"%>
-			<%#= med_test.label :mearsurement_note , class: "control-label"%>
-			<%#= med_test.text_area :mearsurement_note, rows: 1, class: "input-large"%>
-			<br />
-		</div>
+	<h3> Vital Signs:</h3>
+	<!-- Add vital signs here -->
+  <div class="control-group">
+    <%#= f.label :visit_note, :class => 'control-label' %>
+    <div class="controls">
+      <%#= f.text_area :visit_note, rows: 4, :class => 'input-xxlarge' %>
+    </div>
+  </div>
+	<!-- Vital Signs end here -->
+	<!-- Add out-sourced lab tests here -->
+  <div class="control-group">
+		<h3>Laboratory tests ordered:</h3>
+		<% for lab_test in LabTest.all do %>
+    <div class="controls">
+		  <%= check_box_tag "visit[lab_test_ids][]", lab_test.id, @visit.lab_tests.include?(lab_test) , class: "check_box"%>
+		  <%= lab_test.short_name %>
+	  </div>
 		<% end %>
-	</div>
-	<!-- tests end here -->
+  </div>
+	<!-- Out sources lab tests end here -->
   <div class="control-group">
     <%= f.label :visit_note, :class => 'control-label' %>
     <div class="controls">

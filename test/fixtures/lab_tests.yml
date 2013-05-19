@@ -4,16 +4,12 @@ one:
   full_name: MyString
   short_name: MyString
   unit_of_measure: MyString
-  lab_type: MyString
-  essential: false
-  minimum_threshold: 9.99
-  maximum_threshold: 9.99
+  low_threshold: 9.99
+  high_threshold: 9.99
 
 two:
   full_name: MyString
   short_name: MyString
   unit_of_measure: MyString
-  lab_type: MyString
-  essential: false
-  minimum_threshold: 9.99
-  maximum_threshold: 9.99
+  low_threshold: 9.99
+  high_threshold: 9.99

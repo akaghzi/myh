@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  visit_id: 1
+  lab_test_id: 1
+  measurement: 9.99
+  received_at: 2013-05-18
+  reviewed_at: 2013-05-18
+
+two:
+  visit_id: 1
+  lab_test_id: 1
+  measurement: 9.99
+  received_at: 2013-05-18
+  reviewed_at: 2013-05-18

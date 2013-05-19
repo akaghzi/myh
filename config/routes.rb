@@ -1,4 +1,5 @@
 Myh::Application.routes.draw do  
+
   # get "users/create"
   # get "users/edit"
   # get "users/update"
@@ -10,13 +11,12 @@ Myh::Application.routes.draw do
   # match "/signup", to: "users#new", via: :get
   # match "/signin", to: "sessions#new", via: :get
   # match "/signout", to: "sessions#destroy", via: :delete
+  resources :lab_tests
   resources :patients
   resources :reg_questions
   resources :reg_answers
   resources :users
   resources :vital_signs
-  resources :med_tests
-  resources :med_test_types
   resources :visits
   # get 'patients/find_patient', to: 'patients#find_patient', as: 'find_patient'
   # The priority is based upon order of creation: first created -> highest priority.

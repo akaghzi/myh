@@ -55,6 +55,7 @@ class VisitsController < ApplicationController
     respond_to do |format|
       # if @patient.visits.update(visit_params)
       if @visit.update(visit_params)
+        params[:visit][:lab_test_ids] ||= []
         # format.html { redirect_to @patient.visits, notice: 'Visit was successfully updated.' }
         format.html { redirect_to @visit, notice: 'Visit was successfully updated.' }
         format.json { head :no_content }
@@ -84,12 +85,11 @@ class VisitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def visit_params
-      params.require(:visit).permit(:patient_id, :visit_date, :visit_reason, 
+      params.require(:visit).permit(:patient_id, :visit_date, :visit_reason,
                                     :visit_note,
-                                    {:med_tests_attributes => [:id, :visit_id, :patient_id, :measurement, 
-                                     :measurement_note, :med_test_type_id, :ordered_at, :reviewed_at]},
-                                     {:vital_signs_attributes => [:id, :patient_id, :visit_id, :temperature,
-                                       :heart_rate, :bp_systolic, :bp_diatolic, :repiratory_rate, :weight]}
+                                     {:vital_signs_attributes => [:patient_id, :visit_id, :temperature,
+                                       :heart_rate, :bp_systolic, :bp_diatolic, :repiratory_rate, :weight]},
+                                       :lab_test_ids => []
                                     )
     end
 end

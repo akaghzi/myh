@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  patient_id: 1
+  insurance_carrier: MyString
+  insurance_member_id: MyString
+  insurance_guarantor: MyString
+  insurance_guarantor_relationship: MyString
+
+two:
+  patient_id: 1
+  insurance_carrier: MyString
+  insurance_member_id: MyString
+  insurance_guarantor: MyString
+  insurance_guarantor_relationship: MyString

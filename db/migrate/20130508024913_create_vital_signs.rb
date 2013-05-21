@@ -1,7 +1,6 @@
 class CreateVitalSigns < ActiveRecord::Migration
   def change
     create_table :vital_signs do |t|
-      t.integer :patient_id
       t.integer :visit_id
       t.decimal :temperature
       t.integer :heart_rate
@@ -9,6 +8,7 @@ class CreateVitalSigns < ActiveRecord::Migration
       t.integer :bp_diastolic
       t.integer :respiratory_rate
       t.integer :weight
+      t.integer :height
 
       t.timestamps
     end

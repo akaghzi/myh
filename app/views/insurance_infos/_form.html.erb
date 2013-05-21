@@ -1,0 +1,38 @@
+<%= form_for @insurance_info, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :patient_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :patient_id, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :insurance_carrier, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :insurance_carrier, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :insurance_member_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :insurance_member_id, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :insurance_guarantor, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :insurance_guarantor, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :insurance_guarantor_relationship, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :insurance_guarantor_relationship, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                insurance_infos_path, :class => 'btn' %>
+  </div>
+<% end %>

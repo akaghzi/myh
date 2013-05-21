@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  patient_id: 1
+  email: MyString
+  alternate_phone: MyString
+  address_line1: MyString
+  address_line2: MyString
+  city: MyString
+  province: MyString
+  country: MyString
+  postal_code: MyString
+  emergency_contact_name: MyString
+  emergency_contact_relationship: MyString
+  emergency_contact_phone: MyString
+
+two:
+  patient_id: 1
+  email: MyString
+  alternate_phone: MyString
+  address_line1: MyString
+  address_line2: MyString
+  city: MyString
+  province: MyString
+  country: MyString
+  postal_code: MyString
+  emergency_contact_name: MyString
+  emergency_contact_relationship: MyString
+  emergency_contact_phone: MyString

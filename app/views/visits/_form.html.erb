@@ -31,12 +31,52 @@
 	<!-- Add the test done in-house and order the tests that are outsourced here -->
 	<h3> Vital Signs:</h3>
 	<!-- Add vital signs here -->
+	<%= fields_for :vital_signs do | vvs | %>
   <div class="control-group">
-    <%#= f.label :visit_note, :class => 'control-label' %>
+		<%= vvs.label :tempertaure, :class => 'control-label' %>
+	  <div class="controls">
+		  <%= vvs.number_field :temperature, class: "number_field" %>
+	  </div>
+  </div>
+  <div class="control-group">
+    <%= vvs.label :heart_rate, :class => 'control-label' %>
     <div class="controls">
-      <%#= f.text_area :visit_note, rows: 4, :class => 'input-xxlarge' %>
+      <%= vvs.number_field :heart_rate, :class => 'number_field' %>
     </div>
   </div>
+  <div class="control-group">
+    <%= vvs.label :bp_systolic, :class => 'control-label' %>
+    <div class="controls">
+      <%= vvs.number_field :bp_systolic, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= vvs.label :bp_diastolic, :class => 'control-label' %>
+    <div class="controls">
+      <%= vvs.number_field :bp_diastolic, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= vvs.label :respiratory_rate, :class => 'control-label' %>
+    <div class="controls">
+      <%= vvs.number_field :respiratory_rate, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= vvs.label :weight, :class => 'control-label' %>
+    <div class="controls">
+      <%= vvs.number_field :weight, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= vvs.label :height, :class => 'control-label' %>
+    <div class="controls">
+      <%= vvs.number_field :height, :class => 'number_field' %>
+    </div>
+  </div>
+	
+	<% end %>
+
 	<!-- Vital Signs end here -->
 	<!-- Add out-sourced lab tests here -->
   <div class="control-group">

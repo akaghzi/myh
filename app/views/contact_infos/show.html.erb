@@ -1,0 +1,56 @@
+<%- model_class = ContactInfo -%>
+<div class="page-header">
+	<h1>
+		<span class="titlehighlight">
+			<%= @contact_info.patient.full_name.titleize %>
+		</span>
+		<span class="bluehighlight">
+			<%= @contact_info.patient.sex.titleize %>
+		</span>
+		<span class="titlehighlight">
+			<%= @contact_info.patient.age %>
+		</span>
+		<span class="bluehighlight">
+			DOB:<%= @contact_info.patient.date_of_birth %>
+		</span>
+	</h1>
+</div>
+
+
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @contact_info.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:alternate_phone) %>:</strong></dt>
+  <dd><%= @contact_info.alternate_phone %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address_line1) %>:</strong></dt>
+  <dd><%= @contact_info.address_line1 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address_line2) %>:</strong></dt>
+  <dd><%= @contact_info.address_line2 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
+  <dd><%= @contact_info.city %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:province) %>:</strong></dt>
+  <dd><%= @contact_info.province %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:country) %>:</strong></dt>
+  <dd><%= @contact_info.country %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:postal_code) %>:</strong></dt>
+  <dd><%= @contact_info.postal_code %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:emergency_contact_name) %>:</strong></dt>
+  <dd><%= @contact_info.emergency_contact_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:emergency_contact_relationship) %>:</strong></dt>
+  <dd><%= @contact_info.emergency_contact_relationship %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:emergency_contact_phone) %>:</strong></dt>
+  <dd><%= @contact_info.emergency_contact_phone %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              contact_infos_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_contact_info_path(@contact_info), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              contact_info_path(@contact_info),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

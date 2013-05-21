@@ -1,5 +1,9 @@
 Myh::Application.routes.draw do  
 
+  resources :contact_infos
+
+  resources :insurance_infos
+
   # get "users/create"
   # get "users/edit"
   # get "users/update"

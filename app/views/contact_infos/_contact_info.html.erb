@@ -1,0 +1,62 @@
+<dl class="dl-horizontal">
+	<dt>
+		Email:
+	</dt>
+	<dd> 
+		<%= @contact_info.email %>
+	</dd>
+	<dt>
+		Alternate Phone:
+	</dt>
+	<dd>
+		<%= @contact_info.alternate_phone %>
+	</dd>
+	<dt>
+		Emergency Contact Name: 
+	</dt>
+	<dd>
+		<%= @contact_info.emergency_contact_name %>
+	</dd>
+	<dt>
+		Emergency Contact Phone: 
+	</dt>
+	<dd> 
+		<%= @contact_info.emergency_contact_phone %>
+	</dd>
+	<dt>
+		Address Line 1: 
+	</dt>
+	<dd> 
+		<%= @contact_info.address_line1 %>
+	</dd>
+	<dt>
+		Address Line 2: 
+	</dt>
+	<dd> 
+		<%= @contact_info.address_line2 || 'NA'  %>
+	</dd>
+	<dt>
+		City: 
+	</dt>
+	<dd> 
+		<%= @contact_info.city %>
+	</dd>
+	<dt>
+		Province: 
+	</dt>
+	<dd> 
+		<%= @contact_info.province %>
+	</dd>
+	<dt>
+		Potal Code: 
+	</dt>
+	<dd> 
+		<%= @contact_info.postal_code %>
+	</dd>
+	<dt>
+		Country: 
+	</dt>
+	<dd> 
+		<%= @contact_info.country %>
+	</dd>
+</dl>

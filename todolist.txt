@@ -1,8 +1,12 @@
 Add tests for visit type
-Add user authentication
 Add tests ordered_on and reviewed_on
 Fix Navigation
+
+Done:
+Add user authentication
 Add pages:
 	landing page
 	help page
 	contact us page
+Add contact model
+Add insurance model

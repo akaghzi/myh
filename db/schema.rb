@@ -11,10 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130518062253) do
+ActiveRecord::Schema.define(version: 20130520063023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contact_infos", force: true do |t|
+    t.integer  "patient_id"
+    t.string   "email"
+    t.string   "alternate_phone"
+    t.string   "address_line1"
+    t.string   "address_line2"
+    t.string   "city"
+    t.string   "province"
+    t.string   "country"
+    t.string   "postal_code"
+    t.string   "emergency_contact_name"
+    t.string   "emergency_contact_relationship"
+    t.string   "emergency_contact_phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "insurance_infos", force: true do |t|
+    t.integer  "patient_id"
+    t.string   "insurance_carrier"
+    t.string   "insurance_member_id"
+    t.string   "insurance_guarantor"
+    t.string   "insurance_guarantor_relationship"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "lab_tests", force: true do |t|
     t.string   "full_name"
@@ -22,31 +49,6 @@ ActiveRecord::Schema.define(version: 20130518062253) do
     t.string   "unit_of_measure"
     t.decimal  "low_threshold"
     t.decimal  "high_threshold"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "med_test_types", force: true do |t|
-    t.string   "full_name"
-    t.string   "short_name"
-    t.string   "unit_of_measure"
-    t.string   "lab_type"
-    t.boolean  "essential"
-    t.decimal  "minimum_threshold"
-    t.decimal  "maximum_threshold"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "minimum_age"
-  end
-
-  create_table "med_tests", force: true do |t|
-    t.integer  "patient_id"
-    t.integer  "visit_id"
-    t.integer  "med_test_type_id"
-    t.decimal  "measurement"
-    t.text     "mearsurement_note"
-    t.datetime "ordered_at"
-    t.datetime "reviewed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -110,7 +112,6 @@ ActiveRecord::Schema.define(version: 20130518062253) do
   end
 
   create_table "vital_signs", force: true do |t|
-    t.integer  "patient_id"
     t.integer  "visit_id"
     t.decimal  "temperature"
     t.integer  "heart_rate"
@@ -118,6 +119,7 @@ ActiveRecord::Schema.define(version: 20130518062253) do
     t.integer  "bp_diastolic"
     t.integer  "respiratory_rate"
     t.integer  "weight"
+    t.integer  "height"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

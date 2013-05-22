@@ -34,12 +34,12 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url }
-    end
-  end
+  # def destroy
+  #   @user.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to users_url }
+  #   end
+  # end
 
   private
   # Use callbacks to share common setup or constraints between actions.

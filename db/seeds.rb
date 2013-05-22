@@ -1,3 +1,4 @@
+User.create(first_name: "Asim", last_name: "Kaghzi", username: "akaghzi", user_type: "doctor", password: "hussain7", password_confirmation: "hussain7")
 RegQuestion.create(content: 'how did you hear about us',minimum_age: 18,sex: 'both')
 RegQuestion.create(content: 'existing medical problems [put none, if none]',minimum_age: 0,sex: 'both')
 RegQuestion.create(content: 'past medical problems [excluding surgeries]',minimum_age: 0,sex: 'both')

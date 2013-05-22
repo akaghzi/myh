@@ -13,7 +13,7 @@ Myh::Application.routes.draw do
   get "/help", to: "static_pages#help"
   get "/contact", to: "static_pages#contact"
   # match "/signup", to: "users#new", via: :get
-  # match "/signin", to: "sessions#new", via: :get
+  match "/signin", to: "sessions#new", via: :get
   # match "/signout", to: "sessions#destroy", via: :delete
   resources :lab_tests
   resources :patients

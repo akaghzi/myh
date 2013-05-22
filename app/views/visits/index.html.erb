@@ -24,8 +24,6 @@
         <td><%= visit.visit_note %></td>
         <td><%=l visit.updated_at %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_visit_path(visit), :class => 'btn btn-mini' %>
           <%#= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       visit_path(visit),
                       :method => :delete,

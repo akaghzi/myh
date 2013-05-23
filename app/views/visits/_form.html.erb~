@@ -20,16 +20,15 @@
     <%= f.label :visit_date %><br />
     <%= f.datetime_select :visit_date %>
   </div>
-<!--
+
   <div class="control-group">
-    <%#= f.label :visit_date, :class => 'control-label' %>
+    <%= f.label :visit_date, :class => 'control-label' %>
     <div id="datetimepicker2" class="controls">
     <span class="add-on"> 
-      <%#= f.date_field :visit_date, data: {"date-format" => "yyyy-mm-dd hh:mi"} %>
+      <%= f.date_field :visit_date, data: {"date-format" => "yyyy-mm-dd hh:mi"} %>
       </span>
     </div>
   </div>
--->
   <div class="control-group">
     <%= f.label :visit_reason, :class => 'control-label' %>
     <div class="controls">

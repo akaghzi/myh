@@ -4,7 +4,7 @@ class VisitsController < ApplicationController
   # GET /visits
   # GET /visits.json
   def index
-    @visits = Visit.where("visit_date >= ?",Date.today).order("visit_date")
+    @visits = Visit.where("visit_date >= Date.today").order("visit_date")
   end
 
   # GET /visits/1

@@ -5,6 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:patient_id) %></th>
       <th><%= model_class.human_attribute_name(:visit_date) %></th>
       <th><%= model_class.human_attribute_name(:visit_reason) %></th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @visits.each do |visit| %>
       <tr>
+        <td><%= link_to visit.id, visit_path(visit) %></td>
         <td><%= link_to visit.patient.full_name.titleize, patient_path(visit.patient) %></td>
         <td><%= visit.visit_date %></td>
         <td><%= visit.visit_reason.titleize %></td>

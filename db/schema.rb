@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 20130520063023) do
 
   create_table "visits", force: true do |t|
     t.integer  "patient_id"
-    t.date     "visit_date"
+    t.datetime "visit_date"
     t.string   "visit_reason"
     t.text     "visit_note"
     t.datetime "created_at"

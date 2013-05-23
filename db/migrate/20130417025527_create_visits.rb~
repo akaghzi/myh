@@ -2,7 +2,7 @@ class CreateVisits < ActiveRecord::Migration
   def change
     create_table :visits do |t|
       t.integer :patient_id
-      t.datetime :visit_date
+      t.date :visit_date
       t.string :visit_reason
       t.text :visit_note
 

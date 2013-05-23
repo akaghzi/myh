@@ -69,6 +69,6 @@ class RegQuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reg_question_params
-      params.require(:reg_question).permit(:content, :sex, :minimum_age)
+      params.require(:reg_question).permit(:content, :gender, :minimum_age)
     end
 end

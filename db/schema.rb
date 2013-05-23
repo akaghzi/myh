@@ -58,24 +58,24 @@ ActiveRecord::Schema.define(version: 20130520063023) do
     t.string   "middle_name"
     t.string   "last_name"
     t.date     "date_of_birth"
-    t.string   "sex"
+    t.string   "gender"
     t.string   "phone"
+    t.string   "externalid"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "externalid"
   end
 
   create_table "reg_answers", force: true do |t|
+    t.integer  "patient_id"
     t.integer  "reg_question_id"
     t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "patient_id"
   end
 
   create_table "reg_questions", force: true do |t|
     t.string   "content"
-    t.string   "sex"
+    t.string   "gender"
     t.integer  "minimum_age"
     t.datetime "created_at"
     t.datetime "updated_at"

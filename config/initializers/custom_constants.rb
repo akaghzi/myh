@@ -1,4 +1,4 @@
-VALID_SEX = ["male", "female"]
+VALID_GENDER = ["male", "female"]
 VALID_LABTYPE = ["inhouse", "outsource"]
 VALID_USER_TYPE= ["receptionist", "administrator", "doctor", "paramedic"]
 VALID_PHONE_REGEX = /[0-9][0-9][0-9]-?[2-9][0-9]{2}-?[0-9]{4}/

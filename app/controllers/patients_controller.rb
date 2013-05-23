@@ -81,7 +81,7 @@ class PatientsController < ApplicationController
                                       :middle_name, 
                                       :last_name, 
                                       :date_of_birth, 
-                                      :sex, 
+                                      :gender, 
                                       :phone,
                                       :externalid, 
                                       {:reg_answers_attributes => [:id,:content,:patient_id, :reg_question_id]},

@@ -10,12 +10,12 @@
 </div>
 <% end %>
 <div class="page-header">
-	<h1>
+	<h2>
 		<span class="titlehighlight">
 			<%= @patient.full_name.titleize %>
 		</span>
 		<span class="bluehighlight">
-			<%= @patient.sex.titleize %>
+			<%= @patient.gender.titleize %>
 		</span>
 		<span class="titlehighlight">
 			<%= @patient.age %>
@@ -23,21 +23,27 @@
 		<span class="bluehighlight">
 			DOB:<%= @patient.date_of_birth %>
 		</span>
-	</h1>
+	</h2>
 	<h3>
 		<%= "Phone: #{@patient.phone} Externalid: #{@patient.externalid}" %>
 	</h3> 
 </div>
 <div class="row-fluid">
-	<span class="span6">
+	<span class="span4">
 		<h3>
-			Contact Information <%= link_to 'Edit', @contact_info, class: "btn btn-small btn-info" %>
+			Contact Info:&nbsp<%= link_to 'Edit', @contact_info, class: "btn btn-small btn-info" %>
 		</h3>
 		<%= render partial: @contact_info %>
 	</span>
-	<span class="span6">
+	<span class="span4">
 		<h3>
-			Insurance Information <%= link_to 'Edit', @insurance_info, class: "btn btn-small btn-info" %>
+			Insurance Info:&nbsp<%= link_to 'Edit', @insurance_info, class: "btn btn-small btn-info" %>
+		</h3>
+		<%= render partial: @insurance_info %>
+	</span>
+	<span class="span4">
+		<h3>
+			Medical History:&nbsp<%= link_to 'Edit', @insurance_info, class: "btn btn-small btn-info" %>
 		</h3>
 		<%= render partial: @insurance_info %>
 	</span>

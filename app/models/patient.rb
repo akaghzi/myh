@@ -5,8 +5,8 @@ class Patient < ActiveRecord::Base
   has_many :questions, through: :reg_answers
   has_many :visits
   has_many :vital_signs, through: :visits
-  validates :date_of_birth, :first_name, :last_name, :phone, :sex, presence: true
-  validates :sex, inclusion: {in: VALID_SEX}
+  validates :date_of_birth, :first_name, :last_name, :phone, :gender, presence: true
+  validates :gender, inclusion: {in: VALID_GENDER}
   validates :phone, format: {with: VALID_PHONE_REGEX}
   validates :first_name, :middle_name, :last_name, length: {maximum: 40}
   validates :externalid, uniqueness: true
@@ -15,7 +15,7 @@ class Patient < ActiveRecord::Base
   before_save { |patient| patient.first_name = first_name.downcase }
   before_save { |patient| patient.middle_name = middle_name.downcase }
   before_save { |patient| patient.last_name = last_name.downcase }
-  before_save { |patient| patient.sex = sex.downcase }
+  before_save { |patient| patient.gender = gender.downcase }
   after_create :add_answers_for_patient
   def full_name
     "#{last_name}, #{first_name} #{middle_name}"
@@ -30,7 +30,7 @@ class Patient < ActiveRecord::Base
   end
   def add_answers_for_patient
     # find all relevant questions
-    questions = RegQuestion.where("(sex='both' OR sex='#{self.sex}') AND minimum_age<'#{self.age}'")
+    questions = RegQuestion.where("(gender='both' OR gender='#{self.gender}') AND minimum_age<'#{self.age}'")
     # prepare answers for patient registration
     questions.sort.each do | question |
       self.reg_answers.create(patient_id: self.id,reg_question_id: question.id)

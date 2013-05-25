@@ -74,6 +74,6 @@ class AllergiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def allergy_params
-      params.require(:allergy).permit(:patient_id, :name, :type, :reaction)
+      params.require(:allergy).permit(:patient_id, :substance_name, :substance_type, :reaction)
     end
 end

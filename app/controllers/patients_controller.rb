@@ -86,8 +86,8 @@ class PatientsController < ApplicationController
                                       :gender, 
                                       :phone,
                                       :externalid, 
-                                      {:reg_answers_attributes => [:id,:content,:patient_id, :reg_question_id]},
-                                      {:visits_attributes => [:id, :visit_date, :visit_reason, :lab_test_ids,:visit_note]},
+                                      {:reg_answers_attributes => [:content,:patient_id, :reg_question_id]},
+                                      {:visits_attributes => [:visit_date, :visit_reason, :lab_test_ids,:visit_note]}
                                       )
     end
 end

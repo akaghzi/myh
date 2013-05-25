@@ -13,7 +13,7 @@ class Patient < ActiveRecord::Base
   validates :first_name, :middle_name, :last_name, length: {maximum: 40}
   validates :externalid, uniqueness: true
   # validate :valid_date_of_birth
-  accepts_nested_attributes_for :reg_answers, :visits
+  accepts_nested_attributes_for :reg_answers
   before_save { |patient| patient.first_name = first_name.downcase }
   before_save { |patient| patient.middle_name = middle_name.downcase }
   before_save { |patient| patient.last_name = last_name.downcase }

@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20130525035445) do
 
   create_table "allergies", force: true do |t|
     t.integer  "patient_id"
-    t.string   "name"
-    t.string   "type"
+    t.string   "substance_name"
+    t.string   "substance_type"
     t.string   "reaction"
     t.datetime "created_at"
     t.datetime "updated_at"

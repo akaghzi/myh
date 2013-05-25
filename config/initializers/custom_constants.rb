@@ -1,3 +1,4 @@
+VALID_SUBSTANCETYPE = ["food", "medication", "other" ]
 VALID_GENDER = ["male", "female"]
 VALID_LABTYPE = ["inhouse", "outsource"]
 VALID_USER_TYPE= ["receptionist", "administrator", "doctor", "paramedic"]

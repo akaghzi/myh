@@ -10,7 +10,7 @@
 </div>
 <% end %>
 <div class="page-header">
-	<h2>
+	<h3>
 		<span class="titlehighlight">
 			<%= @patient.full_name.titleize %>
 		</span>
@@ -23,20 +23,20 @@
 		<span class="bluehighlight">
 			DOB:<%= @patient.date_of_birth %>
 		</span>
-	</h2>
-	<h3>
+	</h3>
+	<h4>
 		<%= "Phone: #{@patient.phone} Externalid: #{@patient.externalid}" %>
-	</h3> 
+	</h4> 
 </div>
 <div class="row-fluid">
 	<span class="span6">
-		<h3 class="alert">
+		<h4 class="alert alert-error">
 			Allergies:&nbsp
-			<% if @allergies.blank? %>
-			<p>No allergy found on record</p>
 			<%= link_to 'Add Allergy', new_allergy_path(patient_id: @patient.id), class: "btn btn-small btn-primary" %>
-			<% end %>
-		</h3>
+		</h4>
+					<% if @allergies.blank? %>
+					<p>No allergy found on record</p>
+					<% end %>
 		<% @patient.allergies.each do | allergy |%>
 		<dl class="dl-horizontal">
 			<dt>
@@ -60,18 +60,17 @@
 			</dd>
 		</dl>
 		<% end %>
-		<%= link_to 'Add Allergy', new_allergy_path(patient_id: @patient.id), class: "btn btn-small btn-primary" %>
 
 	</span>
 	<span class="span6">
-		<h3 class="alert">
+		<h4 class="alert alert-error">
 			Current Medications:&nbsp
-			<% if @current_medications.blank? %>
-			p>No current medication found on record</p>
 			<%= link_to 'Add Medications', new_current_medication_path(patient_id: @patient.id), 
 									class: "btn btn-small btn-primary" %>	
-				<% end%>		
-			</h3>
+			</h4>
+			<% if @current_medications.blank? %>
+			<p>No current medication found on record</p>
+			<% end%>		
 			<% @patient.current_medications.each do | current_medication |%>
 			<dl class="dl-horizontal">
 				<dt>
@@ -95,13 +94,13 @@
 				</dd>
 			</dl>
 			<% end %>
-			<%= link_to 'Add Medications', new_current_medication_path(patient_id: @patient.id), 
-									class: "btn btn-small btn-primary" %>	
 		</span>
 </div>
 <div class="row-fluid">
 		<span class	="span12">
-			<h3>Visit Information:</h3>		
+			<h4 class="alert alert-block">
+				Visit Information:
+			</h4>		
 			<% @patient.visits.order("visit_date").each do|visit| %>
 			<dl class="dl-horizontal">
 				<dt>
@@ -132,22 +131,24 @@
 </div>
 <div class="row-fluid">	
 		<span class="span6">
-			<h3>
+			<h4 class="alert alert-success">
 				Contact Info:&nbsp<%= link_to 'Edit', @contact_info, class: "btn btn-small btn-info" %>
-			</h3>
+			</h4>
 			<%= render partial: @contact_info %>
 		</span>
 		<span class="span6">
-			<h3>
+			<h4 class="alert alert-success">
 				Insurance Info:&nbsp<%= link_to 'Edit', @insurance_info, class: "btn btn-small btn-info" %>
-			</h3>
+			</h4>
 			<%= render partial: @insurance_info %>
 		</span>
 </div>
 
 <div class="row-fluid">
 		<span class="span12">
-			<h3>Additional Information</h3>
+			<h4>
+				Additional Information
+			</h4>
 			<div class="control-group">
 				<% @patient.reg_answers.each do|ans| %>
 				<p>

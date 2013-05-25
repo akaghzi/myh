@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require bootstrap-datepicker
-//= require bootstrap-datetimepicker
+// require bootstrap-datepicker
+//= require bootstrap-datetimepicker.min
 //= require turbolinks
 //= require_tree .

@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130520063023) do
+ActiveRecord::Schema.define(version: 20130525035445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "allergies", force: true do |t|
+    t.integer  "patient_id"
+    t.string   "name"
+    t.string   "type"
+    t.string   "reaction"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "contact_infos", force: true do |t|
     t.integer  "patient_id"
@@ -29,6 +38,15 @@ ActiveRecord::Schema.define(version: 20130520063023) do
     t.string   "emergency_contact_name"
     t.string   "emergency_contact_relationship"
     t.string   "emergency_contact_phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "current_medications", force: true do |t|
+    t.integer  "patient_id"
+    t.string   "name"
+    t.string   "dosage"
+    t.string   "frequency"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

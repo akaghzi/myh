@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 gem 'rails', '~> 4.0.0.rc1'
 
 gem 'pg'
-gem 'annotate'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -13,8 +12,7 @@ group :assets do
   gem 'coffee-rails', '~> 4.0.0.rc1'
   gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
   gem "twitter-bootstrap-rails"
-  gem 'bootstrap-datepicker-rails'
-  gem 'bootstrap-datetimepicker-rails'
+  # gem 'bootstrap-datepicker-rails'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', platforms: :ruby
   gem 'uglifier', '>= 1.0.3'
@@ -39,3 +37,6 @@ gem 'bcrypt-ruby', '>= 3.0.0'
 
 # To use debugger
 # gem 'debugger'
+group :development do
+  gem 'annotate'
+end

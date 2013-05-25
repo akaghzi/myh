@@ -13,6 +13,8 @@ class PatientsController < ApplicationController
   def show
     @contact_info = @patient.contact_info || @patient.create_contact_info
     @insurance_info = @patient.insurance_info || @patient.create_insurance_info
+    @allergies = @patient.allergies #|| @patient.create_allergies
+    @current_medications = @patient.current_medications #|| @patient.create_current_medications    
   end
 
   # GET /patients/new

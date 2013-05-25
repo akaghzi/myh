@@ -1,7 +1,8 @@
 Myh::Application.routes.draw do  
 
+  resources :allergies
+  resources :current_medications
   resources :contact_infos
-
   resources :insurance_infos
 
   # get "users/create"

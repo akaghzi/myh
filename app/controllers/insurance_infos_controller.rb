@@ -53,13 +53,13 @@ class InsuranceInfosController < ApplicationController
 
   # DELETE /insurance_infos/1
   # DELETE /insurance_infos/1.json
-  def destroy
-    @insurance_info.destroy
-    respond_to do |format|
-      format.html { redirect_to insurance_infos_url }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @insurance_info.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to insurance_infos_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -1,17 +1,17 @@
-<%- model_class = InsuranceInfo -%>
+<%- model_class = Allergy -%>
 <div class="page-header">
 	<h1>
 		<span class="titlehighlight">
-			<%= @insurance_info.patient.full_name.titleize %>
+			<%= @allergy.patient.full_name.titleize %>
 		</span>
 		<span class="bluehighlight">
-			<%= @insurance_info.patient.gender.titleize %>
+			<%= @allergy.patient.gender.titleize %>
 		</span>
 		<span class="titlehighlight">
-			<%= @insurance_info.patient.age %>
+			<%= @allergy.patient.age %>
 		</span>
 		<span class="bluehighlight">
-			DOB:<%= @insurance_info.patient.date_of_birth %>
+			DOB:<%= @allergy.patient.date_of_birth %>
 		</span>
 	</h1>
 </div>

@@ -134,6 +134,24 @@
 			<% end %>
 		</span>	
 </div>
+<div class="row-fluid">
+		<span class="span12">
+			<h4 class="alert alert-info">
+				Additional Information
+			</h4>
+			<% if @patient.reg_answers.blank? %>
+			<p> No additional information found on record</p>
+			<% end %>
+			<div class="control-group">
+				<% @patient.reg_answers.each do|ans| %>
+				<p>
+					<strong>Question: </strong><span class="control-label"><%= ans.reg_question_text.capitalize %></span><br />
+					<strong>Answer:   </strong><span class="control-label"><%= ans.content  %></span>
+				</p>
+				<% end %>
+			</div>
+		</span>
+</div>
 <div class="row-fluid">	
 		<span class="span6">
 			<h4 class="alert alert-success">
@@ -149,21 +167,6 @@
 		</span>
 </div>
 
-<div class="row-fluid">
-		<span class="span12">
-			<h4>
-				Additional Information
-			</h4>
-			<div class="control-group">
-				<% @patient.reg_answers.each do|ans| %>
-				<p>
-					<strong>Question: </strong><span class="control-label"><%= ans.reg_question_text.capitalize %></span><br />
-					<strong>Answer:   </strong><span class="control-label"><%= ans.content  %></span>
-				</p>
-				<% end %>
-			</div>
-		</span>
-</div>
 <div class="row-fluid">
 		<div class="form-actions">
 			<%= link_to t('.back', :default => t("helpers.links.back")),

@@ -1,4 +1,14 @@
 <%= form_for @current_medication, :html => { :class => 'form-horizontal' } do |f| %>
+<% if @current_medication.errors.any? %>
+<div class="alert">
+	<h4><%= pluralize(@current_medication.errors.count, "error") %> prohibited this current_medication from being saved:</h4>
+	<ul>
+		<% @current_medication.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
   <div class="control-group">
     <%#= f.label :patient_id, :class => 'control-label' %>
     <div class="controls">

@@ -1,7 +1,7 @@
 <%= form_for @visit, :html => { :class => 'form-horizontal' } do |f| %>
 <% if @visit.errors.any? %>
 <div class="alert">
-	<h2><%= pluralize(@visit.errors.count, "error") %> prohibited this visit from being saved:</h2>
+	<h4><%= pluralize(@visit.errors.count, "error") %> prohibited this visit from being saved:</h4>
 	<ul>
 		<% @visit.errors.full_messages.each do |msg| %>
 		<li><%= msg %></li>
@@ -22,7 +22,7 @@
 </div>
 -->
 <div class="control-group">
-	<%= f.label :visit_reason, :class => 'control-label' %>
+	<%= f.label :visit_date, :class => 'control-label' %>
 	<div class="controls">
 	  <div class="input-append date datetimepicker">
 			<%= f.text_field :visit_date, data: {:format => "yyyy-MM-dd hh:mm:ss"} %>
@@ -38,7 +38,7 @@
 	</div>
 </div>
 <!-- Add the test done in-house and order the tests that are outsourced here -->
-<h3> Vital Signs:</h3>
+<h4> Vital Signs:</h4>
 <!-- Add vital signs here -->
 <%= fields_for :vital_signs do | vvs | %>
 <div class="control-group">
@@ -89,7 +89,7 @@
 <!-- Vital Signs end here -->
 <!-- Add out-sourced lab tests here -->
 <div class="control-group">
-	<h3>Laboratory tests ordered:</h3>
+	<h4>Laboratory tests ordered:</h4>
 	<% for lab_test in LabTest.all do %>
 	<div class="controls">
 		<%= check_box_tag "visit[lab_test_ids][]", lab_test.id, @visit.lab_tests.include?(lab_test) , class: "check_box"%>
@@ -108,6 +108,6 @@
 <div class="form-actions">
 	<%= f.submit nil, :class => 'btn btn-primary' %>
 	<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-	visits_path, :class => 'btn' %>
+	patient_path(id: @visit.patient.id), :class => 'btn' %>
 </div>
 <% end %>

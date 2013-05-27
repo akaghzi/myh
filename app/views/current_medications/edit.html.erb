@@ -1,6 +1,11 @@
 <%- model_class = CurrentMedication -%>
+<div>
+	<h4>
+		<%= model_class %>
+	</h4>
+</div>
 <div class="page-header">
-	<h1>
+	<h4>
 		<span class="titlehighlight">
 			<%= @current_medication.patient.full_name.titleize %>
 		</span>
@@ -13,7 +18,7 @@
 		<span class="bluehighlight">
 			DOB:<%= @current_medication.patient.date_of_birth %>
 		</span>
-	</h1>
+	</h4>
 </div>
 
 <%= render :partial => 'form' %>

@@ -1,7 +1,7 @@
 <%- model_class = Visit -%>
-<h1>Update <%= model_class %></h1>
+<h4>Update <%= model_class %></h4>
 <div class="page-header">
-  <h2>
+  <h4>
 		<span class="titlehighlight">
 			<%= @visit.patient.full_name.titleize %>
 		</span>
@@ -15,6 +15,6 @@
 			DOB: <%= @visit.patient.date_of_birth %>
 		</span>
 		
-	</h2>
+	</h4>
 </div>
 <%= render :partial => 'form' %>

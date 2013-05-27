@@ -47,7 +47,7 @@
   <%= link_to t('.back', :default => t("helpers.links.back")),
               patient_path(id: @contact_info.patient.id), :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_contact_info_path(@contact_info), :class => 'btn' %>
+              edit_contact_info_path(@contact_info), :class => 'btn btn-info' %>
   <!-- <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               contact_info_path(@contact_info),
               :method => 'delete',

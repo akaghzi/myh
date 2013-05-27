@@ -18,7 +18,7 @@
   <%= link_to t('.back', :default => t("helpers.links.back")),
               patient_path(id: @allergy.patient.id), :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_allergy_path(@allergy), :class => 'btn' %>
+              edit_allergy_path(@allergy), :class => 'btn btn-info' %>
   <!-- <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               allergy_path(@allergy),
               :method => 'delete',

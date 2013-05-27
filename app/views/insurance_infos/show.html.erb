@@ -29,7 +29,7 @@
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              patient_path(id: insurance_info.patient.id), :class => 'btn'  %>
+              patient_path(id: @insurance_info.patient.id), :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_insurance_info_path(@insurance_info), :class => 'btn' %>
   <!-- <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

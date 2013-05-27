@@ -33,6 +33,6 @@
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                insurance_infos_path, :class => 'btn' %>
+                patient_path(id: @insurance_info.patient.id), :class => 'btn' %>
   </div>
 <% end %>

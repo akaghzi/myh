@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby "2.0.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.0.0.rc1'
 
@@ -40,3 +40,7 @@ gem 'bcrypt-ruby', '>= 3.0.0'
 group :development do
   gem 'annotate'
 end
+
+# Heroku requirements
+gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
+gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'

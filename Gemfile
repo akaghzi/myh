@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 ruby "2.0.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.0.0.rc1'
-
 gem 'pg'
 
 # Gems used only for assets and not required
@@ -42,5 +41,7 @@ group :development do
 end
 
 # Heroku requirements
-gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
-gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
+group :production do
+  gem 'rails_log_stdout', github: 'heroku/rails_log_stdout'
+  gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
+end

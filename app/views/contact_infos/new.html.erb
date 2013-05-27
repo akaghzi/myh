@@ -1,6 +1,6 @@
 <%- model_class = ContactInfo -%>
 <div class="page-header">
-	<h1>
+	<h4>
 		<span class="titlehighlight">
 			<%= @contact_info.patient.full_name.titleize %>
 		</span>
@@ -13,7 +13,7 @@
 		<span class="bluehighlight">
 			DOB:<%= @contact_info.patient.date_of_birth %>
 		</span>
-	</h1>
+	</h4>
 </div>
 
 <%= render :partial => 'form' %>

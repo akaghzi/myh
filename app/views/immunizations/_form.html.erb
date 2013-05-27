@@ -1,0 +1,37 @@
+<%= form_for @immunization, :html => { :class => 'form-horizontal' } do |f| %>
+<% if @immunization.errors.any? %>
+<div class="alert">
+	<h4><%= pluralize(@immunization.errors.count, "error") %> prohibited this immunization from being saved:</h4>
+	<ul>
+		<% @immunization.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+  <div class="control-group">
+    <%#= f.label :patient_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.hidden_field :patient_id, :class => 'hidden_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :immunization_for, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :immunization_for, VALID_IMMUNIZATIONFOR, :class => 'select_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :immunization_year, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :immunization_year, :class => 'number_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                patient_path(id: @immunization.patient.id), :class => 'btn' %>
+  </div>
+<% end %>

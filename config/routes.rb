@@ -1,5 +1,7 @@
 Myh::Application.routes.draw do  
 
+  resources :immunizations
+
   resources :allergies
   resources :current_medications
   resources :contact_infos

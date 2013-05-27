@@ -1,0 +1,63 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  patient_id: 1
+  tetanus: false
+  tetanus_year: 1
+  pertussis: false
+  pertussis_year: 1
+  varicella: false
+  varicella_year: 1
+  pheumonia: false
+  pneumonia_year: 1
+  influenza: false
+  influenza_year: 1
+  hepatitis_a: false
+  hepatitis_a_year: 1
+  hepatitis_b: false
+  hepatitis_b_year: 1
+  mmr: false
+  mmr_year: 1
+  meningitis: false
+  meningitis_year: 1
+  zostavax: false
+  zotavax_year: 1
+  hpv: false
+  hpv_year: 1
+  smallpox: false
+  smallpox_year: 1
+  tuberclossis: false
+  tuberclossis_year: 1
+  polio: false
+  polio_year: 1
+
+two:
+  patient_id: 1
+  tetanus: false
+  tetanus_year: 1
+  pertussis: false
+  pertussis_year: 1
+  varicella: false
+  varicella_year: 1
+  pheumonia: false
+  pneumonia_year: 1
+  influenza: false
+  influenza_year: 1
+  hepatitis_a: false
+  hepatitis_a_year: 1
+  hepatitis_b: false
+  hepatitis_b_year: 1
+  mmr: false
+  mmr_year: 1
+  meningitis: false
+  meningitis_year: 1
+  zostavax: false
+  zotavax_year: 1
+  hpv: false
+  hpv_year: 1
+  smallpox: false
+  smallpox_year: 1
+  tuberclossis: false
+  tuberclossis_year: 1
+  polio: false
+  polio_year: 1

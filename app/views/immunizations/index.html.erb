@@ -1,0 +1,92 @@
+<%- model_class = Immunization -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:patient_id) %></th>
+      <th><%= model_class.human_attribute_name(:tetanus) %></th>
+      <th><%= model_class.human_attribute_name(:tetanus_year) %></th>
+      <th><%= model_class.human_attribute_name(:pertussis) %></th>
+      <th><%= model_class.human_attribute_name(:pertussis_year) %></th>
+      <th><%= model_class.human_attribute_name(:varicella) %></th>
+      <th><%= model_class.human_attribute_name(:varicella_year) %></th>
+      <th><%= model_class.human_attribute_name(:pheumonia) %></th>
+      <th><%= model_class.human_attribute_name(:pneumonia_year) %></th>
+      <th><%= model_class.human_attribute_name(:influenza) %></th>
+      <th><%= model_class.human_attribute_name(:influenza_year) %></th>
+      <th><%= model_class.human_attribute_name(:hepatitis_a) %></th>
+      <th><%= model_class.human_attribute_name(:hepatitis_a_year) %></th>
+      <th><%= model_class.human_attribute_name(:hepatitis_b) %></th>
+      <th><%= model_class.human_attribute_name(:hepatitis_b_year) %></th>
+      <th><%= model_class.human_attribute_name(:mmr) %></th>
+      <th><%= model_class.human_attribute_name(:mmr_year) %></th>
+      <th><%= model_class.human_attribute_name(:meningitis) %></th>
+      <th><%= model_class.human_attribute_name(:meningitis_year) %></th>
+      <th><%= model_class.human_attribute_name(:zostavax) %></th>
+      <th><%= model_class.human_attribute_name(:zotavax_year) %></th>
+      <th><%= model_class.human_attribute_name(:hpv) %></th>
+      <th><%= model_class.human_attribute_name(:hpv_year) %></th>
+      <th><%= model_class.human_attribute_name(:smallpox) %></th>
+      <th><%= model_class.human_attribute_name(:smallpox_year) %></th>
+      <th><%= model_class.human_attribute_name(:tuberclossis) %></th>
+      <th><%= model_class.human_attribute_name(:tuberclossis_year) %></th>
+      <th><%= model_class.human_attribute_name(:polio) %></th>
+      <th><%= model_class.human_attribute_name(:polio_year) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @immunizations.each do |immunization| %>
+      <tr>
+        <td><%= link_to immunization.id, immunization_path(immunization) %></td>
+        <td><%= immunization.patient_id %></td>
+        <td><%= immunization.tetanus %></td>
+        <td><%= immunization.tetanus_year %></td>
+        <td><%= immunization.pertussis %></td>
+        <td><%= immunization.pertussis_year %></td>
+        <td><%= immunization.varicella %></td>
+        <td><%= immunization.varicella_year %></td>
+        <td><%= immunization.pheumonia %></td>
+        <td><%= immunization.pneumonia_year %></td>
+        <td><%= immunization.influenza %></td>
+        <td><%= immunization.influenza_year %></td>
+        <td><%= immunization.hepatitis_a %></td>
+        <td><%= immunization.hepatitis_a_year %></td>
+        <td><%= immunization.hepatitis_b %></td>
+        <td><%= immunization.hepatitis_b_year %></td>
+        <td><%= immunization.mmr %></td>
+        <td><%= immunization.mmr_year %></td>
+        <td><%= immunization.meningitis %></td>
+        <td><%= immunization.meningitis_year %></td>
+        <td><%= immunization.zostavax %></td>
+        <td><%= immunization.zotavax_year %></td>
+        <td><%= immunization.hpv %></td>
+        <td><%= immunization.hpv_year %></td>
+        <td><%= immunization.smallpox %></td>
+        <td><%= immunization.smallpox_year %></td>
+        <td><%= immunization.tuberclossis %></td>
+        <td><%= immunization.tuberclossis_year %></td>
+        <td><%= immunization.polio %></td>
+        <td><%= immunization.polio_year %></td>
+        <td><%=l immunization.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_immunization_path(immunization), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      immunization_path(immunization),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_immunization_path,
+            :class => 'btn btn-primary' %>

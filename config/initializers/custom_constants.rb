@@ -1,3 +1,4 @@
+VALID_IMMUNIZATIONFOR = ["tetanus", "hapatitis_a", "hepatitis_b", "mmr", "hpv", "pertussis", "varicella", 												"pneumovax", "infuenza", "meningitis","zostavax", "polio", "smallpox", "tuberclossis"]
 VALID_SUBSTANCETYPE = ["food", "medication", "other" ]
 VALID_GENDER = ["male", "female"]
 VALID_LABTYPE = ["inhouse", "outsource"]

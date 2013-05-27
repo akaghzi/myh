@@ -1,0 +1,19 @@
+<%- model_class = Immunization -%>
+<div class="page-header">
+	<h4>
+		<span class="titlehighlight">
+			<%= @immunization.patient.full_name.titleize %>
+		</span>
+		<span class="bluehighlight">
+			<%= @immunization.patient.gender.titleize %>
+		</span>
+		<span class="titlehighlight">
+			<%= @immunization.patient.age %>
+		</span>
+		<span class="bluehighlight">
+			DOB:<%= @immunization.patient.date_of_birth %>
+		</span>
+	</h4>
+</div>
+
+<%= render :partial => 'form' %>

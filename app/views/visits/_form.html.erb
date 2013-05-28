@@ -40,19 +40,19 @@
 			<% else %>
 			<% @visit.vital_signs.each do | vital_sign |%>
 			<dl class="dl-horizontal">
-				<dt>Temperature</dt>
+				<dt>Temperature[degree F]</dt>
 				<dd><%= vital_sign.temperature %></dd>
-				<dt>Heart Rate</dt>
+				<dt>Heart Rate[per min]</dt>
 				<dd><%= vital_sign.heart_rate %></dd>
-				<dt>BP Systolic</dt>
+				<dt>BP Systolic[HHmg]</dt>
 				<dd><%= vital_sign.bp_systolic %></dd>
-				<dt>BP Diastolic<dt>
+				<dt>BP Diastolic[HHmg]<dt>
 				<dd><%= vital_sign.bp_diastolic %></dd>
-				<dt>Respiratory Rate</dt>
+				<dt>Respiratory Rate[per min]</dt>
 				<dd><%= vital_sign.respiratory_rate %></dd>
-				<dt>Weight</dt>
+				<dt>Weight[kg]</dt>
 				<dd><%= vital_sign.weight %></dd>
-				<dt>Height</dt>
+				<dt>Height[cm]</dt>
 				<dd><%= vital_sign.height %></dd>
 			</dl>
 			<%= link_to 'Edit', edit_vital_sign_path(vital_sign), class: "btn btn-mini btn-info" %>
@@ -61,15 +61,16 @@
 </span>
 	<span class="span6">
 		<h4 class="alert alert-block">Lab Tests</h4>
-		<% for lab_test in LabTest.all do %>
-		<div class="controls">
-			<%= check_box_tag "visit[lab_test_ids][]", lab_test.id, @visit.lab_tests.include?(lab_test) , class: "check_box"%>
-			<%= lab_test.short_name %>
-		</div>
-		<% end %>
-		<!-- <% if @visit.lab_tests.blank? %>
-			<%= link_to 'Order Lab Tests', new_lab_test_path(visit_id: @visit.id), class: "btn btn-primary" %>
-		<% end %> -->
+		<% if @visit.lab_tests.blank? %>
+			<%= link_to 'Order Lab Tests', new_visit_lab_test_path(visit_id: @visit.id), class: "btn btn-primary" %>
+		<% else %>
+    <% @visit.lab_tests.each do | lab_test | %>
+    <p>Lab Tests Ordered:</p>
+    <ul class="ol-horizontal">
+				<li><%= lab_test.full_name %></li>
+    <% end %>
+			</ul>
+    <% end %>
 </span>
 </div>
 <hr />

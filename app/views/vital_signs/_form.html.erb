@@ -1,4 +1,14 @@
 <%= form_for @vital_sign, :html => { :class => 'form-horizontal' } do |f| %>
+<% if @vital_sign.errors.any? %>
+<div class="alert">
+	<h4><%= pluralize(@vital_sign.errors.count, "error") %> prohibited this vital_sign from being saved:</h4>
+	<ul>
+		<% @vital_sign.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
   <div class="control-group">
     <%#= f.label :visit_id, :class => 'control-label' %>
     <div class="controls">
@@ -6,45 +16,50 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :temperature, :class => 'control-label' %>
+    <%= f.label "#{:temperature}[degree F]", :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :temperature, :class => 'text_field' %>
+      <%= f.text_field :temperature, :class => 'decimal_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :heart_rate, :class => 'control-label' %>
+    <%= f.label "#{:heart_rate}[per min]", :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :heart_rate, :class => 'text_field' %>
+      <%= f.number_field :heart_rate, :class => 'number_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :bp_systolic, :class => 'control-label' %>
+    <%= f.label "#{:bp_systolic}[HHmg]", :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :bp_systolic, :class => 'text_field' %>
+      <%= f.number_field :bp_systolic, :class => 'number_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :bp_diastolic, :class => 'control-label' %>
+    <%= f.label "#{:bp_diastolic}[HHmg]", :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :bp_diastolic, :class => 'text_field' %>
+      <%= f.number_field :bp_diastolic, :class => 'number_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :respiratory_rate, :class => 'control-label' %>
+    <%= f.label "#{:respiratory_rate}[per min]", :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :respiratory_rate, :class => 'text_field' %>
+      <%= f.number_field :respiratory_rate, :class => 'number_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :weight, :class => 'control-label' %>
+    <%= f.label "#{:weight}[kg]", :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :weight, :class => 'text_field' %>
+      <%= f.number_field :weight, :class => 'number_field' %>
     </div>
   </div>
-
+  <div class="control-group">
+    <%= f.label "#{:height}[cm]", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :height, :class => 'number_field' %>
+    </div>
+  </div>
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                vital_signs_path, :class => 'btn' %>
+                visit_path(id: @vital_sign.visit_id), :class => 'btn' %>
   </div>
 <% end %>

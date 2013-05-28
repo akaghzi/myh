@@ -14,7 +14,11 @@ class VitalSignsController < ApplicationController
 
   # GET /vital_signs/new
   def new
-    @vital_sign = VitalSign.new
+    # Find visit
+    @visit = Visit.find(params[:visit_id])
+    # build vital signs
+    @vital_sign = @visit.vital_signs.build(visit_id: @visit.id)
+    # @vital_sign = VitalSign.new
   end
 
   # GET /vital_signs/1/edit
@@ -71,6 +75,6 @@ class VitalSignsController < ApplicationController
     def vital_sign_params
       params.require(:vital_sign).permit(:patient_id, :visit_id, :temperature, :heart_rate, 
                                          :bp_systolic, :bp_diastolic, :respiratory_rate, 
-                                         :weight)
+                                         :weight, :height)
     end
 end

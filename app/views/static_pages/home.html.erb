@@ -1,20 +1,14 @@
 <div class="hero-unit">
-	<h2>
-		Welcome
-	</h2>
+	<h3> 
+		Welcome, 
+	</h3>
 	<p>Mind you health, it can not be outsourced.</p>
 	<p>
-		<% if session[:user_id].blank? %>
-			<p>You are currently not logged in</p>	
+		<% if session[:user_id].blank? %>	
 			<%= link_to 'Signin', signin_url, class: "btn btn-primary" %>
-		<% else %>
-			<p>You are currently logged in as User Type: <%= "#{session[:user_type]}"%></p>	
-			<%= link_to 'Signout', session_path(session[:user_id]),
-									method: :delete,
-									data: { confirm: t('.confirm', 
-													default: t("helpers.links.confirm", 
-													default: 'Are you sure?')) },
-													class: 'btn btn-danger' %>				
+		<% else %>	
+			<%= link_to 'Signout', session_path(session[:user_id]), confirm: 'Are you sure?', method: :delete, 
+									class: 'btn btn-danger' %>
 		<% end %>
 	</p>
 </div>

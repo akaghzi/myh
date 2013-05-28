@@ -1,15 +1,19 @@
 <%- model_class = VitalSign -%>
 <div class="page-header">
-  <h1>
+  <h4>
 		<span class="titlehighlight">
-			<%= @visit.patient.full_name.titleize %>
+			<%= @vital_sign.visit.patient.full_name.titleize %>
 		</span>
 		<span class="bluehighlight">
-		<%= @visit.patient.gender.titleize %>
+		<%= @vital_sign.visit.patient.gender.titleize %>
 	</span>
 		<span class="titlehighlight">
-			<%= @visit.patient.age %>
+			<%= @vital_sign.visit.patient.age %>
 		</span>
-	</h1>
+		<span class="bluehighlight">
+			DOB: <%= @vital_sign.visit.patient.date_of_birth %>
+		</span>
+	</h4>
 </div>
+
 <%= render :partial => 'form' %>

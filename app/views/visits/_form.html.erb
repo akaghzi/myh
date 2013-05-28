@@ -16,11 +16,7 @@
 		<%= f.hidden_field :patient_id, :class => 'text_field' %>
 	</div>
 </div>
-<!--  <div class="field">
-<%= f.label :visit_date %><br />
-<%= f.datetime_select :visit_date %>
-</div>
--->
+
 <div class="control-group">
 	<%= f.label :visit_date, :class => 'control-label' %>
 	<div class="controls">
@@ -30,74 +26,50 @@
 	  </div>
 	</div>
 </div>
-
 <div class="control-group">
 	<%= f.label :visit_reason, :class => 'control-label' %>
 	<div class="controls">
 		<%= f.text_field :visit_reason, :class => 'text_field' %>
 	</div>
 </div>
-<!-- Add the test done in-house and order the tests that are outsourced here -->
-<h4> Vital Signs:</h4>
-<!-- Add vital signs here -->
-<%= fields_for :vital_signs do | vvs | %>
-<div class="control-group">
-	<%= vvs.label :tempertaure, :class => 'control-label' %>
-	<div class="controls">
-		<%= vvs.number_field :temperature, class: "number_field" %>
-	</div>
-</div>
-<div class="control-group">
-	<%= vvs.label :heart_rate, :class => 'control-label' %>
-	<div class="controls">
-		<%= vvs.number_field :heart_rate, :class => 'number_field' %>
-	</div>
-</div>
-<div class="control-group">
-	<%= vvs.label :bp_systolic, :class => 'control-label' %>
-	<div class="controls">
-		<%= vvs.number_field :bp_systolic, :class => 'number_field' %>
-	</div>
-</div>
-<div class="control-group">
-	<%= vvs.label :bp_diastolic, :class => 'control-label' %>
-	<div class="controls">
-		<%= vvs.number_field :bp_diastolic, :class => 'number_field' %>
-	</div>
-</div>
-<div class="control-group">
-	<%= vvs.label :respiratory_rate, :class => 'control-label' %>
-	<div class="controls">
-		<%= vvs.number_field :respiratory_rate, :class => 'number_field' %>
-	</div>
-</div>
-<div class="control-group">
-	<%= vvs.label :weight, :class => 'control-label' %>
-	<div class="controls">
-		<%= vvs.number_field :weight, :class => 'number_field' %>
-	</div>
-</div>
-<div class="control-group">
-	<%= vvs.label :height, :class => 'control-label' %>
-	<div class="controls">
-		<%= vvs.number_field :height, :class => 'number_field' %>
-	</div>
-</div>
-	
-<% end %>
+<hr />
+<div class="row-fluid">
+	<span class="span6">
+		<h4 class="alert alert-block">Vital Signs</h4>
+		<% if @visit.vital_signs.blank? %>
+			<%= link_to 'Take Vitals', new_vital_sign_path(visit_id: @visit.id), class: "btn btn-default btn-primary" %>
+			<% else %>
+			<% @visit.vital_signs.each do | vital_sign |%>
+			<dl class="dl-horizontal">
+				<dt>Temperature</dt>
+				<dd><%= vital_sign.temperature %></dd>
+				<dt>Heart Rate</dt>
+				<dd><%= vital_sign.heart_rate %></dd>
+				<dt>BP Systolic</dt>
+				<dd><%= vital_sign.bp_systolic %></dd>
+				<dt>BP Diastolic<dt>
+				<dd><%= vital_sign.bp_diastolic %></dd>
+				<dt>Respiratory Rate</dt>
+				<dd><%= vital_sign.respiratory_rate %></dd>
+				<dt>Weight</dt>
+				<dd><%= vital_sign.weight %></dd>
+				<dt>Height</dt>
+				<dd><%= vital_sign.height %></dd>
+			</dl>
+			<%= link_to 'Edit', edit_vital_sign_path(vital_sign), class: "btn btn-mini btn-info" %>
+			<% end %>
+		<% end %>
+</span>
+	<span class="span6">
+		<h4 class="alert alert-block">Lab Tests</h4>
+		<% if @visit.lab_tests.blank? %>
+			<%= link_to 'Order Lab Tests', new_lab_test_path(visit_id: @visit.id), class: "btn btn-default btn-primary" %>
+		<% end %>
+</span>
 
-<!-- Vital Signs end here -->
-<!-- Add out-sourced lab tests here -->
-<div class="control-group">
-	<h4>Laboratory tests ordered:</h4>
-	<% for lab_test in LabTest.all do %>
-	<div class="controls">
-		<%= check_box_tag "visit[lab_test_ids][]", lab_test.id, @visit.lab_tests.include?(lab_test) , class: "check_box"%>
-		<%= lab_test.short_name %>
-	</div>
-	<% end %>
 </div>
-<!-- Out sources lab tests end here -->
+<hr />
+
 <div class="control-group">
 	<%= f.label :visit_note, :class => 'control-label' %>
 	<div class="controls">

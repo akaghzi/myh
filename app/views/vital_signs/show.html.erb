@@ -4,9 +4,8 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dd><%= @vital_sign.patient_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:visit_id) %>:</strong></dt>
-  <dd><%= @vital_sign.visit_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name("Patient") %>:</strong></dt>
+  <dd><%= @vital_sign.visit.patient.full_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:temperature) %>:</strong></dt>
   <dd><%= @vital_sign.temperature %></dd>
   <dt><strong><%= model_class.human_attribute_name(:heart_rate) %>:</strong></dt>
@@ -19,16 +18,18 @@
   <dd><%= @vital_sign.respiratory_rate %></dd>
   <dt><strong><%= model_class.human_attribute_name(:weight) %>:</strong></dt>
   <dd><%= @vital_sign.weight %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:height) %>:</strong></dt>
+  <dd><%= @vital_sign.height %></dd>
 </dl>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              vital_signs_path, :class => 'btn'  %>
+              visit_path(id: @vital_sign.visit_id), :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_vital_sign_path(@vital_sign), :class => 'btn btn-info' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+  <!-- <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               vital_sign_path(@vital_sign),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+              :class => 'btn btn-danger' %> -->
 </div>

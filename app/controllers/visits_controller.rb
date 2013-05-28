@@ -24,19 +24,12 @@ class VisitsController < ApplicationController
   # GET /visits/1/edit
   def edit
     @visit = Visit.find(params[:id])
-    # @med_test_types = MedTestType.where("minimum_age <= ?", @visit.patient.age)
-    # @med_test_types.each do | med_test |
-    #   med_test = @visit.med_tests.build(patient_id: @visit.patient.id, visit_id: @visit.id, med_test_type_id: med_test.id)
-    # end
   end
 
   # POST /visits
   # POST /visits.json
   def create
-    # @patient = Patient.find(params[:patient_id])
-    # @visit = @patient.visits.new(visit_params)
     @visit = Visit.new(visit_params)
-
     respond_to do |format|
       if @visit.save
         # format.html { redirect_to @patient.visits, notice: 'Visit was successfully created.' }
@@ -79,15 +72,12 @@ class VisitsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_visit
-      # @patient = Patient.find(params[:patient_id])
       @visit = Visit.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def visit_params
       params.require(:visit).permit(:patient_id, :visit_date, :visit_reason, :visit_note,
-                                     {:vital_signs_attributes => [:visit_id, :temperature, :heart_rate, :bp_systolic, 
-                                      :bp_diatolic, :repiratory_rate, :weight]},
                                       :lab_test_ids => []
                                     )
     end

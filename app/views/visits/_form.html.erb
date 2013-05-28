@@ -9,7 +9,6 @@
 	</ul>
 </div>
 <% end %>
-
 <div class="control-group">
 	<%#= f.label :patient_id, :class => 'control-label' %>
 	<div class="controls">
@@ -37,7 +36,7 @@
 	<span class="span6">
 		<h4 class="alert alert-block">Vital Signs</h4>
 		<% if @visit.vital_signs.blank? %>
-			<%= link_to 'Take Vitals', new_vital_sign_path(visit_id: @visit.id), class: "btn btn-default btn-primary" %>
+			<%= link_to 'Take Vitals', new_vital_sign_path(visit_id: @visit.id), class: "btn btn-primary" %>
 			<% else %>
 			<% @visit.vital_signs.each do | vital_sign |%>
 			<dl class="dl-horizontal">
@@ -62,21 +61,24 @@
 </span>
 	<span class="span6">
 		<h4 class="alert alert-block">Lab Tests</h4>
-		<% if @visit.lab_tests.blank? %>
-			<%= link_to 'Order Lab Tests', new_lab_test_path(visit_id: @visit.id), class: "btn btn-default btn-primary" %>
+		<% for lab_test in LabTest.all do %>
+		<div class="controls">
+			<%= check_box_tag "visit[lab_test_ids][]", lab_test.id, @visit.lab_tests.include?(lab_test) , class: "check_box"%>
+			<%= lab_test.short_name %>
+		</div>
 		<% end %>
+		<!-- <% if @visit.lab_tests.blank? %>
+			<%= link_to 'Order Lab Tests', new_lab_test_path(visit_id: @visit.id), class: "btn btn-primary" %>
+		<% end %> -->
 </span>
-
 </div>
 <hr />
-
 <div class="control-group">
 	<%= f.label :visit_note, :class => 'control-label' %>
 	<div class="controls">
 		<%= f.text_area :visit_note, rows: 4, :class => 'input-xxlarge' %>
 	</div>
 </div>
-
 <div class="form-actions">
 	<%= f.submit nil, :class => 'btn btn-primary' %>
 	<%= link_to t('.cancel', :default => t("helpers.links.cancel")),

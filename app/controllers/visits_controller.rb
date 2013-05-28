@@ -45,12 +45,13 @@ class VisitsController < ApplicationController
   # PATCH/PUT /visits/1
   # PATCH/PUT /visits/1.json
   def update
-    params[:visit][:lab_test_ids] ||= []
+    
+    [:lab_test_ids] || []
     respond_to do |format|
       # if @patient.visits.update(visit_params)
       if @visit.update(visit_params)
         # format.html { redirect_to @patient.visits, notice: 'Visit was successfully updated.' }
-        format.html { redirect_to @visit, notice: 'Visit was successfully updated.' }
+        format.html { redirect_to @visit.patient, notice: 'Visit was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -58,7 +59,7 @@ class VisitsController < ApplicationController
       end
     end
   end
-
+  
   # DELETE /visits/1
   # DELETE /visits/1.json
   # def destroy

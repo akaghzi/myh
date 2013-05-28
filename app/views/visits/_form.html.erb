@@ -61,17 +61,7 @@
 </span>
 	<span class="span6">
 		<h4 class="alert alert-block">Lab Tests</h4>
-		<% if @visit.lab_tests.blank? %>
-			<%= link_to 'Order Lab Tests', new_visit_lab_test_xref_path(visit_id: @visit.id), class: "btn btn-primary" %>
-		<% else %>
-      <p>Lab Tests Ordered:</p>
-      <% @visit.lab_tests.each do | lab_test | %>
-        <ul class="ol-horizontal">
-			 	  <li><%= lab_test.full_name %></li>
-			  </ul>
-      <% end %>
-      <%= link_to 'Edit Lab Tests', edit_visit_lab_test_xref_path(visit_id: @visit.id), class: "btn btn-info" %>
-    <% end %>
+
 </span>
 </div>
 <hr />

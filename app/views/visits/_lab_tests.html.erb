@@ -1,0 +1,12 @@
+<% for lab_test in LabTest.all do %>
+  <div class="controls">
+	<%= check_box_tag "visit[lab_test_ids][]", lab_test.id, @visit.lab_tests.include?(lab_test) , class: "check_box"%>
+	<%= lab_test.short_name %>
+	</div>
+<% end %>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                visit_path(id: @visit.id), :class => 'btn' %>
+  </div>

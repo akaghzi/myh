@@ -17,8 +17,8 @@
 	<% end %>
 	<div class="form-actions">
 		<%= f.hidden_field :id %>
-		<%= f.submit nil, :class => 'btn btn-primary' %>
+		<%= f.submit 'Submit Order', :class => 'btn btn-primary' %>
 		<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-		patient_path(id: @visit.patient.id), :class => 'btn' %>
+		edit_visit_path(id: @visit.id), :class => 'btn' %>
 	</div>
 <% end %>

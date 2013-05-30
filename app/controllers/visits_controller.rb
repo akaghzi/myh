@@ -50,7 +50,7 @@ class VisitsController < ApplicationController
       # if @patient.visits.update(visit_params)
       if @visit.update(visit_params)
         # format.html { redirect_to @patient.visits, notice: 'Visit was successfully updated.' }
-        format.html { redirect_to @visit.patient, notice: 'Visit was successfully updated.' }
+        format.html { redirect_to edit_visit_path(@visit), notice: 'Visit was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

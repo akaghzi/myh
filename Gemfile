@@ -10,7 +10,6 @@ group :assets do
   gem 'sass-rails',  '~> 4.0.0.rc1'
   gem 'coffee-rails', '~> 4.0.0.rc1'
   gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-  gem "twitter-bootstrap-rails"
   # gem 'bootstrap-datepicker-rails'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', platforms: :ruby
@@ -18,6 +17,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem "twitter-bootstrap-rails"
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

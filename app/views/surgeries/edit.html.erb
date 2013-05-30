@@ -1,0 +1,19 @@
+<%- model_class = Surgery -%>
+<div class="page-header">
+	<h4>
+		<span class="titlehighlight">
+			<%= @surgery.patient.full_name.titleize %>
+		</span>
+		<span class="bluehighlight">
+			<%= @surgery.patient.gender.titleize %>
+		</span>
+		<span class="titlehighlight">
+			<%= @surgery.patient.age %>
+		</span>
+		<span class="bluehighlight">
+			DOB:<%= @surgery.patient.date_of_birth %>
+		</span>
+	</h4>
+</div>
+
+<%= render :partial => 'form' %>

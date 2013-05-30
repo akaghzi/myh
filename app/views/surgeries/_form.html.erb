@@ -1,0 +1,35 @@
+<%= form_for @surgery, :html => { :class => 'form-horizontal' } do |f| %>
+<% if @surgery.errors.any? %>
+  <div class="alert">
+    <h2><%= pluralize(@surgery.errors.count, "error") %> prohibited this surgery from being saved:</h2>
+    <ul>
+    <% @surgery.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.hidden_field :patient_id, :class => 'hidden_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :surgery_type, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :surgery_type, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :surgery_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_field :surgery_date, :class => 'date_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                patient_path(id: @surgery.patient_id), :class => 'btn' %>
+  </div>
+<% end %>

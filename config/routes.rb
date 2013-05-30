@@ -1,4 +1,6 @@
 Myh::Application.routes.draw do  
+  resources :surgeries
+
   root to: "static_pages#home"
   resources :lab_tests
   resources :patients

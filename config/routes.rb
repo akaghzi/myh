@@ -1,30 +1,31 @@
 Myh::Application.routes.draw do  
-
-  resources :immunizations
-  resources :visit_lab_test_xrefs
-  resources :allergies
-  resources :current_medications
-  resources :contact_infos
-  resources :insurance_infos
-
-  # get "users/create"
-  # get "users/edit"
-  # get "users/update"
-  # get "users/destroy"
   root to: "static_pages#home"
-  resources :sessions, only: [:new, :create, :destroy]
-  get "/help", to: "static_pages#help"
-  get "/contact", to: "static_pages#contact"
-  # match "/signup", to: "users#new", via: :get
-  match "/signin", to: "sessions#new", via: :get
-  # match "/signout", to: "sessions#destroy", via: :delete
   resources :lab_tests
   resources :patients
   resources :reg_questions
   resources :reg_answers
   resources :users
   resources :vital_signs
-  resources :visits
+  resources :visits do
+    get 'order_lab_tests', to: "visits#order_lab_tests"
+  end
+  resources :immunizations
+  resources :visit_lab_test_xrefs
+  resources :allergies
+  resources :current_medications
+  resources :contact_infos
+  resources :insurance_infos
+  resources :sessions, only: [:new, :create, :destroy]
+  get "/help", to: "static_pages#help"
+  get "/contact", to: "static_pages#contact"
+  match "/signin", to: "sessions#new", via: :get
+  
+  # match "/signup", to: "users#new", via: :get
+  # get "users/create"
+  # get "users/edit"
+  # get "users/update"
+  # get "users/destroy"
+  # match "/signout", to: "sessions#destroy", via: :delete
   # get 'patients/find_patient', to: 'patients#find_patient', as: 'find_patient'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

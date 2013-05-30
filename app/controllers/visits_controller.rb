@@ -45,8 +45,7 @@ class VisitsController < ApplicationController
   # PATCH/PUT /visits/1
   # PATCH/PUT /visits/1.json
   def update
-    
-    [:lab_test_ids] || []
+    params[:visit][:lab_test_ids] ||= []
     respond_to do |format|
       # if @patient.visits.update(visit_params)
       if @visit.update(visit_params)
@@ -59,7 +58,9 @@ class VisitsController < ApplicationController
       end
     end
   end
-  
+  def order_lab_tests
+    @visit = Visit.find(params[:visit_id])
+  end
   # DELETE /visits/1
   # DELETE /visits/1.json
   # def destroy
@@ -71,15 +72,13 @@ class VisitsController < ApplicationController
   # end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_visit
-      @visit = Visit.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_visit
+    @visit = Visit.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def visit_params
-      params.require(:visit).permit(:patient_id, :visit_date, :visit_reason, :visit_note,
-                                      :lab_test_ids => []
-                                    )
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def visit_params
+    params.require(:visit).permit(:patient_id, :visit_date, :visit_reason, :visit_note,:lab_test_ids => [])
+  end
 end

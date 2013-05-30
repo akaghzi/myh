@@ -1,0 +1,24 @@
+<%= form_for @visit, :html => { :class => 'form-horizontal' } do |f| %>
+	<% if @visit.errors.any? %>
+	<div class="alert">
+	<h4><%= pluralize(@visit.errors.count, "error") %> prohibited this visit from being saved:</h4>
+	<ul>
+		<% @visit.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
+	</div>
+	<% end %>
+	<% LabTest.all.each do |lab_test| %>
+	<div class="field">
+		<%= check_box_tag "visit[lab_test_ids][]", lab_test.id, @visit.lab_tests.include?(lab_test) %>
+		<%= lab_test.full_name %>
+	</div>
+	<% end %>
+	<div class="form-actions">
+		<%= f.hidden_field :id %>
+		<%= f.submit nil, :class => 'btn btn-primary' %>
+		<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+		patient_path(id: @visit.patient.id), :class => 'btn' %>
+	</div>
+<% end %>

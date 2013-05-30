@@ -2,7 +2,7 @@
 <div class="page-header">
   <span><%#= model_class %>
 	  <%= form_tag patients_path, :method => 'get' do %>
-		  <%= search_field_tag :search, params[:search], class: "search-query" , placeholder: "patient name"%>
+		  <%= search_field_tag :search, params[:search], class: "search-query" , placeholder: "patient name" %>
       <!-- <i class="icon-search"></i> -->
 		  <%= submit_tag "Search Patients", class: "btn btn-primary", :name => nil %>
 			<%= link_to t('.new', :default => t("helpers.links.new")),

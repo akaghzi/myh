@@ -1,8 +1,8 @@
 <%= form_for @visit_lab_test_xref, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
-    <%= f.label :visit_id, :class => 'control-label' %>
+    <%#= f.label :visit_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :visit_id, :class => 'text_field' %>
+      <%= f.hidden_field :visit_id, :class => 'hidden_field' %>
     </div>
   </div>
   <div class="control-group">
@@ -33,6 +33,6 @@
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                visit_lab_test_xrefs_path, :class => 'btn' %>
+                edit_visit_path(id: @visit_lab_test_xref.visit_id), :class => 'btn' %>
   </div>
 <% end %>

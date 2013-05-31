@@ -1,6 +1,9 @@
-Add tests for visit type
-Add tests ordered_on and reviewed_on
-Fix Navigation
+Add workflow for appointment/visit
+Add Lab Test workflow:
+  add tests ordered_on and reviewed_on
+Add medical history
+Add social history
+
 
 Done:
 Add user authentication
@@ -10,3 +13,8 @@ Add pages:
 	contact us page
 Add contact model
 Add insurance model
+Fix Navigation
+
+
+Parking List:
+Add tests for visit type

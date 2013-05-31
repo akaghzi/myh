@@ -3,6 +3,7 @@ Add Lab Test workflow:
   add tests ordered_on and reviewed_on
 Add medical history
 Add social history
+Add code <%= f.collection_select(:problem,Problem.all, :name,:name) %> for dropdown list from model instead of initializer
 
 
 Done:

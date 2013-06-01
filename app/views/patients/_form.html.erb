@@ -32,7 +32,7 @@
   <div class="control-group">
     <%= f.label :date_of_birth, class:  'control-label' %>
     <div class="controls">
-      <%= f.date_field :date_of_birth, class: "datepicker", data: {"date-format" => "yyyy-mm-dd"} %>
+      <%= f.date_field :date_of_birth, class: "datepicker2", data: {"date-format" => "yyyy-mm-dd"} %>
     </div>
   </div>
   <div class="control-group">
@@ -52,6 +52,12 @@
     <%= f.label :externalid, class:  'control-label' %>
     <div class="controls">
       <%= f.text_field :externalid, class: 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :summary, class:  'control-label' %>
+    <div class="controls">
+      <%= f.text_area :summary, rows: 4, :class => 'input-xxlarge' %>
     </div>
   </div>
 	<div class="control-group">

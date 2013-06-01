@@ -1,8 +1,15 @@
 Add workflow for appointment/visit
 Add Lab Test workflow:
   add tests ordered_on and reviewed_on
+Add hospitalizations
 Add social history
-
+	smoking
+	drinking
+	living with family
+	pets
+	profession
+	physical excercise
+	substance abuse
 
 Done:
 Add user authentication

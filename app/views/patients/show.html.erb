@@ -34,30 +34,20 @@
 			Allergies:&nbsp
 			<%= link_to 'Add Allergy', new_allergy_path(patient_id: @patient.id), class: "btn btn-small btn-primary" %>
 		</h4>
-					<% if @allergies.blank? %>
-					<p>No allergy information found on record</p>
-					<% end %>
+		<% if @allergies.blank? %>
+		<p>No allergy information found on record</p>
+		<% end %>
 		<% @patient.allergies.each do | allergy |%>
 		<dl class="dl-horizontal">
-			<dt>
-				Substance Name
-			</dt>
+			<dt>Substance Name</dt>
 			<dd>
 				<%= allergy.substance_name %>
 				<%= link_to 'Edit', edit_allergy_path(allergy.id), :class => 'btn btn-mini btn-info' %>
 			</dd>
-			<dt>
-				Substance Type
-			</dt>
-			<dd>
-				<%= allergy.substance_type %>
-			</dd>
-			<dt>
-				Reaction Type
-			</dt>
-			<dd>
-				<%= allergy.reaction %>
-			</dd>
+			<dt>Substance Type</dt>
+			<dd><%= allergy.substance_type %></dd>
+			<dt>Reaction Type</dt>
+			<dd><%= allergy.reaction %></dd>
 		</dl>
 		<% end %>
 
@@ -66,75 +56,81 @@
 		<h4 class="alert alert-error">
 			Current Medications:&nbsp
 			<%= link_to 'Add Medications', new_current_medication_path(patient_id: @patient.id), 
-									class: "btn btn-small btn-primary" %>	
+			class: "btn btn-small btn-primary" %>	
 			</h4>
 			<% if @current_medications.blank? %>
 			<p>No current medication information found on record</p>
 			<% end%>		
 			<% @patient.current_medications.each do | current_medication |%>
 			<dl class="dl-horizontal">
-				<dt>
-					Medication Name:
-				</dt>
+				<dt>Medication Name:</dt>
 				<dd>
 					<%= current_medication.name %>
 					<%= link_to 'Edit', edit_current_medication_path(current_medication.id), :class => 'btn btn-mini btn-info' %>
 				</dd>
-				<dt>
-					Dosage:
-				</dt>
-				<dd>
-					<%= current_medication.dosage %>
-				</dd>
-				<dt>
-					Frequency:
-				</dt>
-				<dd>
-					<%= current_medication.frequency %>
-				</dd>
+				<dt>Dosage:</dt>
+				<dd><%= current_medication.dosage %></dd>
+				<dt>Frequency:</dt>
+				<dd><%= current_medication.frequency %></dd>
 			</dl>
 			<% end %>
 		</span>
-</div>
-<div class="row-fluid">
-		<span class	="span12">
-			<h4 class="alert alert-block">
-				Visit Information:&nbsp
-				<%= link_to 'Add Visit', new_visit_path(patient_id: @patient.id), class: "btn btn-small btn-primary" %>
-			</h4>		
-			<% if @patient.visits.blank? %>
-			<p>
-				No visit information found on record
-			</p>
-			<% end %>
-			<% @patient.visits.order("visit_date").each do|visit| %>
-			<dl class="dl-horizontal">
-				<dt>
-					Visit Date:
-				</dt>
-				<dd>
-					<%= visit.visit_date %>
-				</dd>
-				<dt>
-					Visit Reason:
-				</dt>
-				<dd>
-					<%= visit.visit_reason.capitalize %>
-				</dd>
-				<dt>
-					Visit Note:
-				</dt>
-				<dd>
-					<%= visit.visit_note %>
-				</dd>
-			</dl>
+	</div>
+	<div class="row-fluid">
+			<span class="span4">
+				<h4 class="alert">
+					Visit Information:&nbsp
+					<%= link_to 'Add Visit', new_visit_path(patient_id: @patient.id), class: "btn btn-small btn-primary" %>
+				</h4>		
+				<% if @patient.visits.blank? %>
+				<p>No visit information found on record</p>
+				<% end %>
+				<% @patient.visits.order("visit_date").each do|visit| %>
+				<dl class="dl-horizontal">
+					<dt>Date:</dt>
+					<dd><%= visit.visit_date.to_date %></dd>
+					<dt>Reason:</dt>
+					<dd><%= visit.visit_reason.capitalize %></dd>
+					<dt>Notes:</dt>
+					<dd><%= visit.visit_note %></dd>
+				</dl>
 				<% if (visit.visit_date >= Date.today) %>
 				<%= link_to 'Edit Visit', edit_visit_path(visit.id), :class => 'btn btn-small btn-info' %>
 				<% end %>
-			<% end %>
-		</span>	
-</div>
-<div class="row-fluid">
+				<% end %>
+			</span>
+			<span class="span8">
+				<h4 class="alert">
+					Vital Signs Information:&nbsp
+				</h4>
+				<% if @patient.visits.blank? %>
+				<p>No vital signs record found for the patient></p>
+				<% end %>
+				<table class="table">
+					<tr>
+						<td>Visit Date</td>
+						<td>Temperature</td>
+						<td>Heart Rate</td>
+						<td>Bp Systolic</td>
+						<td>Bp Diastolic</td>
+						<td>Resp. Rate</td>
+					</tr>
+					<% @patient.visits.each do |visit|%> 
+					<% visit.vital_signs.each do|vital_sign| %>
+					<tr>
+						<td><%= vital_sign.visit.visit_date.to_date %></td>
+						<td><%= vital_sign.temperature %></td>
+						<td><%= vital_sign.heart_rate %></td>
+						<td><%= vital_sign.bp_systolic %></td>
+						<td><%= vital_sign.bp_diastolic %></td>
+						<td><%= vital_sign.respiratory_rate %></td>
+					<% end %>
+					<% end %>
+					</tr>
+				</table>
+			</span>
+	</div>
+	<div class="row-fluid">
 		<span class="span12">
 			<h4 class="alert alert-info">
 				Registration Information:
@@ -151,115 +147,96 @@
 				<% end %>
 			</div>
 		</span>
-</div>
-<div class="row-fluid">
-	<span class="span6">
-		<h4 class="alert alert-info">
-			Immunization:&nbsp
-			<%= link_to 'Add Record', new_immunization_path(patient_id: @patient.id), 
-									class: "btn btn-small btn-primary" %>	
-			</h4>
-			<% if @patient.immunizations.blank? %>
-			<p>No immunization information found on record</p>
-			<% end%>		
-			<% @patient.immunizations.each do | immunization |%>
-			<dl class="dl-horizontal">
-				<dt>Immunization For:</dt>
-				<dd><%= immunization.immunization_for %>
-					<%= link_to 'Edit', edit_immunization_path(immunization.id), :class => 'btn btn-mini btn-info' %>
-				</dd>
-				<dt>
-					Immunization Year:
-				</dt>
-				<dd>
-					<%= immunization.immunization_year %>
-				</dd>
-			</dl>
-			<% end %>
-		</span>
-	<span class="span6">
-		<h4 class="alert alert-info">
-			Past Surgeries:&nbsp
-			<%= link_to 'Add Record', new_surgery_path(patient_id: @patient.id), 
-									class: "btn btn-small btn-primary" %>	
-			</h4>
-			<% if @patient.surgeries.blank? %>
-			<p>No surgery information found on record</p>
-			<% end%>		
-			<% @patient.surgeries.each do | surgery |%>
-			<dl class="dl-horizontal">
-				<dt>
-					Surgery Type:
-				</dt>
-				<dd>
-					<%= surgery.surgery_type %>
-					<%= link_to 'Edit', edit_surgery_path(surgery.id), :class => 'btn btn-mini btn-info' %>
-				</dd>
-				<dt>
-					Surgery Date:
-				</dt>
-				<dd>
-					<%= surgery.surgery_date %>
-				</dd>
-			</dl>
-			<% end %>
-		</span>	
-</div>
-<div class="row-fluid">
-	<span class="span6">
-		<h4 class="alert alert-info">
-			Medical History:&nbsp
-			<%= link_to 'Add Record', new_medical_history_path(patient_id: @patient.id), 
-									class: "btn btn-small btn-primary" %>	
-			</h4>
-			<% if @patient.medical_histories.blank? %>
-			<p>No surgery information found on record</p>
-			<% end%>		
-			<% @patient.medical_histories.each do | medical_history |%>
-			<dl class="dl-horizontal">
-				<dt>
-					Disease/Problem:
-				</dt>
-				<dd>
-					<%= medical_history.disease %>
-					<%= link_to 'Edit', edit_medical_history_path(medical_history.id), :class => 'btn btn-mini btn-info' %>
-				</dd>
-				<dt>
-					Self or Family:
-				</dt>
-				<dd>
-					<%= medical_history.self_or_family %>
-				</dd>
-				<dt>
-					Diagnosis Date:
-				</dt>
-				<dd>
-					<%= medical_history.diagnosed_at %>
-				</dd>
-			</dl>
-			<% end %>
-		</span>	
-	
-</div>
-<div class="row-fluid">	
-		<span class="span6">
-			<h4 class="alert alert-success">
-				Contact Info:&nbsp<%= link_to 'Edit', @contact_info, class: "btn btn-small btn-info" %>
-			</h4>
-			<%= render partial: @contact_info %>
-		</span>
-		<span class="span6">
-			<h4 class="alert alert-success">
-				Insurance Info:&nbsp<%= link_to 'Edit', @insurance_info, class: "btn btn-small btn-info" %>
-			</h4>
-			<%= render partial: @insurance_info %>
-		</span>
-</div>
-<div class="row-fluid">
-		<div class="form-actions">
-			<%= link_to t('.back', :default => t("helpers.links.back")),
-			root_path, :class => 'btn'  %>
-			<%= link_to 'Edit Patient Profile',
-			edit_patient_path(@patient), :class => 'btn btn-info' %>
-		</div>
 	</div>
+	<div class="row-fluid">
+		<span class="span6">
+			<h4 class="alert alert-info">
+				Immunization:&nbsp
+				<%= link_to 'Add Record', new_immunization_path(patient_id: @patient.id), 
+				class: "btn btn-small btn-primary" %>	
+				</h4>
+				<% if @patient.immunizations.blank? %>
+				<p>No immunization information found on record</p>
+				<% end%>		
+				<% @patient.immunizations.each do | immunization |%>
+				<dl class="dl-horizontal">
+					<dt>Immunization For:</dt>
+					<dd><%= immunization.immunization_for %>
+						<%= link_to 'Edit', edit_immunization_path(immunization.id), :class => 'btn btn-mini btn-info' %>
+					</dd>
+					<dt>Immunization Year:
+					</dt>
+					<dd><%= immunization.immunization_year %></dd>
+				</dl>
+				<% end %>
+			</span>
+			<span class="span6">
+				<h4 class="alert alert-info">
+					Past Surgeries:&nbsp
+					<%= link_to 'Add Record', new_surgery_path(patient_id: @patient.id), 
+					class: "btn btn-small btn-primary" %>	
+					</h4>
+					<% if @patient.surgeries.blank? %>
+					<p>No surgery information found on record</p>
+					<% end%>		
+					<% @patient.surgeries.each do | surgery |%>
+					<dl class="dl-horizontal">
+						<dt>Surgery Type:</dt>
+						<dd>
+							<%= surgery.surgery_type %>
+							<%= link_to 'Edit', edit_surgery_path(surgery.id), :class => 'btn btn-mini btn-info' %>
+						</dd>
+						<dt>Surgery Date:</dt>
+						<dd><%= surgery.surgery_date %></dd>
+					</dl>
+					<% end %>
+				</span>	
+			</div>
+			<div class="row-fluid">
+				<span class="span6">
+					<h4 class="alert alert-info">
+						Medical History:&nbsp
+						<%= link_to 'Add Record', new_medical_history_path(patient_id: @patient.id), 
+						class: "btn btn-small btn-primary" %>	
+						</h4>
+						<% if @patient.medical_histories.blank? %>
+						<p>No surgery information found on record</p>
+						<% end%>		
+						<% @patient.medical_histories.each do | medical_history |%>
+						<dl class="dl-horizontal">
+							<dt>Disease/Problem:</dt>
+							<dd>
+								<%= medical_history.disease %>
+								<%= link_to 'Edit', edit_medical_history_path(medical_history.id), :class => 'btn btn-mini btn-info' %>
+							</dd>
+							<dt>Self or Family:</dt>
+							<dd><%= medical_history.self_or_family %></dd>
+							<dt>Diagnosis Date:</dt>
+							<dd><%= medical_history.diagnosed_at %></dd>
+						</dl>
+						<% end %>
+					</span>	
+	
+				</div>
+				<div class="row-fluid">	
+					<span class="span6">
+						<h4 class="alert alert-success">
+							Contact Info:&nbsp<%= link_to 'Edit', @contact_info, class: "btn btn-small btn-info" %>
+						</h4>
+						<%= render partial: @contact_info %>
+					</span>
+					<span class="span6">
+						<h4 class="alert alert-success">
+							Insurance Info:&nbsp<%= link_to 'Edit', @insurance_info, class: "btn btn-small btn-info" %>
+						</h4>
+						<%= render partial: @insurance_info %>
+					</span>
+				</div>
+				<div class="row-fluid">
+					<div class="form-actions">
+						<%= link_to t('.back', :default => t("helpers.links.back")),
+						root_path, :class => 'btn'  %>
+						<%= link_to 'Edit Patient Profile',
+						edit_patient_path(@patient), :class => 'btn btn-info' %>
+					</div>
+				</div>

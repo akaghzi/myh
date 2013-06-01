@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  patient_id: 
+  disease: MyString
+  diagnosed_at: 2013-05-31
+  cured_at: 2013-05-31
+  self_or_family: MyString
+
+two:
+  patient_id: 
+  disease: MyString
+  diagnosed_at: 2013-05-31
+  cured_at: 2013-05-31
+  self_or_family: MyString

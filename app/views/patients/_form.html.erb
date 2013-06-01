@@ -80,7 +80,7 @@
   <div class="form-actions">
     <%= f.submit nil, class:  'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                patient_path(id: @patient.id), class:  'btn' %>
+                patients_path, class:  'btn' %>
   </div>
 
 <% end %>

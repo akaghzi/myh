@@ -1,0 +1,48 @@
+<%= form_for @medical_history, :html => { :class => 'form-horizontal' } do |f| %>
+<% if @medical_history.errors.any? %>
+  <div class="alert">
+    <h3><%= pluralize(@medical_history.errors.count, "error") %> prohibited this medical history from being saved:</h3>
+    <ul>
+    <% @medical_history.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+  <div class="control-group">
+    <%#= f.label :patient_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.hidden_field :patient_id, :class => 'hidden_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :disease, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select(:disease, Disease.all, :name, :name) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :diagnosed_at, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_field :diagnosed_at, :class => 'date_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cured_at, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_field :cured_at, :class => 'date_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :self_or_family, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select(:self_or_family, Relationship.all, :name, :name) %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                patient_path(id: @medical_history.patient_id), :class => 'btn' %>
+  </div>
+<% end %>

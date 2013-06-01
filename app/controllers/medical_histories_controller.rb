@@ -1,0 +1,78 @@
+class MedicalHistoriesController < ApplicationController
+  before_action :set_medical_history, only: [:show, :edit, :update, :destroy]
+
+  # GET /medical_histories
+  # GET /medical_histories.json
+  def index
+    @medical_histories = MedicalHistory.all
+  end
+
+  # GET /medical_histories/1
+  # GET /medical_histories/1.json
+  def show
+  end
+
+  # GET /medical_histories/new
+  def new
+    # find patient for the allergy
+    @patient = Patient.find(params[:patient_id])
+    # build the allergy for the patient
+    @medical_history = @patient.medical_histories.build(patient_id: @patient.id)
+    # @medical_history = MedicalHistory.new
+  end
+
+  # GET /medical_histories/1/edit
+  def edit
+  end
+
+  # POST /medical_histories
+  # POST /medical_histories.json
+  def create
+    @medical_history = MedicalHistory.new(medical_history_params)
+
+    respond_to do |format|
+      if @medical_history.save
+        format.html { redirect_to @medical_history, notice: 'Medical history was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @medical_history }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @medical_history.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /medical_histories/1
+  # PATCH/PUT /medical_histories/1.json
+  def update
+    respond_to do |format|
+      if @medical_history.update(medical_history_params)
+        format.html { redirect_to @medical_history, notice: 'Medical history was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @medical_history.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /medical_histories/1
+  # DELETE /medical_histories/1.json
+  def destroy
+    @medical_history.destroy
+    respond_to do |format|
+      format.html { redirect_to medical_histories_url }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_medical_history
+      @medical_history = MedicalHistory.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def medical_history_params
+      params.require(:medical_history).permit(:patient_id, :disease, :diagnosed_at, :cured_at, :self_or_family)
+    end
+end

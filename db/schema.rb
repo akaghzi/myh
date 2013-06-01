@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130530045438) do
+ActiveRecord::Schema.define(version: 20130601035402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,12 @@ ActiveRecord::Schema.define(version: 20130530045438) do
     t.datetime "updated_at"
   end
 
+  create_table "diseases", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "immunizations", force: true do |t|
     t.integer  "patient_id"
     t.string   "immunization_for"
@@ -78,6 +84,18 @@ ActiveRecord::Schema.define(version: 20130530045438) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "medical_histories", force: true do |t|
+    t.integer  "patient_id"
+    t.string   "disease"
+    t.date     "diagnosed_at"
+    t.date     "cured_at"
+    t.string   "self_or_family"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "medical_histories", ["patient_id"], name: "index_medical_histories_on_patient_id", using: :btree
 
   create_table "patients", force: true do |t|
     t.string   "first_name"
@@ -107,6 +125,12 @@ ActiveRecord::Schema.define(version: 20130530045438) do
     t.datetime "updated_at"
   end
 
+  create_table "relationships", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "surgeries", force: true do |t|
     t.integer  "patient_id"
     t.string   "surgery_type"
@@ -122,6 +146,12 @@ ActiveRecord::Schema.define(version: 20130530045438) do
     t.string   "user_type"
     t.string   "session_cookie"
     t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vaccines", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

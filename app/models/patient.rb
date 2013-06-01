@@ -8,6 +8,7 @@ class Patient < ActiveRecord::Base
   has_many :allergies
   has_many :immunizations
   has_many :surgeries
+  has_many :medical_histories
   has_many :vital_signs, through: :visits
   validates :date_of_birth, :first_name, :last_name, :phone, :gender, presence: true
   validates :gender, inclusion: {in: VALID_GENDER}

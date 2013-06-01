@@ -1,4 +1,12 @@
 Myh::Application.routes.draw do  
+  resources :vaccines
+
+  resources :relationships
+
+  resources :medical_histories
+
+  resources :diseases
+
   resources :surgeries
 
   root to: "static_pages#home"

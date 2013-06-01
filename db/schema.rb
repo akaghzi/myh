@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 20130601035402) do
     t.string   "gender"
     t.string   "phone"
     t.string   "externalid"
+    t.text     "summary"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

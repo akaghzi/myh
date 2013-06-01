@@ -1,9 +1,7 @@
 Add workflow for appointment/visit
 Add Lab Test workflow:
   add tests ordered_on and reviewed_on
-Add medical history
 Add social history
-Add code <%= f.collection_select(:problem,Problem.all, :name,:name) %> for dropdown list from model instead of initializer
 
 
 Done:
@@ -15,6 +13,8 @@ Add pages:
 Add contact model
 Add insurance model
 Fix Navigation
+Add code <%= f.collection_select(:problem,Problem.all, :name,:name) %> for dropdown list from model instead of initializer
+Add medical history
 
 
 Parking List:

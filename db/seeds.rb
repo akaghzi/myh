@@ -1,1 +1,1 @@
-seed-vaccine.rb
+seed-master.rb

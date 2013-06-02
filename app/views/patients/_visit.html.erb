@@ -1,0 +1,13 @@
+<% @patient.visits.each do | visit | %>
+	<dl class="dl-horizontal">
+		<dt>Visit Date:</dt>
+		<dd>
+			<%= visit.visit_date.to_date %>&nbsp
+			<%= link_to 'Edit', edit_visit_path(visit), class: "btn btn-mini btn-info" %>
+		</dd>
+		<dt>Visit Reason:</dt>
+		<dd><%= visit.visit_reason.capitalize %></dd>
+		<dt>Notes:</dt>
+		<dd><%= visit.visit_note %></dd>
+	</dl>
+<% end %>

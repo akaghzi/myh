@@ -76,91 +76,79 @@
 			<% end %>
 		</span>
 	</div>
-	<% if @patient.visits.blank? %>
-	<div class="row-fluid">
+<% if @patient.visits.blank? %>
+<div class="row-fluid">
 	<h4 class="alert">
-		Visit Information:&nbsp
-		<%= link_to 'Add visit', new_visit_path(patient_id: @patient.id), class: "btn btn-primary" %>
+		Visit Information:
+		<%= link_to 'Add Visit', new_visit_path(patient_id: @patient.id), class: "btn btn-small btn-primary"%>
 	</h4>
-		<p>No visit information found on record</p>
-  </div>
-	<% else %>
-	<div class="row-fluid">
-		<% @patient.visits.each do | visit | %>
-			<% if visit.lab_tests.blank? %>
-				<span class="span12">
-					<h4 class="alert">
-						Visit Information:&nbsp
-						<%= link_to 'Add visit', new_visit_path(patient_id: @patient.id), class: "btn btn-primary" %>
-					</h4>
-				  <dl class="dl-horizontal">
-						<dt>Visit Date:</dt>
-						<dd>
-							<%= visit.visit_date.to_date %>&nbsp<%= link_to 'Edit', edit_visit_path(visit), class: "btn btn-mini btn-info" %>
-						<dd>
-						<dt>Visit Reason:</dt>
-						<dd><%= visit.visit_reason.capitalize %><dd>
-						<dt>Notes:</dt>
-						<dd><%= visit.visit_note %><dd>
-					</dl>
-					</span>
-				</div>
-			<% else %>
-			  <span class="span6">
-					<h4 class="alert">
-						Visit Information:&nbsp
-						<%= link_to 'Add visit', new_visit_path(patient_id: @patient.id), class: "btn btn-primary" %>
-					</h4>
-				  <dl class="dl-horizontal">
-						<dt>Visit Date:</dt>
-						<dd><%= visit.visit_date.to_date %>&nbsp<%= link_to 'Edit', edit_visit_path(visit), class: "btn btn-mini btn-info" %><dd>
-						<dt>Visit Reason:</dt>
-						<dd><%= visit.visit_reason.capitalize %><dd>
-						<dt>Notes:</dt>
-						<dd><%= visit.visit_note %><dd>
-					</dl>
-					</span>
-					<span class="span6">
-						<h4 class="alert">Lab Tests</h4>
-						<ul>
-							<% visit.lab_tests.each do | lab_test | %>
-							<li><%= lab_test.full_name %></li>
-							<% end %>
-						</ul>
-					</span>
-					</div>
-					<div class="row-fluid">
-					<span class="span12">
-					<h4 class="alert">Vital Signs:</h4>
-					<table class="table">
-						<tr>
-							<td>Date</td>
-							<td>Temperature</td>
-							<td>Heart Rate</td>
-							<td>BP Systolic</td>
-							<td>BP Diastolic</td>
-							<td>Respiratory Rate</td>
-							<td>Weight</td>
-							<td>Height</td>
-						</tr>
-						<% visit.vital_signs.each do | vital_sign | %>
-						<tr>
-							<td><%= vital_sign.visit.visit_date.to_date %></td>
-							<td><%= vital_sign.temperature %></td>
-							<td><%= vital_sign.heart_rate %></td>
-							<td><%= vital_sign.bp_systolic %></td>
-							<td><%= vital_sign.bp_diastolic %></td>
-							<td><%= vital_sign.respiratory_rate %></td>
-							<td><%= vital_sign.weight %></td>
-							<td><%= vital_sign.height %></td>
-						</tr>
-						</table>
-					<% end %>
-				</span>
-			</div>
-			<% end %>
+	<p><%= "no visit record found" %></p>
+</div>
+<% else %>
+<div class="row-fluid">
+	<span class="span6">
+		<h4 class="alert">
+			Visit Information:&nbsp
+		</h4>
+	<% @patient.visits.each do |visit| %>
+		<%= visit.visit_date %>
+	</span>
+		<% if visit.lab_tests.blank? %>
+		<span class="span6">
+			<h4 class="alert">
+				Lab Tests:&nbsp
+			</h4>
+		<p><%= "no lab test record found" %></p>
+		<% else %>
+		<span class="span6">
+			<h4 class="alert">
+				Lab Tests:&nbsp
+			</h4>
+		<% visit.lab_tests.each do |lab_test| %>
+			<%= lab_test.full_name %>
+		<% end %>
+	  </span>
+		<% end %>
+	</div>
+		<% if visit.vital_signs.blank? %>		
+		<div class="row-fluid">
+		<span class="span12">
+			<h4 class="alert">Vital Signs</h4>
+		<p><%= "no vital signs record found" %></p>
+	  </div>
+		<% else %>
+		<div class="row-fluid">
+		<span class="span12">
+			<h4 class="alert">Vital Signs</h4>
+			<table class="table table-hover">
+				<tr>
+					<td>Date</td>
+					<td>Temperature</td>
+					<td>Heart Rate</td>
+					<td>BP Systolic</td>
+					<td>BP Diastolic</td>
+					<td>Respiratory Rate</td>
+					<td>Weight</td>
+					<td>Height</td>
+				</tr>
+		<% visit.vital_signs.each do |vital_sign| %>
+		<tr>
+			<td><%= vital_sign.visit.visit_date.to_date %></td>
+			<td><%= vital_sign.temperature %></td>
+			<td><%= vital_sign.heart_rate %></td>
+			<td><%= vital_sign.bp_systolic %></td>
+			<td><%= vital_sign.bp_diastolic %></td>
+			<td><%= vital_sign.respiratory_rate %></td>
+			<td><%= vital_sign.weight %></td>
+			<td><%= vital_sign.height %></td>
+		</tr>
+		<% end %>
+			</table>
+	  </span>
+		</div>
 		<% end %>
 	<% end %>
+<% end %>
 
 	<div class="row-fluid">
 		<span class="span12">

@@ -1,0 +1,11 @@
+<% @patient.visits.each do | visit | %>
+	<% if visit.lab_tests.blank? %>
+	<p>No lab test information found on record</p>
+	<% else %>
+	<ul>
+		<% visit.lab_tests.each do | lab_test | %>
+		<li><%= lab_test.full_name %></li>
+		<% end %>
+	</ul>
+	<% end %>
+<% end %>

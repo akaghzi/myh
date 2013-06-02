@@ -1,0 +1,26 @@
+<table class="table">
+	<tr>
+		<td>Date</td>
+		<td>Temperature</td>
+		<td>Heart Rate</td>
+		<td>BP Systolic</td>
+		<td>BP Diastolic</td>
+		<td>Respiratory Rate</td>
+		<td>Weight</td>
+		<td>Height</td>
+	</tr>
+	<% @patient.visits.each do | visit | %>
+	<% visit.vital_signs.each do | vital_sign | %>
+	<tr>
+		<td><%= vital_sign.visit.visit_date.to_date %></td>
+		<td><%= vital_sign.temperature %></td>
+		<td><%= vital_sign.heart_rate %></td>
+		<td><%= vital_sign.bp_systolic %></td>
+		<td><%= vital_sign.bp_diastolic %></td>
+		<td><%= vital_sign.respiratory_rate %></td>
+		<td><%= vital_sign.weight %></td>
+		<td><%= vital_sign.height %></td>
+	</tr>
+	<% end %>	
+	<% end %>
+</table>

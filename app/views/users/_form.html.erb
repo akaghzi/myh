@@ -21,12 +21,6 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :user_type, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.select :user_type, VALID_USER_TYPE, :class => 'select_field' %>
-    </div>
-  </div>
-  <div class="control-group">
     <%= f.label :password, :class => 'control-label' %>
     <div class="controls">
       <%= f.password_field :password, :class => 'password_field' %>
@@ -42,6 +36,6 @@
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                users_path, :class => 'btn' %>
+                patients_path, :class => 'btn' %>
   </div>
 <% end %>

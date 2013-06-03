@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 20130603060721) do
     t.string   "name"
     t.string   "dosage"
     t.string   "frequency"
-    t.string   "route"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -118,7 +117,6 @@ ActiveRecord::Schema.define(version: 20130603060721) do
     t.string   "gender"
     t.string   "phone"
     t.string   "externalid"
-    t.text     "summary"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

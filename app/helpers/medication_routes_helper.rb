@@ -1,0 +1,2 @@
+module MedicationRoutesHelper
+end

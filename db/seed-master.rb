@@ -296,6 +296,7 @@ LabTest.create(full_name: "vdrl / rpr", short_name: "", unit_of_measure: "text",
 LabTest.create(full_name: "white blood cell count", short_name: "", unit_of_measure: "text", low_threshold: 0.0, high_threshold: 0.0)
 LabTest.create(full_name: "widal", short_name: "", unit_of_measure: "text", low_threshold: 0.0, high_threshold: 0.0)
 LabTest.create(full_name: "x culture & sensi", short_name: "", unit_of_measure: "text", low_threshold: 0.0, high_threshold: 0.0)
+LabTest.create(full_name: "none", short_name: "none", unit_of_measure: "text", low_threshold: 0.0, high_threshold: 0.0)
 Patient.create(first_name: "john", middle_name: "smith", last_name: "doe", gender: "male", date_of_birth: "1968-01-01", phone: "4035552345", externalid: "123211")
 Patient.create(first_name: "little", middle_name: "smith", last_name: "jonny", gender: "male", date_of_birth: "2007-11-21", phone: "2035552345", externalid: "1332221")
 Patient.create(first_name: "mary", middle_name: "smith", last_name: "jane", gender: "female", date_of_birth: "1998-12-11", phone: "3035552345", externalid: "123213")

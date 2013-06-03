@@ -5,6 +5,7 @@ class CreateCurrentMedications < ActiveRecord::Migration
       t.string :name
       t.string :dosage
       t.string :frequency
+      t.string :route
 
       t.timestamps
     end

@@ -1,8 +1,12 @@
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+To Do:
+Add Administative workflow
 Add workflow for appointment/visit
 Add Lab Test workflow:
   add tests ordered_on and reviewed_on
 Add tests done recently by other providers
-Add hospitalizations
+Add update profile/password page
+Add hospitalizations - Patient Medical History
 Add social history
 	smoking
 	drinking
@@ -12,6 +16,7 @@ Add social history
 	physical excercise
 	substance abuse
 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Done:
 Add user authentication
 Add pages:
@@ -23,7 +28,29 @@ Add insurance model
 Fix Navigation
 Add code <%= f.collection_select(:problem,Problem.all, :name,:name) %> for dropdown list from model instead of initializer
 Add medical history
+allergy: type replace other to environmental
 
-
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Parking List:
 Add tests for visit type
+
+++++++++++++
+Doctor after login
+should see the patient in alpha sorted list
+
+
+medication:
+add route: PO[per oral], Sub-Lingual, Per Rectum, Inhale, Topical, IM [Intra-Muscular], IV [Intra-Venous]
+Frequency: QHS, QAM, QBIT,Once a day, Twice a day, Thrice a day, Fourtimes a day, PRN
+
+VISIT:
+Sympton:
+Assessment:
+M
+P
+E
+
+Medical History
+Separate Patient Medical History and Family Medical History
+
+Write a summary extracting data from existing information, highlight.

@@ -1,4 +1,8 @@
 Myh::Application.routes.draw do  
+  resources :medication_routes
+
+  resources :medication_frequencies
+
   resources :vaccines
 
   resources :relationships

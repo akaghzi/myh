@@ -1,24 +1,27 @@
-
-	<span class="span8">
-		<h4 class="alert">Visit Information:&nbsp
-		</h4>
-		<table class="table table-condensed">
-			<tr>
-				<td>Visit Date</td>
-				<td>Visit Reason</td>
-				<td>Notes</td>
-				<td></td>
-			</tr>
-<% @patient.visits.each do | visit | %>
-	<tr>
-		<td>
-			<%= visit.visit_date.to_date %>
-			
-		</td>
-		<td><%= visit.visit_reason.capitalize %></td>
-		<td><%= visit.visit_note %></td>
-		<td><%= link_to 'Edit', edit_visit_path(visit), class: "btn btn-mini btn-info" %></td>
-	</tr>
-<% end %>
-</table>
+<span class="span8">
+	<h4 class="alert">Visit Information:&nbsp
+		<%= link_to 'Add Visit', new_visit_path(patient_id: @patient.id), class: "btn btn-small btn-primary" %>
+	</h4>
+	<table class="table table-condensed">
+		<tr>
+			<td>Visit Date</td>
+			<td>Visit Reason</td>
+			<td>Notes</td>
+			<td></td>
+		</tr>
+		<% @patient.visits.each do | visit | %>
+		<tr>
+			<td>
+				<%= visit.visit_date.to_date %>
+			</td>
+			<td><%= visit.visit_reason.capitalize %></td>
+			<td><%= visit.visit_note %></td>
+			<td>
+				<% if visit.visit_date > DateTime.yesterday %>
+				<%= link_to 'Edit', edit_visit_path(visit), class: "btn btn-mini btn-info" %>
+				<% end %>
+			</td>
+		</tr>
+		<% end %>
+	</table>
 </span>

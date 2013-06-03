@@ -2,6 +2,9 @@
 	<h4 class="alert">
 	Vital Signs:&nbsp
 </h4>
+<% if @vital_signs.blank? %>
+<p>No vital signs information found on record</p>
+<% else %>
 <table class="table table-hover">
 	<tr>
 		<td>Date</td>
@@ -28,4 +31,5 @@
 	<% end %>	
 	<% end %>
 </table>
+<% end %>
 </span>

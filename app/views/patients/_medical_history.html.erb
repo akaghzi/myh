@@ -5,7 +5,7 @@
 		class: "btn btn-small btn-primary" %>	
 		</h4>
 		<% if @patient.medical_histories.blank? %>
-		<p>No surgery information found on record</p>
+		<p>No medical history information found on record</p>
 		<% end%>		
 		<% @patient.medical_histories.each do | medical_history |%>
 		<dl class="dl-horizontal">

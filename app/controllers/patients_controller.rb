@@ -16,6 +16,8 @@ class PatientsController < ApplicationController
     @allergies = @patient.allergies 
     @current_medications = @patient.current_medications 
     @visits = @patient.visits    
+    @vital_signs = VitalSign.where("visit_id in(?)", @patient.visit_ids)
+    @lab_tests = VisitLabTestXref.where("visit_id in(?)", @patient.visit_ids)
   end
 
   # GET /patients/new

@@ -1,4 +1,8 @@
-<table class="table">
+<span class="span12">
+	<h4 class="alert">
+	Vital Signs:&nbsp
+</h4>
+<table class="table table-hover">
 	<tr>
 		<td>Date</td>
 		<td>Temperature</td>
@@ -9,7 +13,7 @@
 		<td>Weight</td>
 		<td>Height</td>
 	</tr>
-	<% @patient.visits.each do | visit | %>
+	<% @visits.each do | visit | %>
 	<% visit.vital_signs.each do | vital_sign | %>
 	<tr>
 		<td><%= vital_sign.visit.visit_date.to_date %></td>
@@ -24,3 +28,4 @@
 	<% end %>	
 	<% end %>
 </table>
+</span>

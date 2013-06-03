@@ -34,9 +34,9 @@
 			Allergies:&nbsp
 			<%= link_to 'Add Allergy', new_allergy_path(patient_id: @patient.id), class: "btn btn-small btn-primary" %>
 		</h4>
-		<% if @allergies.blank? %>
+		<% if @patient.allergies.blank? %>
 		<p>No allergy information found on record</p>
-		<% end %>
+		<% else %>
 		<% @patient.allergies.each do | allergy |%>
 		<dl class="dl-horizontal">
 			<dt>Substance Name</dt>
@@ -50,7 +50,7 @@
 			<dd><%= allergy.reaction %></dd>
 		</dl>
 		<% end %>
-
+		<% end %>
 	</span>
 	<span class="span6">
 		<h4 class="alert alert-error">
@@ -76,80 +76,15 @@
 			<% end %>
 		</span>
 	</div>
-<% if @patient.visits.blank? %>
-<div class="row-fluid">
-	<h4 class="alert">
-		Visit Information:
-		<%= link_to 'Add Visit', new_visit_path(patient_id: @patient.id), class: "btn btn-small btn-primary"%>
-	</h4>
-	<p><%= "no visit record found" %></p>
-</div>
-<% else %>
-<div class="row-fluid">
-	<span class="span6">
-		<h4 class="alert">
-			Visit Information:&nbsp
-		</h4>
-	<% @patient.visits.each do |visit| %>
-		<%= visit.visit_date %>
-	</span>
-		<% if visit.lab_tests.blank? %>
-		<span class="span6">
-			<h4 class="alert">
-				Lab Tests:&nbsp
-			</h4>
-		<p><%= "no lab test record found" %></p>
-		<% else %>
-		<span class="span6">
-			<h4 class="alert">
-				Lab Tests:&nbsp
-			</h4>
-		<% visit.lab_tests.each do |lab_test| %>
-			<%= lab_test.full_name %>
-		<% end %>
-	  </span>
-		<% end %>
+	<!-- VISIT INFORMATION START HERE-->
+	<div class="row-fluid">
+		<%= render partial: "visit"%>
+		<%= render partial: "lab_test" %>
 	</div>
-		<% if visit.vital_signs.blank? %>		
-		<div class="row-fluid">
-		<span class="span12">
-			<h4 class="alert">Vital Signs</h4>
-		<p><%= "no vital signs record found" %></p>
-	  </div>
-		<% else %>
-		<div class="row-fluid">
-		<span class="span12">
-			<h4 class="alert">Vital Signs</h4>
-			<table class="table table-hover">
-				<tr>
-					<td>Date</td>
-					<td>Temperature</td>
-					<td>Heart Rate</td>
-					<td>BP Systolic</td>
-					<td>BP Diastolic</td>
-					<td>Respiratory Rate</td>
-					<td>Weight</td>
-					<td>Height</td>
-				</tr>
-		<% visit.vital_signs.each do |vital_sign| %>
-		<tr>
-			<td><%= vital_sign.visit.visit_date.to_date %></td>
-			<td><%= vital_sign.temperature %></td>
-			<td><%= vital_sign.heart_rate %></td>
-			<td><%= vital_sign.bp_systolic %></td>
-			<td><%= vital_sign.bp_diastolic %></td>
-			<td><%= vital_sign.respiratory_rate %></td>
-			<td><%= vital_sign.weight %></td>
-			<td><%= vital_sign.height %></td>
-		</tr>
-		<% end %>
-			</table>
-	  </span>
-		</div>
-		<% end %>
-	<% end %>
-<% end %>
-
+	<div class="row-fluid">
+		<%= render partial: "vital_sign" %>
+	</div>
+	<!-- VISIT INFORMATION END HERE -->
 	<div class="row-fluid">
 		<span class="span12">
 			<h4 class="alert alert-info">

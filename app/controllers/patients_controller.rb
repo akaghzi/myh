@@ -15,6 +15,7 @@ class PatientsController < ApplicationController
     @insurance_info = @patient.insurance_info || @patient.create_insurance_info
     @allergies = @patient.allergies 
     @current_medications = @patient.current_medications 
+    @visits = @patient.visits    
   end
 
   # GET /patients/new

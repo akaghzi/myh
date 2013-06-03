@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:full_name) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -15,7 +15,7 @@
     <% @medication_frequencies.each do |medication_frequency| %>
       <tr>
         <td><%= link_to medication_frequency.id, medication_frequency_path(medication_frequency) %></td>
-        <td><%= medication_frequency.name %></td>
+        <td><%= medication_frequency.full_name %></td>
         <td><%=l medication_frequency.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

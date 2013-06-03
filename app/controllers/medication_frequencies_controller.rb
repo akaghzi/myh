@@ -69,6 +69,6 @@ class MedicationFrequenciesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medication_frequency_params
-      params.require(:medication_frequency).permit(:name)
+      params.require(:medication_frequency).permit(:full_name, :description, :short_name)
     end
 end

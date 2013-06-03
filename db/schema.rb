@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20130603060721) do
     t.string   "name"
     t.string   "dosage"
     t.string   "frequency"
+    t.string   "route"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -98,13 +99,17 @@ ActiveRecord::Schema.define(version: 20130603060721) do
   add_index "medical_histories", ["patient_id"], name: "index_medical_histories_on_patient_id", using: :btree
 
   create_table "medication_frequencies", force: true do |t|
-    t.string   "name"
+    t.string   "full_name"
+    t.string   "description"
+    t.string   "short_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "medication_routes", force: true do |t|
-    t.string   "name"
+    t.string   "full_name"
+    t.string   "description"
+    t.string   "short_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -117,6 +122,7 @@ ActiveRecord::Schema.define(version: 20130603060721) do
     t.string   "gender"
     t.string   "phone"
     t.string   "externalid"
+    t.text     "summary"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

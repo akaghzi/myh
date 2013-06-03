@@ -2,6 +2,7 @@
 To Do:
 Add Administative workflow
 Add workflow for appointment/visit
+Add lab word categorised on patient show page into ordered, received and reviewed
 Add Lab Test workflow:
   add tests ordered_on and reviewed_on
 Add tests done recently by other providers

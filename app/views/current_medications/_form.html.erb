@@ -30,13 +30,13 @@
   <div class="control-group">
     <%= f.label :frequency, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :frequency, :class => 'text_field' %>
+      <%= f.collection_select(:frequency, MedicationFrequency.all, :short_name, :full_name) %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :route, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :route, :class => 'text_field' %>
+      <%= f.collection_select(:route, MedicationRoute.all, :short_name, :full_name) %>
     </div>
   </div>
 

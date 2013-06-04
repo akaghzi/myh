@@ -5,7 +5,7 @@
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:patient_id) %>:</strong></dt>
-  <dd><%= @social_history.patient_id %></dd>
+  <dd><%= @social_history.patient.full_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:smoking) %>:</strong></dt>
   <dd><%= @social_history.smoking %></dd>
   <dt><strong><%= model_class.human_attribute_name(:smoking_quantity) %>:</strong></dt>
@@ -34,12 +34,12 @@
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              social_histories_path, :class => 'btn'  %>
+              patient_path(id: @social_history.patient_id), :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_social_history_path(@social_history), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+  <!-- <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               social_history_path(@social_history),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+              :class => 'btn btn-danger' %> -->
 </div>

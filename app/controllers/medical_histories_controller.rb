@@ -14,10 +14,11 @@ class MedicalHistoriesController < ApplicationController
 
   # GET /medical_histories/new
   def new
-    # find patient for the allergy
+    # find patient
     @patient = Patient.find(params[:patient_id])
-    # build the allergy for the patient
-    @medical_history = @patient.medical_histories.build(patient_id: @patient.id)
+    sof = params[:self_or_family]
+    # build the medical history for the patient
+    @medical_history = @patient.medical_histories.build(patient_id: @patient.id, self_or_family: sof)
     # @medical_history = MedicalHistory.new
   end
 

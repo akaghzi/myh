@@ -1,0 +1,86 @@
+<%= form_for @social_history, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%#= f.label :patient_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.hidden_field :patient_id, :class => 'hidden_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :smoking, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :smoking, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :smoking_quantity, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :smoking_quantity, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :drinking, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :drinking, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :drinking_quantity, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :drinking_quantity, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :physical_excercise, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :physical_excercise, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :excercise_per_day, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :excercise_per_day, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :substance_abuse, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :substance_abuse, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :substance_type, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :substance_type, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :profession, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :profession, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :pet, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :pet, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :living_with_family, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :living_with_family, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :marital_status, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :marital_status, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                patient_path(id: @social_history.patient_id), :class => 'btn' %>
+  </div>
+<% end %>

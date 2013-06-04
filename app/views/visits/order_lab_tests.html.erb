@@ -32,7 +32,7 @@
 	</div>
 	<% end %>
 	<div class="form-actions">
-		<%= f.hidden_field :id %>
+		<%= hidden_field "visit[update_lab_tests]", "", value: 1 %>
 		<%= f.submit 'Submit Order', :class => 'btn btn-primary' %>
 		<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
 		edit_visit_path(id: @visit.id), :class => 'btn' %>

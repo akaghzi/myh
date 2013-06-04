@@ -45,6 +45,11 @@ class VisitsController < ApplicationController
   # PATCH/PUT /visits/1
   # PATCH/PUT /visits/1.json
   def update
+    if params[:visit][:update_lab_tests]
+      params[:visit][:lab_test_ids] ||= []
+      params[:visit] = params[:visit].except(:update_lab_tests)
+    end 
+       
     respond_to do |format|
       if @visit.update(visit_params)
         format.html { redirect_to edit_visit_path(@visit), notice: 'Visit was successfully updated.' }
@@ -55,10 +60,11 @@ class VisitsController < ApplicationController
       end
     end
   end
+  
   def order_lab_tests
-    # params[:visit][:lab_test_ids] ||= []
     @visit = Visit.find(params[:visit_id])
   end
+  
   # DELETE /visits/1
   # DELETE /visits/1.json
   # def destroy
@@ -77,6 +83,6 @@ class VisitsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def visit_params
-    params.require(:visit).permit(:patient_id, :visit_date, :visit_reason, :visit_note,:lab_test_ids => [])
+    params.require(:visit).permit(:patient_id, :visit_date, :visit_reason, :visit_note, :update_lab_tests, :lab_test_ids => [])
   end
 end

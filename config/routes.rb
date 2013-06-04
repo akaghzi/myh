@@ -1,4 +1,6 @@
 Myh::Application.routes.draw do  
+  resources :social_histories
+
   resources :medication_routes
 
   resources :medication_frequencies

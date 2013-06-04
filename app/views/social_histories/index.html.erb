@@ -1,0 +1,60 @@
+<%- model_class = SocialHistory -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:patient_id) %></th>
+      <th><%= model_class.human_attribute_name(:smoking) %></th>
+      <th><%= model_class.human_attribute_name(:smoking_quantity) %></th>
+      <th><%= model_class.human_attribute_name(:drinking) %></th>
+      <th><%= model_class.human_attribute_name(:drinking_quantity) %></th>
+      <th><%= model_class.human_attribute_name(:physical_excercise) %></th>
+      <th><%= model_class.human_attribute_name(:excercise_per_day) %></th>
+      <th><%= model_class.human_attribute_name(:substance_abuse) %></th>
+      <th><%= model_class.human_attribute_name(:substance_type) %></th>
+      <th><%= model_class.human_attribute_name(:profession) %></th>
+      <th><%= model_class.human_attribute_name(:pet) %></th>
+      <th><%= model_class.human_attribute_name(:living_with_family) %></th>
+      <th><%= model_class.human_attribute_name(:marital_status) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @social_histories.each do |social_history| %>
+      <tr>
+        <td><%= link_to social_history.id, social_history_path(social_history) %></td>
+        <td><%= social_history.patient_id %></td>
+        <td><%= social_history.smoking %></td>
+        <td><%= social_history.smoking_quantity %></td>
+        <td><%= social_history.drinking %></td>
+        <td><%= social_history.drinking_quantity %></td>
+        <td><%= social_history.physical_excercise %></td>
+        <td><%= social_history.excercise_per_day %></td>
+        <td><%= social_history.substance_abuse %></td>
+        <td><%= social_history.substance_type %></td>
+        <td><%= social_history.profession %></td>
+        <td><%= social_history.pet %></td>
+        <td><%= social_history.living_with_family %></td>
+        <td><%= social_history.marital_status %></td>
+        <td><%=l social_history.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_social_history_path(social_history), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      social_history_path(social_history),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_social_history_path,
+            :class => 'btn btn-primary' %>

@@ -13,6 +13,7 @@ class PatientsController < ApplicationController
   def show
     @contact_info = @patient.contact_info || @patient.create_contact_info
     @insurance_info = @patient.insurance_info || @patient.create_insurance_info
+    @social_history = @patient.social_history || @patient.create_social_history
     @allergies = @patient.allergies 
     @current_medications = @patient.current_medications 
     @visits = @patient.visits    

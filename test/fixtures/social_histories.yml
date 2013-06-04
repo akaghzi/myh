@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  patient: 
+  smoking: false
+  smoking_quantity: 1
+  drinking: false
+  drinking_quantity: 1
+  physical_excercise: false
+  excercise_per_day: 1
+  substance_abuse: false
+  substance_type: MyString
+  profession: MyString
+  pet: MyString
+  living_with_family: false
+  marital_status: MyString
+
+two:
+  patient: 
+  smoking: false
+  smoking_quantity: 1
+  drinking: false
+  drinking_quantity: 1
+  physical_excercise: false
+  excercise_per_day: 1
+  substance_abuse: false
+  substance_type: MyString
+  profession: MyString
+  pet: MyString
+  living_with_family: false
+  marital_status: MyString

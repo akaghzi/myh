@@ -1,0 +1,1 @@
+json.extract! @social_history, :patient, :smoking, :smoking_quantity, :drinking, :drinking_quantity, :physical_excercise, :excercise_per_day, :substance_abuse, :substance_type, :profession, :pet, :living_with_family, :marital_status, :created_at, :updated_at

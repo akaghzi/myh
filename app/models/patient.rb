@@ -1,6 +1,7 @@
 class Patient < ActiveRecord::Base
   has_one :contact_info
   has_one :insurance_info
+  has_one :social_history
   has_many :reg_answers
   has_many :questions, through: :reg_answers
   has_many :visits

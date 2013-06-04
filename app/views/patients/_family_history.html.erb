@@ -4,20 +4,20 @@
 		<%= link_to 'Add Record', new_medical_history_path(patient_id: @patient.id), 
 		class: "btn btn-small btn-primary" %>	
 		</h4>
-		<% if @patient.medical_histories.blank? %>
-		<p>No medical history information found on record</p>
+		<% if @family_histories.blank? %>
+		<p>No family history information found on record</p>
 		<% end%>		
-		<% @patient.medical_histories.each do | medical_history |%>
+		<% @family_histories.each do | family_history |%>
 		<dl class="dl-horizontal">
 			<dt>Disease/Problem:</dt>
 			<dd>
-				<%= medical_history.disease %>
-				<%= link_to 'Edit', edit_medical_history_path(medical_history.id), :class => 'btn btn-mini btn-info' %>
+				<%= family_history.disease %>
+				<%= link_to 'Edit', edit_medical_history_path(family_history.id), :class => 'btn btn-mini btn-info' %>
 			</dd>
 			<dt>Relationship:</dt>
-			<dd><%= medical_history.self_or_family %></dd>
+			<dd><%= family_history.self_or_family %></dd>
 			<dt>Diagnosis Date:</dt>
-			<dd><%= medical_history.diagnosed_at %></dd>
+			<dd><%= family_history.diagnosed_at %></dd>
 		</dl>
 		<% end %>
 	</span>	

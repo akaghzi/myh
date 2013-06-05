@@ -1,0 +1,38 @@
+<h4 class="alert alert-info">
+	Social History:&nbsp<%= link_to 'Edit', edit_social_history_path(@social_history), class: "btn btn-small btn-info" %>
+</h4>
+<% if @social_history.blank? %>
+<p>No social history information found on record</p>
+<% else %>
+<table class="table table-condensed">
+	<tr>
+		<td>Smoking</td>
+		<td>Cig. a day</td>
+		<td>Drinking</td>
+		<td>Drinks a day</td>
+		<td>Physical Excercise</td>
+		<td>Minutes a day</td>
+		<td>Substance Abuse</td>
+		<td>Substance Type</td>
+		<td>Profession</td>
+		<td>Pets</td>
+		<td>Living with family</td>
+		<td>Marital Status</td>
+	</tr>
+	<tr>
+		<td><%= @social_history.smoking %></td>
+		<td><%= @social_history.smoking_quantity %></td>
+		<td><%= @social_history.drinking %></td>
+		<td><%= @social_history.drinking_quantity %></td>
+		<td><%= @social_history.physical_excercise %></td>
+		<td><%= @social_history.excercise_per_day %></td>
+		<td><%= @social_history.substance_abuse %></td>
+		<td><%= @social_history.substance_type %></td>
+		<td><%= @social_history.profession %></td>
+		<td><%= @social_history.pet %></td>
+		<td><%= @social_history.living_with_family %></td>
+		<td><%= @social_history.marital_status %></td>
+	</tr>
+</table>
+<% end %>
+</span>

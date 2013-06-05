@@ -1,21 +1,27 @@
 <span class="span6">
 	<h4 class="alert alert-info">
-		Medical History:&nbsp
-		<%= link_to 'Add Record', new_medical_history_path(patient_id: @patient.id, self_or_family: 'self'), 
+		Past Medical History:&nbsp
+		<%= link_to 'Add Record', new_medical_history_path(patient_id: @patient.id), 
 		class: "btn btn-small btn-primary" %>	
 		</h4>
-		<% if @patient.medical_histories.self_history.blank? %>
-		<p>No medical history information found on record</p>
-		<% end%>		
-		<% @patient.medical_histories.self_history.each do | medical_history |%>
-		<dl class="dl-horizontal">
-			<dt>Disease/Problem:</dt>
-			<dd>
-				<%= medical_history.disease %>
-				<%= link_to 'Edit', edit_medical_history_path(medical_history.id), :class => 'btn btn-mini btn-info' %>
-			</dd>
-			<dt>Diagnosis Date:</dt>
-			<dd><%= medical_history.diagnosed_at %></dd>
-		</dl>
+		<% if @medical_histories.blank? %>
+		<p>No past medical history information found on record</p>
+		<% else %>		
+		<table class="table table-condensed">
+			<tr>
+				<td>Disease/Problem</td>
+				<td>Diagnosis Date</td>
+				<td></td>
+			</tr>		
+			<% @medical_histories.each do | medical_history |%>
+			<tr>
+				<td>
+					<%= medical_history.disease %>
+				</td>
+				<td><%= medical_history.diagnosed_at %></td>
+				<td><%= link_to 'Edit', edit_medical_history_path(medical_history.id), :class => 'btn btn-mini btn-info' %></td>
+			</tr>
+			<% end %>
+		</table>
 		<% end %>
 	</span>	

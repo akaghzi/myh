@@ -2,20 +2,11 @@
 To Do:
 Add Administative workflow
 Add workflow for appointment/visit
-Add lab word categorised on patient show page into ordered, received and reviewed
+Add lab work categorised on patient show page into ordered, received and reviewed
 Add Lab Test workflow:
   add tests ordered_on and reviewed_on
 Add tests done recently by other providers
-Add update profile/password page
 Add hospitalizations - Patient Medical History
-Add social history
-	smoking
-	drinking
-	living with family
-	pets
-	profession
-	physical excercise
-	substance abuse
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Done:
@@ -32,7 +23,17 @@ Add medical history
 allergy: type replace other to environmental
 medication: add route: PO[per oral], Sub-Lingual, Per Rectum, Inhale, Topical, IM [Intra-Muscular], IV [Intra-Venous]
 Frequency: QHS, QAM, QBIT,Once a day, Twice a day, Thrice a day, Fourtimes a day, PRN
-
+Medical History
+Separate Patient Medical History and Family Medical History
+Add social history
+	smoking
+	drinking
+	living with family
+	pets
+	profession
+	physical excercise
+	substance abuse
+Add update profile/password page
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Parking List:
@@ -48,8 +49,5 @@ Assessment:
 M
 P
 E
-
-Medical History
-Separate Patient Medical History and Family Medical History
 
 Write a summary extracting data from existing information, highlight.

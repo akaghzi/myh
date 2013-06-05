@@ -5,16 +5,16 @@
 <% if @vital_signs.blank? %>
 <p>No vital signs information found on record</p>
 <% else %>
-<table class="table table-hover">
+<table class="table table-condensed">
 	<tr>
 		<td>Date</td>
-		<td>Temperature</td>
+		<td>Temperature[F]</td>
 		<td>Heart Rate</td>
-		<td>BP Systolic</td>
-		<td>BP Diastolic</td>
+		<td>BP Systolic[HHmg]</td>
+		<td>BP Diastolic[HHmg]</td>
 		<td>Respiratory Rate</td>
-		<td>Weight</td>
-		<td>Height</td>
+		<td>Weight[Kg]</td>
+		<td>Height[Lb]</td>
 	</tr>
 	<% @visits.each do | visit | %>
 	<% visit.vital_signs.each do | vital_sign | %>

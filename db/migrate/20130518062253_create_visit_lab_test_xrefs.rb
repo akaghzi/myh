@@ -4,8 +4,8 @@ class CreateVisitLabTestXrefs < ActiveRecord::Migration
       t.integer :visit_id
       t.integer :lab_test_id
       t.decimal :measurement
-      t.date :received_at
-      t.date :reviewed_at
+      t.datetime :received_at
+      t.datetime :reviewed_at
       t.text :lab_note
 
       t.timestamps

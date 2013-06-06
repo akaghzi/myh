@@ -11,6 +11,7 @@
       <th><%= model_class.human_attribute_name(:measurement) %></th>
       <th><%= model_class.human_attribute_name(:received_at) %></th>
       <th><%= model_class.human_attribute_name(:reviewed_at) %></th>
+      <th><%= model_class.human_attribute_name(:lab_note) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -24,6 +25,7 @@
         <td><%= visit_lab_test_xref.measurement %></td>
         <td><%= visit_lab_test_xref.received_at %></td>
         <td><%= visit_lab_test_xref.reviewed_at %></td>
+        <td><%= visit_lab_test_xref.lab_note %></td>
         <td><%=l visit_lab_test_xref.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

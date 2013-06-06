@@ -198,6 +198,7 @@ ActiveRecord::Schema.define(version: 20130604005742) do
     t.decimal  "measurement"
     t.date     "received_at"
     t.date     "reviewed_at"
+    t.text     "lab_note"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

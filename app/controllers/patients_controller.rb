@@ -7,7 +7,6 @@ class PatientsController < ApplicationController
     # added search patient option
     @patients = self.search(params[:search]) || Patient.all
   end
-
   # GET /patients/1
   # GET /patients/1.json
   def show

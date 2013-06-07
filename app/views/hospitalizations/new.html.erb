@@ -1,17 +1,17 @@
-<%- model_class = Surgery -%>
+<%- model_class = Hospitalization -%>
 <div class="page-header">
 	<h4>
 		<span class="titlehighlight">
-			<%= @surgery.patient.full_name.titleize %>
+			<%= @hospitalization.patient.full_name.titleize %>
 		</span>
 		<span class="bluehighlight">
-			<%= @surgery.patient.gender.titleize %>
+			<%= @hospitalization.patient.gender.titleize %>
 		</span>
 		<span class="titlehighlight">
-			<%= @surgery.patient.age %>
+			<%= @hospitalization.patient.age %>
 		</span>
 		<span class="bluehighlight">
-			DOB:<%= @surgery.patient.date_of_birth %>
+			DOB:<%= @hospitalization.patient.date_of_birth %>
 		</span>
 	</h4>
 </div>

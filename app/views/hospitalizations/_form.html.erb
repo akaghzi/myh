@@ -1,0 +1,37 @@
+<%= form_for @hospitalization, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.hidden_field :patient_id, :class => 'hidden_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :hospitalization_reason, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :hospitalization_reason, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :hospitalization_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_field :hospitalization_date, :class => 'date_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :hospitalization_duration, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :hospitalization_duration, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :hospitalization_note, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :hospitalization_note, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                patient_path(id: @hospitalization.patient_id), :class => 'btn' %>
+  </div>
+<% end %>

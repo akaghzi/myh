@@ -1,0 +1,41 @@
+<%- model_class = Hospitalization -%>
+<div class="page-header">
+	<h4>
+		<span class="titlehighlight">
+			<%= @hospitalization.patient.full_name.titleize %>
+		</span>
+		<span class="bluehighlight">
+			<%= @hospitalization.patient.gender.titleize %>
+		</span>
+		<span class="titlehighlight">
+			<%= @hospitalization.patient.age %>
+		</span>
+		<span class="bluehighlight">
+			DOB:<%= @hospitalization.patient.date_of_birth %>
+		</span>
+	</h4>
+</div>
+
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:hospitalization_reason) %>:</strong></dt>
+  <dd><%= @hospitalization.hospitalization_reason %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:hospitalization_date) %>:</strong></dt>
+  <dd><%= @hospitalization.hospitalization_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:hospitalization_duration) %>:</strong></dt>
+  <dd><%= @hospitalization.hospitalization_duration %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:hospitalization_note) %>:</strong></dt>
+  <dd><%= @hospitalization.hospitalization_note %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              patient_path(id: @hospitalization.patient_id), :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_hospitalization_path(@hospitalization), :class => 'btn btn-info' %>
+  <!-- <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              hospitalization_path(@hospitalization),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %> -->
+</div>

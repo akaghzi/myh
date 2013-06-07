@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  patient_id: 1
+  hospitalization_reason: MyString
+  hospitalization_date: 2013-06-06
+  hospitalization_duration: 1
+  hospitalization_note: MyText
+
+two:
+  patient_id: 1
+  hospitalization_reason: MyString
+  hospitalization_date: 2013-06-06
+  hospitalization_duration: 1
+  hospitalization_note: MyText

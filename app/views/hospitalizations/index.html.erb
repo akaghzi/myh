@@ -1,0 +1,44 @@
+<%- model_class = Hospitalization -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:patient_id) %></th>
+      <th><%= model_class.human_attribute_name(:hospitalization_reason) %></th>
+      <th><%= model_class.human_attribute_name(:hospitalization_date) %></th>
+      <th><%= model_class.human_attribute_name(:hospitalization_duration) %></th>
+      <th><%= model_class.human_attribute_name(:hospitalization_note) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @hospitalizations.each do |hospitalization| %>
+      <tr>
+        <td><%= link_to hospitalization.id, hospitalization_path(hospitalization) %></td>
+        <td><%= hospitalization.patient_id %></td>
+        <td><%= hospitalization.hospitalization_reason %></td>
+        <td><%= hospitalization.hospitalization_date %></td>
+        <td><%= hospitalization.hospitalization_duration %></td>
+        <td><%= hospitalization.hospitalization_note %></td>
+        <td><%=l hospitalization.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_hospitalization_path(hospitalization), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      hospitalization_path(hospitalization),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_hospitalization_path,
+            :class => 'btn btn-primary' %>

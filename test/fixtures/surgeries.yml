@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  surgery_type: MyString
-  surgery_date: 2013-05-29
-
-two:
-  surgery_type: MyString
-  surgery_date: 2013-05-29

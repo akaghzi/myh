@@ -1,4 +1,6 @@
 Myh::Application.routes.draw do  
+  resources :hospitalizations
+
   resources :social_histories
 
   resources :medication_routes
@@ -12,8 +14,6 @@ Myh::Application.routes.draw do
   resources :medical_histories
 
   resources :diseases
-
-  resources :surgeries
 
   root to: "static_pages#home"
   resources :lab_tests

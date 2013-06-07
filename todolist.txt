@@ -6,7 +6,6 @@ Add lab work categorised on patient show page into ordered, received and reviewe
 Add Lab Test workflow:
   add tests ordered_on and reviewed_on
 Add tests done recently by other providers
-Add hospitalizations - Patient Medical History
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Done:
@@ -34,6 +33,7 @@ Add social history
 	physical excercise
 	substance abuse
 Add update profile/password page
+Add hospitalizations - Patient Medical History
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Parking List:

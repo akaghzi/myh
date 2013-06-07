@@ -13,7 +13,8 @@ class PatientsController < ApplicationController
     @contact_info = @patient.contact_info || @patient.create_contact_info
     @insurance_info = @patient.insurance_info || @patient.create_insurance_info
     @social_history = @patient.social_history || @patient.create_social_history
-    @allergies = @patient.allergies 
+    @allergies = @patient.allergies
+    @hospitalizations = @patient.hospitalizations 
     @current_medications = @patient.current_medications
     @medical_histories = @patient.medical_histories.self_history
     @family_histories = @patient.medical_histories.family_history 

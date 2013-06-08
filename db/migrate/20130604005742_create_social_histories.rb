@@ -14,6 +14,7 @@ class CreateSocialHistories < ActiveRecord::Migration
       t.string :pet
       t.boolean :living_with_family
       t.string :marital_status
+      t.text :note
 
       t.timestamps
     end

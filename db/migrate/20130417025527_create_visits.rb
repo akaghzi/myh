@@ -4,6 +4,8 @@ class CreateVisits < ActiveRecord::Migration
       t.integer :patient_id
       t.datetime :visit_date
       t.string :visit_reason
+      t.boolean :drug_allergy
+      t.boolean :drug_interaction
       t.text :visit_note
 
       t.timestamps

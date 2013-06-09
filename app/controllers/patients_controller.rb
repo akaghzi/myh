@@ -21,6 +21,7 @@ class PatientsController < ApplicationController
     @visits = @patient.visits    
     @vital_signs = VitalSign.where("visit_id in(?)", @patient.visit_ids)
     @lab_tests = VisitLabTestXref.where("visit_id in(?)", @patient.visit_ids)
+    @women_history
   end
 
   # GET /patients/new
@@ -92,8 +93,7 @@ class PatientsController < ApplicationController
                                       :gender, 
                                       :phone,
                                       :externalid, 
-                                      {:reg_answers_attributes => [:content,:patient_id, :reg_question_id]},
-                                      {:visits_attributes => [:visit_date, :visit_reason, :lab_test_ids,:visit_note]}
+                                      {:reg_answers_attributes => [:content,:patient_id, :reg_question_id]}
                                       )
     end
 end

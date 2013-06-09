@@ -15,7 +15,7 @@ class Patient < ActiveRecord::Base
   validates :gender, inclusion: {in: VALID_GENDER}
   validates :phone, format: {with: VALID_PHONE_REGEX}
   validates :first_name, :middle_name, :last_name, length: {maximum: 40}
-  validates :externalid, uniqueness: true
+  # validates :externalid, allow_null: true, uniqueness: true
   # validate :valid_date_of_birth
   accepts_nested_attributes_for :reg_answers
   before_save { |patient| patient.first_name = first_name.downcase }
@@ -30,6 +30,9 @@ class Patient < ActiveRecord::Base
     # Date.today.year-date_of_birth.year
     ((Date.today-date_of_birth)/365.25).to_i
   end
+  scope :women, -> {where("gender = 'female'")}
+  scope :mean,  -> {where("gender = 'male'")}
+  
   private
   def valid_date_of_birth
     errors.add(:date_of_birth, "must be a valid date of birth") if ((date_of_birth | Time.now) > Date.today )

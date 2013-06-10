@@ -31,14 +31,14 @@ class Patient < ActiveRecord::Base
   def age
     ((Date.today-date_of_birth)/365.25).to_i
   end
-  # def woman?
-  #   if 
-  #     gender = 'female' && age > 13
-  #     true
-  #   else
-  #     false
-  #   end
-  # end
+  def woman?
+    if 
+      gender == 'female' && age > 13
+      true
+    else
+      false
+    end
+  end
   scope :women, -> {where("gender = 'female'")}
   scope :men,  -> {where("gender = 'male'")}
   scope :children, -> {where("age <= 12")}

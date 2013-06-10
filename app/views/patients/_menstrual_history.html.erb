@@ -1,0 +1,27 @@
+<% if @menstrual_histories.blank? %>
+<h4 class="alert alert-info">
+	Mentrual History:&nbsp
+	<%= link_to 'Add Record', new_menstrual_history_path(patient_id: @patient.id), class: "btn btn-small btn-primary" %>
+</h4>
+<p>
+	No menstrual history information found on record
+</p>
+<% else %>
+<h4 class="alert alert-info">
+	Menstrual History:&nbsp
+	<%= link_to 'Edit', edit_menstrual_history_path(1), class: "btn btn-small btn-info" %>
+</h4>
+<table class="table table-condensed">
+	<tr>
+		<td>Period onset Age</td>
+		<td>Period Interval</td>
+	</tr>
+	<% @menstrual_histories.each do | menstrual_history | %>
+	<tr>
+		<td><%= menstrual_history.onset_age %></td>
+		<td><%= menstrual_history.period_interval %></td>
+	</tr>
+	<% end %>
+</table>
+<% end %>
+</span>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130607033415) do
+ActiveRecord::Schema.define(version: 20130609205646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,30 @@ ActiveRecord::Schema.define(version: 20130607033415) do
     t.datetime "updated_at"
   end
 
+  create_table "contraceptive_histories", force: true do |t|
+    t.integer  "patient_id"
+    t.boolean  "birth_control_pills"
+    t.string   "birth_control_pill_problems"
+    t.boolean  "patch"
+    t.string   "patch_problems"
+    t.boolean  "vaginal_ring"
+    t.string   "vaginal_ring_problems"
+    t.boolean  "condoms"
+    t.string   "condom_problems"
+    t.boolean  "withdrawal"
+    t.string   "withdrawal_problems"
+    t.boolean  "iud"
+    t.string   "iud_problems"
+    t.boolean  "norplant_implanon"
+    t.string   "norplat_implanon_problems"
+    t.boolean  "depo_provera_injection"
+    t.string   "depo_provera_injection_problems"
+    t.boolean  "emergency_contraception"
+    t.string   "emergency_contraception_problems"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "current_medications", force: true do |t|
     t.integer  "patient_id"
     t.string   "name"
@@ -53,6 +77,21 @@ ActiveRecord::Schema.define(version: 20130607033415) do
   end
 
   create_table "diseases", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "gynecology_histories", force: true do |t|
+    t.integer  "patient_id"
+    t.string   "problem_type"
+    t.date     "problem_date"
+    t.text     "followup"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "gynecology_problems", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -124,6 +163,17 @@ ActiveRecord::Schema.define(version: 20130607033415) do
     t.datetime "updated_at"
   end
 
+  create_table "menstrual_histories", force: true do |t|
+    t.integer  "patient_id"
+    t.integer  "onset_age"
+    t.boolean  "normal_first_day_of_last_period"
+    t.integer  "period_interval"
+    t.string   "problems_with_period"
+    t.string   "past_problems_with_period"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "patients", force: true do |t|
     t.string   "first_name"
     t.string   "middle_name"
@@ -133,6 +183,17 @@ ActiveRecord::Schema.define(version: 20130607033415) do
     t.string   "phone"
     t.string   "externalid"
     t.text     "summary"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pregnancy_histories", force: true do |t|
+    t.integer  "patient_id"
+    t.integer  "full_term_births"
+    t.integer  "preterm_births"
+    t.integer  "spont_miscarriages"
+    t.integer  "elective_abortions"
+    t.integer  "living_children"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

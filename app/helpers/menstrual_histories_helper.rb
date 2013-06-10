@@ -1,0 +1,2 @@
+module MenstrualHistoriesHelper
+end

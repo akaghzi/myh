@@ -1,0 +1,46 @@
+<%- model_class = MenstrualHistory -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:patient_id) %></th>
+      <th><%= model_class.human_attribute_name(:onset_age) %></th>
+      <th><%= model_class.human_attribute_name(:normal_first_day_of_last_period) %></th>
+      <th><%= model_class.human_attribute_name(:period_interval) %></th>
+      <th><%= model_class.human_attribute_name(:problems_with_period) %></th>
+      <th><%= model_class.human_attribute_name(:past_problems_with_period) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @menstrual_histories.each do |menstrual_history| %>
+      <tr>
+        <td><%= link_to menstrual_history.id, menstrual_history_path(menstrual_history) %></td>
+        <td><%= menstrual_history.patient_id %></td>
+        <td><%= menstrual_history.onset_age %></td>
+        <td><%= menstrual_history.normal_first_day_of_last_period %></td>
+        <td><%= menstrual_history.period_interval %></td>
+        <td><%= menstrual_history.problems_with_period %></td>
+        <td><%= menstrual_history.past_problems_with_period %></td>
+        <td><%=l menstrual_history.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_menstrual_history_path(menstrual_history), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      menstrual_history_path(menstrual_history),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_menstrual_history_path,
+            :class => 'btn btn-primary' %>

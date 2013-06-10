@@ -76,7 +76,35 @@
 		<% end %>
 </span>
 </div>
-<hr />
+<!-- <div class="row-fluid">
+	<h4 class="alert alert-error">
+		Drug Allergy and Interation
+	</h4>
+	<span class="span6">
+		<%#= if @visit.patient.allergies.blank? %>
+		<p> 
+			No allergy information found on record
+		</p>
+		<%# else %>
+		<p>
+			<strong>Crosschecked drug allergy:</strong>&nbsp
+		</p>
+		<%#= f.check_box :drug_allergy %> 
+		<%# end %>
+	</span>
+	<span class="span6">
+		<%#= if @visit.patient.current_medications.blank? %>
+		<p> 
+			No current medication information found on record
+		</p>
+		<%# else %>
+		<p>
+			<strong>Crosschecked drug interaction:</strong>&nbsp
+		</p>
+		<%#= f.check_box :drug_interaction %> 
+		<%# end %>
+	</span>
+</div> -->
 <div class="control-group">
 	<%= f.label :visit_note, :class => 'control-label' %>
 	<div class="controls">

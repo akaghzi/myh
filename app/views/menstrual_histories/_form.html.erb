@@ -1,0 +1,43 @@
+<%= form_for @menstrual_history, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.hidden_field :patient_id, :class => 'menstrual_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :onset_age, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :onset_age, [10,11,12,13,14,15,16,17,18,19,20],:class => 'select_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :normal_first_day_of_last_period, :class => 'control-label' %>
+    <div class="controls">
+      <%#= f.check_box_field :normal_first_day_of_last_period, :class => 'check_box_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :period_interval, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :period_interval, [10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35], :class => 'select_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :problems_with_period, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :problems_with_period, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :past_problems_with_period, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :past_problems_with_period, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                menstrual_histories_path, :class => 'btn' %>
+  </div>
+<% end %>

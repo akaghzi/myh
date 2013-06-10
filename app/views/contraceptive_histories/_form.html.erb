@@ -1,0 +1,122 @@
+<%= form_for @contraceptive_history, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :patient_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :patient_id, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :birth_control_pills, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :birth_control_pills, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :birth_control_pill_problems, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :birth_control_pill_problems, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :patch, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :patch, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :patch_problems, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :patch_problems, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :vaginal_ring, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :vaginal_ring, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :vaginal_ring_problems, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :vaginal_ring_problems, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :condoms, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :condoms, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :condom_problems, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :condom_problems, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :withdrawal, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :withdrawal, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :withdrawal_problems, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :withdrawal_problems, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :iud, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :iud, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :iud_problems, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :iud_problems, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :norplant_implanon, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :norplant_implanon, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :norplat_implanon_problems, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :norplat_implanon_problems, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :depo_provera_injection, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :depo_provera_injection, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :depo_provera_injection_problems, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :depo_provera_injection_problems, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :emergency_contraception, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :emergency_contraception, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :emergency_contraception_problems, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :emergency_contraception_problems, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                contraceptive_histories_path, :class => 'btn' %>
+  </div>
+<% end %>

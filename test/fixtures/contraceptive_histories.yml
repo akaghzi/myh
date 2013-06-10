@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  patient_id: 1
+  birth_control_pills: false
+  birth_control_pill_problems: MyString
+  patch: false
+  patch_problems: MyString
+  vaginal_ring: false
+  vaginal_ring_problems: MyString
+  condoms: false
+  condom_problems: MyString
+  withdrawal: false
+  withdrawal_problems: MyString
+  iud: false
+  iud_problems: MyString
+  norplant_implanon: false
+  norplat_implanon_problems: MyString
+  depo_provera_injection: false
+  depo_provera_injection_problems: MyString
+  emergency_contraception: false
+  emergency_contraception_problems: MyString
+
+two:
+  patient_id: 1
+  birth_control_pills: false
+  birth_control_pill_problems: MyString
+  patch: false
+  patch_problems: MyString
+  vaginal_ring: false
+  vaginal_ring_problems: MyString
+  condoms: false
+  condom_problems: MyString
+  withdrawal: false
+  withdrawal_problems: MyString
+  iud: false
+  iud_problems: MyString
+  norplant_implanon: false
+  norplat_implanon_problems: MyString
+  depo_provera_injection: false
+  depo_provera_injection_problems: MyString
+  emergency_contraception: false
+  emergency_contraception_problems: MyString

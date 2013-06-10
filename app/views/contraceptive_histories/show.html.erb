@@ -1,0 +1,57 @@
+<%- model_class = ContraceptiveHistory -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:patient_id) %>:</strong></dt>
+  <dd><%= @contraceptive_history.patient_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:birth_control_pills) %>:</strong></dt>
+  <dd><%= @contraceptive_history.birth_control_pills %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:birth_control_pill_problems) %>:</strong></dt>
+  <dd><%= @contraceptive_history.birth_control_pill_problems %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:patch) %>:</strong></dt>
+  <dd><%= @contraceptive_history.patch %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:patch_problems) %>:</strong></dt>
+  <dd><%= @contraceptive_history.patch_problems %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:vaginal_ring) %>:</strong></dt>
+  <dd><%= @contraceptive_history.vaginal_ring %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:vaginal_ring_problems) %>:</strong></dt>
+  <dd><%= @contraceptive_history.vaginal_ring_problems %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:condoms) %>:</strong></dt>
+  <dd><%= @contraceptive_history.condoms %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:condom_problems) %>:</strong></dt>
+  <dd><%= @contraceptive_history.condom_problems %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:withdrawal) %>:</strong></dt>
+  <dd><%= @contraceptive_history.withdrawal %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:withdrawal_problems) %>:</strong></dt>
+  <dd><%= @contraceptive_history.withdrawal_problems %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:iud) %>:</strong></dt>
+  <dd><%= @contraceptive_history.iud %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:iud_problems) %>:</strong></dt>
+  <dd><%= @contraceptive_history.iud_problems %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:norplant_implanon) %>:</strong></dt>
+  <dd><%= @contraceptive_history.norplant_implanon %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:norplat_implanon_problems) %>:</strong></dt>
+  <dd><%= @contraceptive_history.norplat_implanon_problems %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:depo_provera_injection) %>:</strong></dt>
+  <dd><%= @contraceptive_history.depo_provera_injection %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:depo_provera_injection_problems) %>:</strong></dt>
+  <dd><%= @contraceptive_history.depo_provera_injection_problems %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:emergency_contraception) %>:</strong></dt>
+  <dd><%= @contraceptive_history.emergency_contraception %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:emergency_contraception_problems) %>:</strong></dt>
+  <dd><%= @contraceptive_history.emergency_contraception_problems %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              contraceptive_histories_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_contraceptive_history_path(@contraceptive_history), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              contraceptive_history_path(@contraceptive_history),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

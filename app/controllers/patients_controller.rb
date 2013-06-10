@@ -18,6 +18,9 @@ class PatientsController < ApplicationController
     @current_medications = @patient.current_medications
     @medical_histories = @patient.medical_histories.self_history
     @family_histories = @patient.medical_histories.family_history 
+    @pregnancy_histories = @patient.pregnancy_histories
+    @gynecology_histories = @patient.gynecology_histories
+    @menstrual_histories = @patient.menstrual_histories
     @visits = @patient.visits    
     @vital_signs = VitalSign.where("visit_id in(?)", @patient.visit_ids)
     @lab_tests = VisitLabTestXref.where("visit_id in(?)", @patient.visit_ids)

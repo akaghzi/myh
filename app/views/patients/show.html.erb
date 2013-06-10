@@ -52,8 +52,15 @@
 	<%= render :partial => 'medical_history' %>	
 	<%= render :partial => 'family_history' %>	
 </div>
+<%# if patient.women? %>
 <div class="row-fluid">
-		<%= render :partial => 'social_history' %>
+	<%= render :partial => 'pregnancy_history' %>
+	<%= render :partial => 'gynecology_history' %>
+	<%= render :partial => 'menstrual_history' %>
+</div>
+<%# end %>
+<div class="row-fluid">
+	<%= render :partial => 'social_history' %>
 </div>
 <div class="row-fluid">	
 	<span class="span6">

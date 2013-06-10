@@ -1,0 +1,72 @@
+<%- model_class = ContraceptiveHistory -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:patient_id) %></th>
+      <th><%= model_class.human_attribute_name(:birth_control_pills) %></th>
+      <th><%= model_class.human_attribute_name(:birth_control_pill_problems) %></th>
+      <th><%= model_class.human_attribute_name(:patch) %></th>
+      <th><%= model_class.human_attribute_name(:patch_problems) %></th>
+      <th><%= model_class.human_attribute_name(:vaginal_ring) %></th>
+      <th><%= model_class.human_attribute_name(:vaginal_ring_problems) %></th>
+      <th><%= model_class.human_attribute_name(:condoms) %></th>
+      <th><%= model_class.human_attribute_name(:condom_problems) %></th>
+      <th><%= model_class.human_attribute_name(:withdrawal) %></th>
+      <th><%= model_class.human_attribute_name(:withdrawal_problems) %></th>
+      <th><%= model_class.human_attribute_name(:iud) %></th>
+      <th><%= model_class.human_attribute_name(:iud_problems) %></th>
+      <th><%= model_class.human_attribute_name(:norplant_implanon) %></th>
+      <th><%= model_class.human_attribute_name(:norplat_implanon_problems) %></th>
+      <th><%= model_class.human_attribute_name(:depo_provera_injection) %></th>
+      <th><%= model_class.human_attribute_name(:depo_provera_injection_problems) %></th>
+      <th><%= model_class.human_attribute_name(:emergency_contraception) %></th>
+      <th><%= model_class.human_attribute_name(:emergency_contraception_problems) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @contraceptive_histories.each do |contraceptive_history| %>
+      <tr>
+        <td><%= link_to contraceptive_history.id, contraceptive_history_path(contraceptive_history) %></td>
+        <td><%= contraceptive_history.patient_id %></td>
+        <td><%= contraceptive_history.birth_control_pills %></td>
+        <td><%= contraceptive_history.birth_control_pill_problems %></td>
+        <td><%= contraceptive_history.patch %></td>
+        <td><%= contraceptive_history.patch_problems %></td>
+        <td><%= contraceptive_history.vaginal_ring %></td>
+        <td><%= contraceptive_history.vaginal_ring_problems %></td>
+        <td><%= contraceptive_history.condoms %></td>
+        <td><%= contraceptive_history.condom_problems %></td>
+        <td><%= contraceptive_history.withdrawal %></td>
+        <td><%= contraceptive_history.withdrawal_problems %></td>
+        <td><%= contraceptive_history.iud %></td>
+        <td><%= contraceptive_history.iud_problems %></td>
+        <td><%= contraceptive_history.norplant_implanon %></td>
+        <td><%= contraceptive_history.norplat_implanon_problems %></td>
+        <td><%= contraceptive_history.depo_provera_injection %></td>
+        <td><%= contraceptive_history.depo_provera_injection_problems %></td>
+        <td><%= contraceptive_history.emergency_contraception %></td>
+        <td><%= contraceptive_history.emergency_contraception_problems %></td>
+        <td><%=l contraceptive_history.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_contraceptive_history_path(contraceptive_history), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      contraceptive_history_path(contraceptive_history),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_contraceptive_history_path,
+            :class => 'btn btn-primary' %>

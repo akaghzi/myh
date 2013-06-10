@@ -1,0 +1,43 @@
+<%= form_for @pregnancy_history, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.hidden_field :patient_id, :class => 'hidden_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :full_term_births, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :full_term_births,[0,1,2,3,4,5,6,7,8,9,10,11,12], :class => 'select_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :preterm_births, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :preterm_births,[0,1,2,3,4,5,6,7,8,9,10,11,12], :class => 'select_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :spont_miscarriages, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :spont_miscarriages,[0,1,2,3,4,5,6,7,8,9,10,11,12], :class => 'select_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :elective_abortions, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :elective_abortions,[0,1,2,3,4,5,6,7,8,9,10,11,12], :class => 'select_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :living_children, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :living_children,[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15], :class => 'select_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                patient_path(id: @pregnancy_history.patient_id), :class => 'btn' %>
+  </div>
+<% end %>

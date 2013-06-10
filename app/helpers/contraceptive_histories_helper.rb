@@ -1,0 +1,2 @@
+module ContraceptiveHistoriesHelper
+end

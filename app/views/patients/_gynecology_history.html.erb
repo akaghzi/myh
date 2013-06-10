@@ -1,0 +1,25 @@
+<h4 class="alert alert-info">
+	Gynecology History:&nbsp
+	<%= link_to 'Add Record', new_gynecology_history_path(patient_id: @patient.id), class: "btn btn-small btn-primary" %>
+</h4>
+<% if @gynecology_histories.blank? %>
+<p>
+	No gynecology history information found on record
+</p>
+<% else %>
+<table class="table table-condensed">
+	<tr>
+		<td>Problem Type</td>
+		<td>Problem Date</td>
+		<td>Followup</td>
+	</tr>
+	<% @gynecology_histories.each do | gynecology_history | %>
+	<tr>
+		<td><%= gynecology_history.problem_type %></td>
+		<td><%= gynecology_history.problem_date %></td>
+		<td><%= gynecology_history.followup %></td>
+	</tr>
+	<% end %>
+</table>
+<% end %>
+</span>

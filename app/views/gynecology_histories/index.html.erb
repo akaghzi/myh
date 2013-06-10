@@ -1,0 +1,42 @@
+<%- model_class = GynecologyHistory -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:patient_id) %></th>
+      <th><%= model_class.human_attribute_name(:problem_type) %></th>
+      <th><%= model_class.human_attribute_name(:problem_date) %></th>
+      <th><%= model_class.human_attribute_name(:followup) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @gynecology_histories.each do |gynecology_history| %>
+      <tr>
+        <td><%= link_to gynecology_history.id, gynecology_history_path(gynecology_history) %></td>
+        <td><%= gynecology_history.patient_id %></td>
+        <td><%= gynecology_history.problem_type %></td>
+        <td><%= gynecology_history.problem_date %></td>
+        <td><%= gynecology_history.followup %></td>
+        <td><%=l gynecology_history.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_gynecology_history_path(gynecology_history), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      gynecology_history_path(gynecology_history),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_gynecology_history_path,
+            :class => 'btn btn-primary' %>

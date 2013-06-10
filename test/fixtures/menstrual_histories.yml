@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  patient_id: 1
+  onset_age: 1
+  normal_first_day_of_last_period: false
+  period_interval: 1
+  problems_with_period: MyString
+  past_problems_with_period: MyString
+
+two:
+  patient_id: 1
+  onset_age: 1
+  normal_first_day_of_last_period: false
+  period_interval: 1
+  problems_with_period: MyString
+  past_problems_with_period: MyString

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  patient_id: 1
+  full_term_births: 1
+  preterm_births: 1
+  spont_miscarriages: 1
+  elective_abortions: 1
+  living_children: 1
+
+two:
+  patient_id: 1
+  full_term_births: 1
+  preterm_births: 1
+  spont_miscarriages: 1
+  elective_abortions: 1
+  living_children: 1

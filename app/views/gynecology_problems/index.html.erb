@@ -1,0 +1,27 @@
+<h1>Listing gynecology_problems</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gynecology_problems.each do |gynecology_problem| %>
+      <tr>
+        <td><%= gynecology_problem.name %></td>
+        <td><%= link_to 'Show', gynecology_problem %></td>
+        <td><%= link_to 'Edit', edit_gynecology_problem_path(gynecology_problem) %></td>
+        <td><%= link_to 'Destroy', gynecology_problem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gynecology problem', new_gynecology_problem_path %>

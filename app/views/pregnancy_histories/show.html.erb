@@ -1,11 +1,22 @@
 <%- model_class = PregnancyHistory -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+	<h4>
+		<span class="titlehighlight">
+			<%= @pregnancy_history.patient.full_name.titleize %>
+		</span>
+		<span class="bluehighlight">
+			<%= @pregnancy_history.patient.gender.titleize %>
+		</span>
+		<span class="titlehighlight">
+			<%= @pregnancy_history.patient.age %>
+		</span>
+		<span class="bluehighlight">
+			DOB:<%= @pregnancy_history.patient.date_of_birth %>
+		</span>
+	</h4>
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:patient_id) %>:</strong></dt>
-  <dd><%= @pregnancy_history.patient_id %></dd>
   <dt><strong><%= model_class.human_attribute_name(:full_term_births) %>:</strong></dt>
   <dd><%= @pregnancy_history.full_term_births %></dd>
   <dt><strong><%= model_class.human_attribute_name(:preterm_births) %>:</strong></dt>
@@ -23,9 +34,9 @@
               pregnancy_histories_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_pregnancy_history_path(@pregnancy_history), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+  <!-- <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               pregnancy_history_path(@pregnancy_history),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+              :class => 'btn btn-danger' %> -->
 </div>

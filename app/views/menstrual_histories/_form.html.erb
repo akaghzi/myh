@@ -13,7 +13,7 @@
   <div class="control-group">
     <%= f.label :normal_first_day_of_last_period, :class => 'control-label' %>
     <div class="controls">
-      <%#= f.check_box_field :normal_first_day_of_last_period, :class => 'check_box_field' %>
+      <%= f.check_box :normal_first_day_of_last_period, :class => 'check_box_field' %>
     </div>
   </div>
   <div class="control-group">
@@ -38,6 +38,6 @@
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                menstrual_histories_path, :class => 'btn' %>
+                patient_path(id: @menstrual_history.patient_id), :class => 'btn' %>
   </div>
 <% end %>

@@ -14,7 +14,9 @@ class ContraceptiveHistoriesController < ApplicationController
 
   # GET /contraceptive_histories/new
   def new
-    @contraceptive_history = ContraceptiveHistory.new
+    @patient = Patient.find(params[:patient_id])
+    @contraceptive_history = @patient.contraceptive_histories.build
+    # @contraceptive_history = ContraceptiveHistory.new
   end
 
   # GET /contraceptive_histories/1/edit
@@ -69,6 +71,6 @@ class ContraceptiveHistoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contraceptive_history_params
-      params.require(:contraceptive_history).permit(:patient_id, :birth_control_pills, :birth_control_pill_problems, :patch, :patch_problems, :vaginal_ring, :vaginal_ring_problems, :condoms, :condom_problems, :withdrawal, :withdrawal_problems, :iud, :iud_problems, :norplant_implanon, :norplat_implanon_problems, :depo_provera_injection, :depo_provera_injection_problems, :emergency_contraception, :emergency_contraception_problems)
+      params.require(:contraceptive_history).permit(:patient_id, :contraceptive_type, :contraceptive_problems)
     end
 end

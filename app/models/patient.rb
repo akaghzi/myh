@@ -13,6 +13,7 @@ class Patient < ActiveRecord::Base
   has_many :menstrual_histories
   has_many :pregnancy_histories
   has_many :gynecology_histories
+  has_many :contraceptive_histories
   validates :date_of_birth, :first_name, :last_name, :phone, :gender, presence: true
   validates :gender, inclusion: {in: VALID_GENDER}
   validates :phone, format: {with: VALID_PHONE_REGEX}

@@ -1,11 +1,22 @@
 <%- model_class = GynecologyHistory -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+	<h4>
+		<span class="titlehighlight">
+			<%= @gynecology_history.patient.full_name.titleize %>
+		</span>
+		<span class="bluehighlight">
+			<%= @gynecology_history.patient.gender.titleize %>
+		</span>
+		<span class="titlehighlight">
+			<%= @gynecology_history.patient.age %>
+		</span>
+		<span class="bluehighlight">
+			DOB:<%= @gynecology_history.patient.date_of_birth %>
+		</span>
+	</h4>
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:patient_id) %>:</strong></dt>
-  <dd><%= @gynecology_history.patient.full_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:problem_type) %>:</strong></dt>
   <dd><%= @gynecology_history.problem_type %></dd>
   <dt><strong><%= model_class.human_attribute_name(:problem_date) %>:</strong></dt>

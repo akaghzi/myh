@@ -1,5 +1,19 @@
 <%- model_class = VisitLabTestXref -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human %></h1>
+	<h4>
+		<span class="titlehighlight">
+			<%= @visit_lab_test_xref.patient.full_name.titleize %>
+		</span>
+		<span class="bluehighlight">
+			<%= @visit_lab_test_xref.patient.gender.titleize %>
+		</span>
+		<span class="titlehighlight">
+			<%= @visit_lab_test_xref.patient.age %>
+		</span>
+		<span class="bluehighlight">
+			DOB:<%= @visit_lab_test_xref.patient.date_of_birth %>
+		</span>
+	</h4>
 </div>
+
 <%= render :partial => 'form' %>

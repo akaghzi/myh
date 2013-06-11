@@ -6,7 +6,10 @@ class CreateVisits < ActiveRecord::Migration
       t.string :visit_reason
       t.boolean :drug_allergy
       t.boolean :drug_interaction
-      t.text :visit_note
+      t.text :s_note
+      t.text :o_note
+      t.text :a_note
+      t.text :p_note
 
       t.timestamps
     end

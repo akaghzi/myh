@@ -46,7 +46,7 @@ class VitalSignsController < ApplicationController
   def update
     respond_to do |format|
       if @vital_sign.update(vital_sign_params)
-        format.html { redirect_to @vital_sign, notice: 'Vital sign was successfully updated.' }
+        format.html { redirect_to edit_visit_path(id: @vital_sign.visit_id), notice: 'Vital sign was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

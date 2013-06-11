@@ -1,0 +1,36 @@
+<div class="span12">
+	<h4 class="alert">
+		Vital Signs:&nbsp
+		<%= link_to 'Add Record', new_vital_sign_path(visit_id: @visit.id), class: "btn btn-small btn-primary" %>		
+	</h4>
+	<% if @visit.vital_signs.blank? %>
+	<p>
+		No vital signs information found on record
+	</p>
+	<% else %>
+	<table class="table table-condensed">
+		<tr>
+			<td>Temperature[F]</td>
+			<td>Heart Rate[Per Min.]</td>
+			<td>BP Systolic[HHmg]</td>
+			<td>BP Diastolic[HHmg]</td>
+			<td>Respiratory Rate</td>
+			<td>Weight[Kg]</td>
+			<td>Height[cm]</td>
+			<td></td>
+		</tr>
+		<% @visit.vital_signs.each do | vital_sign | %>
+		<tr>
+			<td><%= vital_sign.temperature %></td>
+			<td><%= vital_sign.heart_rate %></td>
+			<td><%= vital_sign.bp_systolic %></td>
+			<td><%= vital_sign.bp_diastolic %></td>
+			<td><%= vital_sign.respiratory_rate %></td>
+			<td><%= vital_sign.weight %></td>
+			<td><%= vital_sign.height %></td>
+			<td><%= link_to 'Edit', edit_vital_sign_path(vital_sign.id), class: "btn btn-mini btn-info" %></td>
+		</tr>
+		<% end %>
+	</table>
+	<% end %>
+</div>

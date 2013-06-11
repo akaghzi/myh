@@ -18,7 +18,7 @@
 				<%= visit.visit_date.to_date %>
 			</td>
 			<td><%= visit.visit_reason.capitalize %></td>
-			<td><%= visit.visit_note %></td>
+			<td><%= simple_format visit.s_note %></td>
 			<td>
 				<% if visit.visit_date > DateTime.yesterday %>
 				<%= link_to 'Edit', edit_visit_path(visit), class: "btn btn-mini btn-info" %>

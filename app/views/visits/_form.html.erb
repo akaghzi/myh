@@ -9,108 +9,73 @@
 	</ul>
 </div>
 <% end %>
-<div class="control-group">
-	<%#= f.label :patient_id, :class => 'control-label' %>
-	<div class="controls">
-		<%= f.hidden_field :patient_id, :class => 'text_field' %>
+
+<%= f.hidden_field :patient_id, :class => 'text_field' %>
+<div class="row-fluid">
+	<div class="span6">
+		<%= f.label :visit_date %>
+		<div class="input-append date datetimepicker">
+			<%= f.text_field :visit_date, data: {:format => "yyyy-MM-dd hh:mm:ss"} %>
+			<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+		</div>
 	</div>
+	<div class="span6">
+		<%= f.label :visit_reason %>
+		<%= f.text_area :visit_reason, rows: 2, :class => 'input-xlarge' %>
+	</div>
+</div>
+<div class="row-fluid">
+	<%= render :partial => 'vital_signs' %>
+</div>
+<div class="row-fluid">
+	<h4 class="alert alert-info">
+		S.O.A.P. Notes:
 </div>
 
-<div class="control-group">
-	<%= f.label :visit_date, :class => 'control-label' %>
-	<div class="controls">
-	  <div class="input-append date datetimepicker">
-			<%= f.text_field :visit_date, data: {:format => "yyyy-MM-dd hh:mm:ss"} %>
-	    <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
-	  </div>
-	</div>
-</div>
-<div class="control-group">
-	<%= f.label :visit_reason, :class => 'control-label' %>
-	<div class="controls">
-		<%= f.text_field :visit_reason, :class => 'text_field' %>
-	</div>
-</div>
-<hr />
 <div class="row-fluid">
-	<span class="span6">
-		<h4 class="alert alert-block">Vital Signs</h4>
-		<% if @visit.vital_signs.blank? %>
-			<%= link_to 'Take Vitals', new_vital_sign_path(visit_id: @visit.id), class: "btn btn-primary" %>
-			<% else %>
-			<% @visit.vital_signs.each do | vital_sign |%>
-			<dl class="dl-horizontal">
-				<dt>Temperature[degree F]</dt>
-				<dd><%= vital_sign.temperature %></dd>
-				<dt>Heart Rate[per min]</dt>
-				<dd><%= vital_sign.heart_rate %></dd>
-				<dt>BP Systolic[HHmg]</dt>
-				<dd><%= vital_sign.bp_systolic %></dd>
-				<dt>BP Diastolic[HHmg]<dt>
-				<dd><%= vital_sign.bp_diastolic %></dd>
-				<dt>Respiratory Rate[per min]</dt>
-				<dd><%= vital_sign.respiratory_rate %></dd>
-				<dt>Weight[kg]</dt>
-				<dd><%= vital_sign.weight %></dd>
-				<dt>Height[cm]</dt>
-				<dd><%= vital_sign.height %></dd>
-			</dl>
-			<%= link_to 'Edit', edit_vital_sign_path(vital_sign), class: "btn btn-mini btn-info" %>
-			<% end %>
-		<% end %>
-</span>
-	<span class="span6">
-		<h4 class="alert alert-block">Lab Tests</h4>
-		<% if @visit.lab_tests.blank? %>
-		<%= link_to 'Order Lab Tests', visit_order_lab_tests_path(@visit), class: "btn btn-primary" %>
-			<% else %>
-			<p>
-				Ordered Lab Tests:
-			</p>
-			<ul class="ul-horizontal">
-				<% @visit.lab_tests.each do | lab_test |%>
-				<li><%= lab_test.full_name %></li>
-				<% end %>
-			</ul>
-			<%= link_to 'Edit', visit_order_lab_tests_path(@visit), class: "btn btn-mini btn-info" %>
-		<% end %>
-</span>
-</div>
-<!-- <div class="row-fluid">
-	<h4 class="alert alert-error">
-		Drug Allergy and Interation
-	</h4>
-	<span class="span6">
-		<%#= if @visit.patient.allergies.blank? %>
-		<p> 
-			No allergy information found on record
-		</p>
-		<%# else %>
-		<p>
-			<strong>Crosschecked drug allergy:</strong>&nbsp
-		</p>
-		<%#= f.check_box :drug_allergy %> 
-		<%# end %>
-	</span>
-	<span class="span6">
-		<%#= if @visit.patient.current_medications.blank? %>
-		<p> 
-			No current medication information found on record
-		</p>
-		<%# else %>
-		<p>
-			<strong>Crosschecked drug interaction:</strong>&nbsp
-		</p>
-		<%#= f.check_box :drug_interaction %> 
-		<%# end %>
-	</span>
-</div> -->
-<div class="control-group">
-	<%= f.label :visit_note, :class => 'control-label' %>
-	<div class="controls">
-		<%= f.text_area :visit_note, rows: 4, :class => 'input-xxlarge' %>
+	<div class="span12">
+		<div class="span6">
+			<div class="control-group">
+				<%= f.label 'Subjective:', class: 'control-label' %>
+				<div class="controls">
+					<%= f.text_area :s_note, rows: 4, class: "input-xlarge" %>
+				</div>
+			</div>
+		</div>
+		<div class="span6">
+			<div class="control-group">
+				<%= f.label 'Objective:', class: 'control-label' %>
+				<div class="controls">
+					<%= f.text_area :o_note, rows: 4, class: "input-xlarge" %>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
+<div class="row-fluid">
+	<div class="span12">
+		<div class="span6">
+			<div class="control-group">
+				<%= f.label 'Assesment:', class: 'control-label' %>
+				<div class="controls">
+					<%= f.text_area :a_note, rows: 4, class: "input-xlarge" %>
+				</div>
+			</div>
+		</div>
+		<div class="span6">
+			<div class="control-group">
+				<%= f.label 'Plan:', class: 'control-label' %>
+				<div class="controls">
+					<%= f.text_area :p_note, rows: 4, class: "input-xlarge" %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row-fluid">
+	<%= render :partial => 'lab_tests' %>
+</div>
+
 <div class="form-actions">
 	<%= link_to 'Back', patient_path(@visit.patient_id), class: "btn"%>
 	<%= f.submit nil, :class => 'btn btn-primary' %>

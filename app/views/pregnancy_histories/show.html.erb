@@ -17,6 +17,8 @@
 </div>
 
 <dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:currently_pregnant) %>:</strong></dt>
+  <dd><%= @pregnancy_history.currently_pregnant %></dd>
   <dt><strong><%= model_class.human_attribute_name(:full_term_births) %>:</strong></dt>
   <dd><%= @pregnancy_history.full_term_births %></dd>
   <dt><strong><%= model_class.human_attribute_name(:preterm_births) %>:</strong></dt>
@@ -31,7 +33,7 @@
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              pregnancy_histories_path, :class => 'btn'  %>
+              patient_path(id: @pregnancy_history.patient_id), :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_pregnancy_history_path(@pregnancy_history), :class => 'btn' %>
   <!-- <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

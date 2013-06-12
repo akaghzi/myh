@@ -30,7 +30,7 @@ class PregnancyHistoriesController < ApplicationController
 
     respond_to do |format|
       if @pregnancy_history.save
-        format.html { redirect_to @pregnancy_history, notice: 'Pregnancy history was successfully created.' }
+        format.html { redirect_to patient_path(id: @pregnancy_history.patient_id), notice: 'Pregnancy history was successfully created.' }
         format.json { render action: 'show', status: :created, location: @pregnancy_history }
       else
         format.html { render action: 'new' }
@@ -44,7 +44,7 @@ class PregnancyHistoriesController < ApplicationController
   def update
     respond_to do |format|
       if @pregnancy_history.update(pregnancy_history_params)
-        format.html { redirect_to @pregnancy_history, notice: 'Pregnancy history was successfully updated.' }
+        format.html { redirect_to patient_path(id: @pregnancy_history.patient_id), notice: 'Pregnancy history was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -71,6 +71,7 @@ class PregnancyHistoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pregnancy_history_params
-      params.require(:pregnancy_history).permit(:patient_id, :full_term_births, :preterm_births, :spont_miscarriages, :elective_abortions, :living_children)
+      params.require(:pregnancy_history).permit(:patient_id, :currently_pregnant, :full_term_births, :preterm_births, 
+                                                :spont_miscarriages, :elective_abortions, :living_children)
     end
 end

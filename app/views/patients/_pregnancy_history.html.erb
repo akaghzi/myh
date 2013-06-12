@@ -14,6 +14,7 @@
 	</h4>
 	<table class="table table-condensed">
 		<tr>
+			<td>Currently Pregnant</td>
 			<td>Full-term Births</td>
 			<td>Pre-term Births</td>
 			<td>Spont. Miscarriages</td>
@@ -22,6 +23,7 @@
 		</tr>
 		<% @pregnancy_histories.each do | pregnancy_history | %>
 		<tr>
+			<td><%= pregnancy_history.currently_pregnant %></td>
 			<td><%= pregnancy_history.full_term_births %></td>
 			<td><%= pregnancy_history.preterm_births %></td>
 			<td><%= pregnancy_history.spont_miscarriages %></td>

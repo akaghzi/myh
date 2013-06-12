@@ -179,6 +179,7 @@ ActiveRecord::Schema.define(version: 20130610065436) do
 
   create_table "pregnancy_histories", force: true do |t|
     t.integer  "patient_id"
+    t.boolean  "currently_pregnant"
     t.integer  "full_term_births"
     t.integer  "preterm_births"
     t.integer  "spont_miscarriages"

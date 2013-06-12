@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  patient_id: 1
+  appointment_time: 2013-06-11 23:21:11
+  appointment_type: MyString
+
+two:
+  user_id: 1
+  patient_id: 1
+  appointment_time: 2013-06-11 23:21:11
+  appointment_type: MyString

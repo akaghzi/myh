@@ -40,6 +40,7 @@
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                       patient_path(patient), :class => 'btn btn-mini btn-success' %>
+          <%= link_to 'Add Appointment', new_appointment_path(patient_id: patient), class: "btn btn-mini btn-primary" %>
           <%#= link_to t('.destroy', :default => t("helpers.links.destroy")),
               patient_path(patient),
               :method => :delete,

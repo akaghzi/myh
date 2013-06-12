@@ -1,0 +1,46 @@
+<%= form_for @appointment, :html => { :class => 'form-horizontal' } do |f| %>
+<% if @appointment.errors.any? %>
+<div class="alert">
+	<h4><%= pluralize(@appointment.errors.count, "error") %> prohibited this visit from being saved:</h4>
+	<ul>
+		<% @appointment.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<div class="control-group">
+	<%= f.hidden_field :user_id, :class => 'hidden_field' %>
+</div>
+<div class="control-group">
+		<%= f.hidden_field :patient_id, class: "hidden_field" %>
+</div>
+<div class="control-group">
+	<%= f.label :appointment_time, :class => 'control-label' %>
+	<div class="controls">
+		<div class="input-append date datetimepicker">
+			<%= f.text_field :appointment_time, data: {:format => "yyyy-MM-dd hh:mm:ss"} %>
+			<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+		</div>
+	</div>	
+</div>
+<div class="control-group">
+	<%= f.label :appointment_type, :class => 'control-label' %>
+	<div class="controls">
+		<%= f.select :appointment_type, ["walkin","annual","normal","discuss"], :class => 'text_field' %>
+	</div>
+</div>
+<div class="control-group">
+	<%= f.label :appointment_reason, :class => 'control-label' %>
+	<div class="controls">
+		<%= f.text_area :appointment_reason, rows: 2, :class => 'input-xxlarge' %>
+	</div>
+</div>
+
+<div class="form-actions">
+	<%= f.submit nil, :class => 'btn btn-primary' %>
+	<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+	appointments_path, :class => 'btn' %>
+</div>
+<% end %>

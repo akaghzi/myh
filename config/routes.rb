@@ -1,4 +1,6 @@
 Myh::Application.routes.draw do  
+  resources :appointments
+
   resources :contraceptives
 
   resources :gynecology_problems

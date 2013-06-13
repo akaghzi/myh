@@ -6,7 +6,8 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:patient_id) %></th>
-      <th><%= model_class.human_attribute_name(:appointment_time) %></th>
+      <th><%= model_class.human_attribute_name(:appointment_date) %></th>
+      <th><%= model_class.human_attribute_name(:appointment_slot_id) %></th>
       <th><%= model_class.human_attribute_name(:appointment_type) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -16,7 +17,8 @@
     <% @appointments.each do |appointment| %>
       <tr>
         <td><%= link_to appointment.patient.full_name.titleize, patient_path(id: appointment.patient_id) %></td>
-        <td><%= appointment.appointment_time %></td>
+        <td><%= appointment.appointment_date %></td>
+        <td><%= appointment.appointment_slot.name %></td>
         <td><%= appointment.appointment_type.titleize %></td>
         <td><%= appointment.created_at %></td>
         <td>

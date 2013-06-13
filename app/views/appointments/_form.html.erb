@@ -17,12 +17,15 @@
 		<%= f.hidden_field :patient_id, class: "hidden_field" %>
 </div>
 <div class="control-group">
-	<%= f.label :appointment_time, :class => 'control-label' %>
+	<%= f.label :appointment_date, :class => 'control-label' %>
 	<div class="controls">
-		<div class="input-append date datetimepicker">
-			<%= f.text_field :appointment_time, data: {:format => "yyyy-MM-dd hh:mm:ss"} %>
-			<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
-		</div>
+			<%= f.date_field :appointment_date, class: "date_field" %>
+	</div>	
+</div>
+<div class="control-group">
+	<%= f.label :appointment_slot_id, :class => 'control-label' %>
+	<div class="controls">
+			<%= f.collection_select(:appointment_slot_id, AppointmentSlot.all, :id, :name) %>
 	</div>	
 </div>
 <div class="control-group">

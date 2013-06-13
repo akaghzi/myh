@@ -1,4 +1,6 @@
 Myh::Application.routes.draw do  
+  resources :appointment_slots
+
   resources :appointments
 
   resources :contraceptives

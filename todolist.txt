@@ -6,6 +6,11 @@ Add lab work categorised on patient show page into ordered, received and reviewe
 Add Lab Test workflow:
   add tests ordered_on and reviewed_on
 Add tests done recently by other providers
+Add validation for dates for:
+	patient DOB
+	appointment date
+	visit date
+	
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Done:
 Add user authentication

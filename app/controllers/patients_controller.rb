@@ -97,6 +97,7 @@ class PatientsController < ApplicationController
                                       :gender, 
                                       :phone,
                                       :externalid, 
+                                      :summary,
                                       {:reg_answers_attributes => [:content,:patient_id, :reg_question_id]}
                                       )
     end

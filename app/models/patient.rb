@@ -19,7 +19,8 @@ class Patient < ActiveRecord::Base
   validates :gender, inclusion: {in: VALID_GENDER}
   validates :phone, format: {with: VALID_PHONE_REGEX}
   validates :first_name, :middle_name, :last_name, length: {maximum: 40}
-  validates :age, inclusion: {in: 0..120, message: " is not in normal range of 0 to 120 years"}
+  # validates :age, inclusion: {in: 0..120, message: " is not in normal range of 0 to 120 years"}
+  validate :check_dob
   # validates :externalid, allow_null: true, uniqueness: true
   accepts_nested_attributes_for :reg_answers
   before_save { |patient| patient.first_name = first_name.downcase }
@@ -40,6 +41,9 @@ class Patient < ActiveRecord::Base
     else
       false
     end
+  end
+  def check_dob
+    self.errors.add(:date_of_birth, "is invalid") if date_of_birth > Date.today
   end
   scope :women, -> {where("gender = 'female'")}
   scope :men,  -> {where("gender = 'male'")}

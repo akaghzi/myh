@@ -7,10 +7,8 @@ Add Lab Test workflow:
   add tests ordered_on and reviewed_on
 Add tests done recently by other providers
 Add validation for dates for:
-	patient DOB
-	appointment date
 	visit date
-	
+Add search for appointments	
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Done:
 Add user authentication
@@ -39,6 +37,9 @@ Add social history
 Add update profile/password page
 Add hospitalizations - Patient Medical History
 Add currently pregnant to pregnancy history
+Add validation for dates for:
+	appointment date
+	patient DOB
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Parking List:

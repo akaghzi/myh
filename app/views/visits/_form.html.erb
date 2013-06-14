@@ -12,42 +12,40 @@
 
 <%= f.hidden_field :patient_id, :class => 'text_field' %>
 <div class="row-fluid">
-	<div class="span6">
-		<%= f.label :visit_date %>
+	<div class="span12">
+		Visit Date:&nbsp
 		<div class="input-append date datetimepicker">
 			<%= f.text_field :visit_date, data: {:format => "yyyy-MM-dd hh:mm:ss"} %>
 			<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
 		</div>
-	</div>
-	<div class="span6">
-		<%= f.label :visit_reason %>
-		<%= f.text_area :visit_reason, rows: 2, :class => 'input-xlarge' %>
+		Visit Reason:&nbsp<%= f.text_area :visit_reason, class: "input-xxlarge" %>
 	</div>
 </div>
 <div class="row-fluid">
 	<%= render :partial => 'vital_signs' %>
 </div>
 <div class="row-fluid">
-	<h4 class="alert alert-info">
-		S.O.A.P. Notes:
+	<div class="span12">
+		<h4 class="alert alert-info">
+			S.O.A.P. Notes:
+		</h4>
+	</div>
 </div>
 
 <div class="row-fluid">
-	<div class="span12">
-		<div class="span6">
-			<div class="control-group">
-				<%= f.label 'Subjective:', class: 'control-label' %>
-				<div class="controls">
-					<%= f.text_area :s_note, rows: 4, class: "input-xlarge" %>
-				</div>
+	<div class="span6">
+		<div class="control-group">
+			<%= f.label 'Subjective:', class: 'control-label' %>
+			<div class="controls">
+				<%= f.text_area :s_note, rows: 6, class: "input-xlarge" %>
 			</div>
 		</div>
-		<div class="span6">
-			<div class="control-group">
-				<%= f.label 'Objective:', class: 'control-label' %>
-				<div class="controls">
-					<%= f.text_area :o_note, rows: 4, class: "input-xlarge" %>
-				</div>
+	</div>
+	<div class="span6">
+		<div class="control-group">
+			<%= f.label 'Objective:', class: 'control-label' %>
+			<div class="controls">
+				<%= f.text_area :o_note, rows: 6, class: "input-xlarge" %>
 			</div>
 		</div>
 	</div>
@@ -58,7 +56,7 @@
 			<div class="control-group">
 				<%= f.label 'Assesment:', class: 'control-label' %>
 				<div class="controls">
-					<%= f.text_area :a_note, rows: 4, class: "input-xlarge" %>
+					<%= f.text_area :a_note, rows: 6, class: "input-xlarge" %>
 				</div>
 			</div>
 		</div>
@@ -66,7 +64,7 @@
 			<div class="control-group">
 				<%= f.label 'Plan:', class: 'control-label' %>
 				<div class="controls">
-					<%= f.text_area :p_note, rows: 4, class: "input-xlarge" %>
+					<%= f.text_area :p_note, rows: 6, class: "input-xlarge" %>
 				</div>
 			</div>
 		</div>

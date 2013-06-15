@@ -16,9 +16,9 @@ class MedicalHistoriesController < ApplicationController
   def new
     # find patient
     @patient = Patient.find(params[:patient_id])
-    sof = params[:self_or_family]
+    sof = params[:relationship_id]
     # build the medical history for the patient
-    @medical_history = @patient.medical_histories.build(patient_id: @patient.id, self_or_family: sof)
+    @medical_history = @patient.medical_histories.build(patient_id: @patient.id, relationship_id: sof)
     # @medical_history = MedicalHistory.new
   end
 
@@ -74,6 +74,6 @@ class MedicalHistoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medical_history_params
-      params.require(:medical_history).permit(:patient_id, :disease, :diagnosed_at, :cured_at, :self_or_family)
+      params.require(:medical_history).permit(:patient_id, :disease_id, :diagnosed_at, :cured_at, :relationship_id)
     end
 end

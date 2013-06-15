@@ -1,7 +1,7 @@
 <span class="span6">
 	<h4 class="alert alert-info">
 		Family History:&nbsp
-		<%= link_to 'Add Record', new_medical_history_path(patient_id: @patient.id), 
+		<%= link_to 'Add Record', new_medical_history_path(patient_id: @patient.id, relationship_id: 2), 
 		class: "btn btn-small btn-primary" %>	
 		</h4>
 		<% if @family_histories.blank? %>
@@ -17,10 +17,10 @@
 			<% @family_histories.each do | family_history |%>
 			<tr>
 				<td>
-					<%= family_history.disease %>
+					<%= family_history.disease.name %>
 					
 				</td>
-				<td><%= family_history.self_or_family %></td>
+				<td><%= family_history.relationship.name %></td>
 				<td><%= family_history.diagnosed_at %></td>
 				<td><%= link_to 'Edit', edit_medical_history_path(family_history.id), :class => 'btn btn-mini btn-info' %></td>
 			</tr>

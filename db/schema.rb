@@ -44,7 +44,9 @@ ActiveRecord::Schema.define(version: 20130613044731) do
     t.datetime "updated_at"
   end
 
+  add_index "appointments", ["appointment_slot_id"], name: "index_appointments_on_appointment_slot_id", using: :btree
   add_index "appointments", ["patient_id"], name: "index_appointments_on_patient_id", using: :btree
+  add_index "appointments", ["user_id"], name: "index_appointments_on_user_id", using: :btree
 
   create_table "contact_infos", force: true do |t|
     t.integer  "patient_id"
@@ -73,6 +75,7 @@ ActiveRecord::Schema.define(version: 20130613044731) do
     t.datetime "updated_at"
   end
 
+  add_index "contraceptive_histories", ["contraceptive_id"], name: "index_contraceptive_histories_on_contraceptive_id", using: :btree
   add_index "contraceptive_histories", ["patient_id"], name: "index_contraceptive_histories_on_patient_id", using: :btree
 
   create_table "contraceptives", force: true do |t|
@@ -91,6 +94,8 @@ ActiveRecord::Schema.define(version: 20130613044731) do
     t.datetime "updated_at"
   end
 
+  add_index "current_medications", ["medication_frequency_id"], name: "index_current_medications_on_medication_frequency_id", using: :btree
+  add_index "current_medications", ["medication_route_id"], name: "index_current_medications_on_medication_route_id", using: :btree
   add_index "current_medications", ["patient_id"], name: "index_current_medications_on_patient_id", using: :btree
 
   create_table "diseases", force: true do |t|
@@ -108,6 +113,7 @@ ActiveRecord::Schema.define(version: 20130613044731) do
     t.datetime "updated_at"
   end
 
+  add_index "gynecology_histories", ["gynecology_problem_id"], name: "index_gynecology_histories_on_gynecology_problem_id", using: :btree
   add_index "gynecology_histories", ["patient_id"], name: "index_gynecology_histories_on_patient_id", using: :btree
 
   create_table "gynecology_problems", force: true do |t|
@@ -137,6 +143,7 @@ ActiveRecord::Schema.define(version: 20130613044731) do
   end
 
   add_index "immunizations", ["patient_id"], name: "index_immunizations_on_patient_id", using: :btree
+  add_index "immunizations", ["vaccine_id"], name: "index_immunizations_on_vaccine_id", using: :btree
 
   create_table "insurance_infos", force: true do |t|
     t.integer  "patient_id"
@@ -162,15 +169,17 @@ ActiveRecord::Schema.define(version: 20130613044731) do
 
   create_table "medical_histories", force: true do |t|
     t.integer  "patient_id"
+    t.integer  "relationship_id"
     t.integer  "disease_id"
     t.date     "diagnosed_at"
     t.date     "cured_at"
-    t.integer  "relationship_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "medical_histories", ["disease_id"], name: "index_medical_histories_on_disease_id", using: :btree
   add_index "medical_histories", ["patient_id"], name: "index_medical_histories_on_patient_id", using: :btree
+  add_index "medical_histories", ["relationship_id"], name: "index_medical_histories_on_relationship_id", using: :btree
 
   create_table "medication_frequencies", force: true do |t|
     t.string   "full_name"
@@ -237,6 +246,7 @@ ActiveRecord::Schema.define(version: 20130613044731) do
   end
 
   add_index "reg_answers", ["patient_id"], name: "index_reg_answers_on_patient_id", using: :btree
+  add_index "reg_answers", ["reg_question_id"], name: "index_reg_answers_on_reg_question_id", using: :btree
 
   create_table "reg_questions", force: true do |t|
     t.string   "content"
@@ -309,6 +319,9 @@ ActiveRecord::Schema.define(version: 20130613044731) do
     t.datetime "updated_at"
   end
 
+  add_index "visit_lab_test_xrefs", ["lab_test_id"], name: "index_visit_lab_test_xrefs_on_lab_test_id", using: :btree
+  add_index "visit_lab_test_xrefs", ["visit_id"], name: "index_visit_lab_test_xrefs_on_visit_id", using: :btree
+
   create_table "visits", force: true do |t|
     t.integer  "patient_id"
     t.integer  "appointment_id"
@@ -324,6 +337,7 @@ ActiveRecord::Schema.define(version: 20130613044731) do
     t.datetime "updated_at"
   end
 
+  add_index "visits", ["appointment_id"], name: "index_visits_on_appointment_id", using: :btree
   add_index "visits", ["patient_id"], name: "index_visits_on_patient_id", using: :btree
 
   create_table "vital_signs", force: true do |t|
@@ -338,5 +352,7 @@ ActiveRecord::Schema.define(version: 20130613044731) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "vital_signs", ["visit_id"], name: "index_vital_signs_on_visit_id", using: :btree
 
 end

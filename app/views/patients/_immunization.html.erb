@@ -15,7 +15,7 @@
 			<% @immunizations.each do | immunization |%>
 			<tr>
 				<td>
-					<%= immunization.immunization_for %>
+					<%= immunization.vaccine.name %>
 				</td>
 				<td><%= immunization.immunization_year %></td>
 				<td><%= link_to 'Edit', edit_immunization_path(immunization.id), :class => 'btn btn-mini btn-info' %></td>

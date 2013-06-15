@@ -17,7 +17,7 @@ class ImmunizationsController < ApplicationController
     # find patient for the visit
     @patient = Patient.find(params[:patient_id])
     # build the immunization for the patient
-    @immunization = @patient.immunizations.build(patient_id: @patient.id)
+    @immunization = @patient.immunizations.build
 #    @immunization = Immunization.new
   end
 

@@ -14,10 +14,10 @@ class CurrentMedicationsController < ApplicationController
 
   # GET /current_medications/new
   def new
-    # find patient for the allergy
+    # find patient for the current_medication
     @patient = Patient.find(params[:patient_id])
-    # build the allergy for the patient
-    @current_medication = @patient.current_medications.build(patient_id: @patient.id)
+    # build the current_medication for the patient
+    @current_medication = @patient.current_medications.build
     # @current_medication = CurrentMedication.new
   end
 
@@ -32,7 +32,7 @@ class CurrentMedicationsController < ApplicationController
 
     respond_to do |format|
       if @current_medication.save
-        format.html { redirect_to @current_medication, notice: 'Current medication was successfully created.' }
+        format.html { redirect_to patient_path(id: @current_medication.patient_id), notice: 'Current medication was successfully created.' }
         format.json { render action: 'show', status: :created, location: @current_medication }
       else
         format.html { render action: 'new' }
@@ -46,7 +46,7 @@ class CurrentMedicationsController < ApplicationController
   def update
     respond_to do |format|
       if @current_medication.update(current_medication_params)
-        format.html { redirect_to @current_medication, notice: 'Current medication was successfully updated.' }
+        format.html { redirect_to patient_path(id: @current_medication.patient_id), notice: 'Current medication was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -73,6 +73,6 @@ class CurrentMedicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def current_medication_params
-      params.require(:current_medication).permit(:patient_id, :name, :dosage, :frequency, :route)
+      params.require(:current_medication).permit(:patient_id, :name, :dosage, :medication_frequency_id, :medication_route_id)
     end
 end

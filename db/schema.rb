@@ -75,10 +75,10 @@ ActiveRecord::Schema.define(version: 20130613044731) do
 
   create_table "current_medications", force: true do |t|
     t.integer  "patient_id"
+    t.integer  "medication_route_id"
+    t.integer  "medication_frequency_id"
     t.string   "name"
     t.string   "dosage"
-    t.string   "frequency"
-    t.string   "route"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -285,7 +285,8 @@ ActiveRecord::Schema.define(version: 20130613044731) do
 
   create_table "visits", force: true do |t|
     t.integer  "patient_id"
-    t.datetime "visit_date"
+    t.integer  "appointment_id"
+    t.datetime "visited_at"
     t.string   "visit_reason"
     t.boolean  "drug_allergy"
     t.boolean  "drug_interaction"

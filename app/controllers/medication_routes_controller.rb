@@ -53,13 +53,13 @@ class MedicationRoutesController < ApplicationController
 
   # DELETE /medication_routes/1
   # DELETE /medication_routes/1.json
-  def destroy
-    @medication_route.destroy
-    respond_to do |format|
-      format.html { redirect_to medication_routes_url }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @medication_route.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to medication_routes_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -69,6 +69,6 @@ class MedicationRoutesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medication_route_params
-      params.require(:medication_route).permit(:name)
+      params.require(:medication_route).permit(:full_name, :description, :short_name)
     end
 end

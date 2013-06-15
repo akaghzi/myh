@@ -9,40 +9,35 @@
 	</ul>
 </div>
 <% end %>
-  <div class="control-group">
-    <%#= f.label :patient_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.hidden_field :patient_id, :class => 'hidden_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :dosage, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :dosage, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :frequency, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.collection_select(:frequency, MedicationFrequency.all, :short_name, :full_name) %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :route, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.collection_select(:route, MedicationRoute.all, :short_name, :full_name) %>
-    </div>
-  </div>
+<%= f.hidden_field :patient_id, :class => 'hidden_field' %>
+<div class="control-group">
+	<%= f.label :name, :class => 'control-label' %>
+	<div class="controls">
+		<%= f.text_field :name, :class => 'text_field' %>
+	</div>
+</div>
+<div class="control-group">
+	<%= f.label :dosage, :class => 'control-label' %>
+	<div class="controls">
+		<%= f.text_field :dosage, :class => 'text_field' %>
+	</div>
+</div>
+<div class="control-group">
+	<%= f.label :mediation_frequency_id, :class => 'control-label' %>
+	<div class="controls">
+		<%= f.collection_select(:medication_frequency_id, MedicationFrequency.all, :id, :full_name) %>
+	</div>
+</div>
+<div class="control-group">
+	<%= f.label :medication_route_id, :class => 'control-label' %>
+	<div class="controls">
+		<%= f.collection_select(:medication_route_id, MedicationRoute.all, :id, :full_name) %>
+	</div>
+</div>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                patient_path(id: @current_medication.patient.id), :class => 'btn' %>
-  </div>
+<div class="form-actions">
+	<%= f.submit nil, :class => 'btn btn-primary' %>
+	<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+	patient_path(id: @current_medication.patient.id), :class => 'btn' %>
+</div>
 <% end %>

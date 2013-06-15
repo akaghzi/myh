@@ -10,14 +10,16 @@
 </div>
 <% end %>
 
-<%= f.hidden_field :patient_id, :class => 'text_field' %>
+<%= f.hidden_field :patient_id, :class => 'hidden_field' %>
+<%= f.hidden_field :appointment_id, class: "hidden_field" %>
+<%= f.hidden_field :visited_at, class: "hidden_field" %>
 <div class="row-fluid">
 	<div class="span12">
-		Visit Date:&nbsp
+		<!-- Visit Date:&nbsp
 		<div class="input-append date datetimepicker">
-			<%= f.text_field :visit_date, data: {:format => "yyyy-MM-dd hh:mm:ss"} %>
+			
 			<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
-		</div>
+		</div> -->
 		Visit Reason:&nbsp<%= f.text_area :visit_reason, class: "input-xxlarge" %>
 	</div>
 </div>

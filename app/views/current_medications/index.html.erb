@@ -10,6 +10,7 @@
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:dosage) %></th>
       <th><%= model_class.human_attribute_name(:frequency) %></th>
+      <th><%= model_class.human_attribute_name(:route) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -22,6 +23,7 @@
         <td><%= current_medication.name %></td>
         <td><%= current_medication.dosage %></td>
         <td><%= current_medication.frequency %></td>
+        <td><%= current_medication.route %></td>
         <td><%=l current_medication.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

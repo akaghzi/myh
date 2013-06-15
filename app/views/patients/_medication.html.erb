@@ -17,9 +17,9 @@
 			<dt>Dosage:</dt>
 			<dd><%= current_medication.dosage %></dd>
 			<dt>Frequency:</dt>
-			<dd><%= current_medication.frequency %></dd>
+			<dd><%= current_medication.medication_frequency.short_name %></dd>
 			<dt>Route:</dt>
-			<dd><%= current_medication.route %></dd>
+			<dd><%= current_medication.medication_route.short_name.downcase %></dd>
 		</dl>
 		<% end %>
 	</span>

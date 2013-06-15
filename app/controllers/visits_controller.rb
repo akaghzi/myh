@@ -4,7 +4,7 @@ class VisitsController < ApplicationController
   # GET /visits
   # GET /visits.json
   def index
-    @visits = Visit.order("visit_date")
+    @visits = Visit.order("visited_at")
   end
 
   # GET /visits/1
@@ -14,11 +14,10 @@ class VisitsController < ApplicationController
 
   # GET /visits/new
   def new
-    # find patient for the visit
-    @patient = Patient.find(params[:patient_id])
-    # build the visit for the patient
-    @visit = @patient.visits.build(patient_id: @patient.id)
-    # @visit = Visit.new
+    @visit = Visit.create(patient_id: (params[:patient_id]), 
+                          appointment_id: (params[:appointment_id]),
+                          visited_at: Time.now.to_datetime, 
+                          visit_reason: (params[:visit_reason]))
   end
 
   # GET /visits/1/edit
@@ -83,7 +82,8 @@ class VisitsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def visit_params
-    params.require(:visit).permit(:patient_id, :visit_date, :visit_reason, :s_note, :o_note, :a_note, :p_note,:update_lab_tests, 
-                                  :drug_allergy, :drug_interaction, :lab_test_ids => [])
+    params.require(:visit).permit(:patient_id, :appointment_id, :visited_at, :visit_reason, :s_note, :o_note, 
+                                  :a_note, :p_note,:update_lab_tests, :drug_allergy, :drug_interaction, 
+                                  :lab_test_ids => [])
   end
 end

@@ -16,12 +16,12 @@
 		<% @patient.visits.each do | visit | %>
 		<tr>
 			<td>
-				<%= visit.visit_date.to_date %>
+				<%= visit.visited_at.to_date %>
 			</td>
 			<td><%= visit.visit_reason.capitalize %></td>
 			<td><%= simple_format visit.s_note %></td>
 			<td>
-				<% if visit.visit_date > DateTime.yesterday %>
+				<% if visit.visited_at = Date.today %>
 				<%= link_to 'Edit', edit_visit_path(visit), class: "btn btn-mini btn-info" %>
 				<% end %>
 			</td>

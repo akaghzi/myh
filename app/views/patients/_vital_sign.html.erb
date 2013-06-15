@@ -8,18 +8,18 @@
 <table class="table table-condensed">
 	<tr>
 		<td>Date</td>
-		<td>Temperature[F]</td>
+		<td>Temperature [F]</td>
 		<td>Heart Rate</td>
-		<td>BP Systolic[HHmg]</td>
-		<td>BP Diastolic[HHmg]</td>
+		<td>BP Systolic [HHmg]</td>
+		<td>BP Diastolic [HHmg]</td>
 		<td>Respiratory Rate</td>
-		<td>Weight[Kg]</td>
-		<td>Height[Lb]</td>
+		<td>Weight [Kg]</td>
+		<td>Height [Lb]</td>
 	</tr>
 	<% @visits.each do | visit | %>
 	<% visit.vital_signs.each do | vital_sign | %>
 	<tr>
-		<td><%= vital_sign.visit.visit_date.to_date %></td>
+		<td><%= vital_sign.visit.visited_at.to_date %></td>
 		<td><%= vital_sign.temperature %></td>
 		<td><%= vital_sign.heart_rate %></td>
 		<td><%= vital_sign.bp_systolic %></td>

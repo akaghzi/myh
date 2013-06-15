@@ -4,7 +4,7 @@ class AppointmentsController < ApplicationController
   # GET /appointments
   # GET /appointments.json
   def index
-    @appointments = Appointment.todays.order("appointment_slot_id")
+    @appointments = Appointment.future.order("appointment_date,appointment_slot_id")
   end
 
   # GET /appointments/1

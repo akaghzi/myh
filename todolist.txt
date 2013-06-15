@@ -6,8 +6,7 @@ Add lab work categorised on patient show page into ordered, received and reviewe
 Add Lab Test workflow:
   add tests ordered_on and reviewed_on
 Add tests done recently by other providers
-Add validation for dates for:
-	visit date
+
 Add search for appointments	
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Done:
@@ -40,7 +39,8 @@ Add currently pregnant to pregnancy history
 Add validation for dates for:
 	appointment date
 	patient DOB
-
+Add validation for dates for:
+	visit date
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Parking List:
 Add tests for visit type

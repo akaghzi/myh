@@ -1,21 +1,26 @@
 <span class="span6">
-	<h4 class="alert">
+	<h4 class="alert alert-info">
 		Immunization Information:&nbsp
-		<%= link_to 'Add Record', new_immunization_path(patient_id: @patient.id), 
-		class: "btn btn-small btn-primary" %>	
+		<%= link_to 'Add Record', new_immunization_path(patient_id: @patient.id), class: "btn btn-small btn-primary" %>	
 		</h4>
-		<% if @patient.immunizations.blank? %>
+		<% if @immunizations.blank? %>
 		<p>No immunization information found on record</p>
-		<% end%>		
-		<% @patient.immunizations.each do | immunization |%>
-		<dl class="dl-horizontal">
-			<dt>Immunization For:</dt>
-			<dd><%= immunization.immunization_for %>
-				<%= link_to 'Edit', edit_immunization_path(immunization.id), :class => 'btn btn-mini btn-info' %>
-			</dd>
-			<dt>Immunization Year:
-			</dt>
-			<dd><%= immunization.immunization_year %></dd>
-		</dl>
+		<% else %>		
+		<table class="table table-condensed">
+			<tr>
+				<th>Immunization For</th>
+				<th>Immunization Year</th>
+				<td></td>
+			</tr>		
+			<% @immunizations.each do | immunization |%>
+			<tr>
+				<td>
+					<%= immunization.immunization_for %>
+				</td>
+				<td><%= immunization.immunization_year %></td>
+				<td><%= link_to 'Edit', edit_immunization_path(immunization.id), :class => 'btn btn-mini btn-info' %></td>
+			</tr>
+			<% end %>
+		</table>
 		<% end %>
-	</span>
+	</span>	

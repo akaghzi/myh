@@ -14,6 +14,7 @@ class PatientsController < ApplicationController
     @insurance_info = @patient.insurance_info || @patient.create_insurance_info
     @social_history = @patient.social_history || @patient.create_social_history
     @allergies = @patient.allergies
+    @immunizations = @patient.immunizations
     @hospitalizations = @patient.hospitalizations 
     @current_medications = @patient.current_medications
     @medical_histories = @patient.medical_histories.self_history

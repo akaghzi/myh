@@ -25,7 +25,11 @@
 			<h4 class="alert alert-error">
 				Summary:
 			</h4>
+			<% if @visit.patient.summary.blank? %>
+			<p>No summary information found on record</p>
+			<% else %>
 			<%= simple_format(@visit.patient.summary) %>
+			<% end %>
 		</div>
 	</div>
 </div>

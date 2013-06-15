@@ -2,7 +2,7 @@ class CreateVisits < ActiveRecord::Migration
   def change
     create_table :visits do |t|
       t.references :patient, index: true
-      t.integer :appointment_id
+      t.references :appointment, index: true
       t.datetime :visited_at
       t.string :visit_reason
       t.boolean :drug_allergy

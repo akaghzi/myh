@@ -1,9 +1,9 @@
 class CreateAppointments < ActiveRecord::Migration
   def change
     create_table :appointments do |t|
-      t.integer :user_id
+      t.references :user, index: true
       t.references :patient, index: true
-      t.integer :appointment_slot_id
+      t.references :appointment_slot, index: true
       t.date :appointment_date
       t.string :appointment_type
       t.string :appointment_reason

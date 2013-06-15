@@ -1,7 +1,7 @@
 class CreateVitalSigns < ActiveRecord::Migration
   def change
     create_table :vital_signs do |t|
-      t.integer :visit_id
+      t.references :visit, index: true
       t.decimal :temperature
       t.integer :heart_rate
       t.integer :bp_systolic

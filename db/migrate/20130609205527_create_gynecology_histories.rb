@@ -2,7 +2,7 @@ class CreateGynecologyHistories < ActiveRecord::Migration
   def change
     create_table :gynecology_histories do |t|
       t.references :patient, index: true
-      t.integer :gynecology_problem_id
+      t.references :gynecology_problem, index: true
       t.date :problem_date
       t.text :followup
 

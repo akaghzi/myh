@@ -1,5 +1,5 @@
-<div class="span6">
-	<h4 class="alert alert-block">Lab Tests</h4>
+<span class="span4">
+	<h4 class="alert">Lab Tests</h4>
 	<% if @visit.lab_tests.blank? %>
 	<%= link_to 'Order Lab Tests', visit_order_lab_tests_path(@visit), class: "btn btn-small btn-primary" %>
 	<% else %>
@@ -13,4 +13,4 @@
 	</ul>
 	<%= link_to 'Edit', visit_order_lab_tests_path(@visit), class: "btn btn-mini btn-info" %>
 	<% end %>
-</div>
+</span>

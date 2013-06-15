@@ -1,4 +1,4 @@
-<div class="span12">
+<span class="span8">
 	<h4 class="alert">
 		Vital Signs:&nbsp
 		<%= link_to 'Add Record', new_vital_sign_path(visit_id: @visit.id), class: "btn btn-small btn-primary" %>		
@@ -10,13 +10,13 @@
 	<% else %>
 	<table class="table table-condensed">
 		<tr>
-			<th>Temperature[F]</th>
-			<th>Heart Rate[Per Min.]</th>
-			<th>BP Systolic[HHmg]</th>
-			<th>BP Diastolic[HHmg]</th>
+			<th>Temperature [F]</th>
+			<th>Heart Rate [Per Min.]</th>
+			<th>BP Systolic [HHmg]</th>
+			<th>BP Diastolic [HHmg]</th>
 			<th>Respiratory Rate</th>
-			<th>Weight[Kg]</th>
-			<th>Height[cm]</th>
+			<th>Weight [Kg]</th>
+			<th>Height [cm]</th>
 			<th></th>
 		</tr>
 		<% @visit.vital_signs.each do | vital_sign | %>
@@ -33,4 +33,4 @@
 		<% end %>
 	</table>
 	<% end %>
-</div>
+</span>

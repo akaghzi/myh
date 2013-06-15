@@ -10,24 +10,18 @@
 	<% else %>
 	<table class="table table-condensed">
 		<tr>
-			<td>
-				Contraceptive Type
-			</td>
-			<td>Contraceptive Problems</td> 
+			<th>Contraceptive Type</th>
+			<th>Contraceptive Problems</th> 
 			<td></td>
 		</tr>
 	
 		<% @contraceptive_histories.each do | contraceptive_history | %>
 		<tr>
-			<td>
-				<%= contraceptive_history.contraceptive_type %>
-			</td>
+			<td><%= contraceptive_history.contraceptive.name %></td>
 			<td><%= contraceptive_history.contraceptive_problems %></td>
-			<td>
-				<%= link_to 'Edit', edit_contraceptive_history_path(contraceptive_history), class: "btn btn-mini btn-info"%>
-			</td>
+			<td><%= link_to 'Edit', edit_contraceptive_history_path(contraceptive_history), class: "btn btn-mini btn-info"%></td>
 		</tr>
 		<% end %>
 	</table>
 	<% end %>
-</span>	
+</span>

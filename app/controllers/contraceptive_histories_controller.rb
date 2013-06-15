@@ -71,6 +71,6 @@ class ContraceptiveHistoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contraceptive_history_params
-      params.require(:contraceptive_history).permit(:patient_id, :contraceptive_type, :contraceptive_problems)
+      params.require(:contraceptive_history).permit(:patient_id, :contraceptive_id, :contraceptive_problems)
     end
 end

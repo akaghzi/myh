@@ -1,7 +1,7 @@
 class CreateAllergies < ActiveRecord::Migration
   def change
     create_table :allergies do |t|
-      t.integer :patient_id
+      t.references :patient, index: true
       t.string :substance_name
       t.string :substance_type
       t.string :reaction

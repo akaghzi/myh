@@ -1,7 +1,7 @@
 class CreateSocialHistories < ActiveRecord::Migration
   def change
     create_table :social_histories do |t|
-      t.integer :patient_id
+      t.references :patient, index: true
       t.boolean :smoking
       t.integer :smoking_quantity
       t.boolean :drinking

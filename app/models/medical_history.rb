@@ -1,6 +1,6 @@
 class MedicalHistory < ActiveRecord::Base
   belongs_to :patient
-  validates :disease, uniqueness: {scope: [:patient, :self_or_family], message: "can appear once for patient or the family member"}
-  scope :self_history, -> {where(self_or_family: 'self')}
-  scope :family_history, lambda {where("self_or_family <> ?", 'self')}
+  validates :disease_id, uniqueness: {scope: [:patient, :relationship], message: "can appear once for patient or the family member"}
+  scope :self_history, -> {where(relationship_id: 1)}
+  scope :family_history, lambda {where("relationship_id <> ?", 1)}
 end

@@ -17,10 +17,10 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:disease) %>:</strong></dt>
-  <dd><%= @medical_history.disease %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:self_or_family) %>:</strong></dt>
-  <dd><%= @medical_history.self_or_family %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:disease_id) %>:</strong></dt>
+  <dd><%= @medical_history.disease.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:relationship_id) %>:</strong></dt>
+  <dd><%= @medical_history.relationship.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:diagnosed_at) %>:</strong></dt>
   <dd><%= @medical_history.diagnosed_at %></dd>
   <dt><strong><%= model_class.human_attribute_name(:cured_at) %>:</strong></dt>

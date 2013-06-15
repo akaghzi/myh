@@ -5,9 +5,9 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :problem_type, :class => 'control-label' %>
+    <%= f.label :gynecology_problem_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.collection_select(:problem_type, GynecologyProblem.all, :name, :name) %>
+      <%= f.collection_select(:gynecology_problem_id, GynecologyProblem.all, :id, :name) %>
     </div>
   </div>
   <div class="control-group">

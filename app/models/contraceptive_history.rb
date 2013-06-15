@@ -1,4 +1,5 @@
 class ContraceptiveHistory < ActiveRecord::Base
   belongs_to :patient
-  validates :contraceptive_type, uniqueness: {scope: :patient}
+  belongs_to :contraceptive
+  validates :contraceptive_id, uniqueness: {scope: :patient}
 end

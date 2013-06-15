@@ -17,9 +17,9 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :immunization_for, :class => 'control-label' %>
+    <%= f.label :vaccine_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.collection_select(:immunization_for, Vaccine.all, :name, :name) %>
+      <%= f.collection_select(:vaccine_id, Vaccine.all, :id, :name) %>
     </div>
   </div>
   <div class="control-group">

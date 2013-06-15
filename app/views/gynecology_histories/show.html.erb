@@ -17,8 +17,8 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:problem_type) %>:</strong></dt>
-  <dd><%= @gynecology_history.problem_type %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:problem_id) %>:</strong></dt>
+  <dd><%= @gynecology_history.gynecology_problem.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:problem_date) %>:</strong></dt>
   <dd><%= @gynecology_history.problem_date %></dd>
   <dt><strong><%= model_class.human_attribute_name(:followup) %>:</strong></dt>

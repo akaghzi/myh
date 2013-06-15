@@ -333,6 +333,7 @@ RegQuestion.create(content: 'reproductive history, i.e., pregnancy, still births
 Relationship.all.each do |d|
   d.destroy
 end
+Relationship.create(name: "self")
 Relationship.create(name: "brother")
 Relationship.create(name: "father")
 Relationship.create(name: "father's brother")
@@ -345,7 +346,6 @@ Relationship.create(name: "mother's father")
 Relationship.create(name: "mother's mom")
 Relationship.create(name: "mother's sister")
 Relationship.create(name: "sister")
-Relationship.create(name: "self")
 User.all.each do |d|
   d.destroy
 end

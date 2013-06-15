@@ -1,7 +1,7 @@
 class CreatePregnancyHistories < ActiveRecord::Migration
   def change
     create_table :pregnancy_histories do |t|
-      t.integer :patient_id
+      t.references :patient, index: true
       t.boolean :currently_pregnant
       t.integer :full_term_births
       t.integer :preterm_births

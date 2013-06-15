@@ -57,13 +57,13 @@ class ImmunizationsController < ApplicationController
 
   # DELETE /immunizations/1
   # DELETE /immunizations/1.json
-  def destroy
-    @immunization.destroy
-    respond_to do |format|
-      format.html { redirect_to immunizations_url }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @immunization.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to immunizations_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -73,6 +73,6 @@ class ImmunizationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def immunization_params
-      params.require(:immunization).permit(:patient_id, :immunization_for, :immunization_year)
+      params.require(:immunization).permit(:patient_id, :vaccine_id, :immunization_year)
     end
 end

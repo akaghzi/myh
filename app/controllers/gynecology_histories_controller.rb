@@ -71,6 +71,6 @@ class GynecologyHistoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gynecology_history_params
-      params.require(:gynecology_history).permit(:patient_id, :problem_type, :problem_date, :followup)
+      params.require(:gynecology_history).permit(:patient_id, :gynecology_problem_id, :problem_date, :followup)
     end
 end

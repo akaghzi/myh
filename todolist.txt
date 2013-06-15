@@ -8,6 +8,7 @@ Add Lab Test workflow:
 Add tests done recently by other providers
 Add patient summary with current medication, alergies etc
 Add search for appointments	
+Add color coding to vital signs for any abnormal readings
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Done:
 Add user authentication

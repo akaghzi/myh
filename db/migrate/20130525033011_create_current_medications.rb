@@ -1,7 +1,7 @@
 class CreateCurrentMedications < ActiveRecord::Migration
   def change
     create_table :current_medications do |t|
-      t.integer :patient_id
+      t.references :patient, index: true
       t.integer :medication_route_id
       t.integer :medication_frequency_id
       t.string :name

@@ -1,7 +1,7 @@
 class CreateContactInfos < ActiveRecord::Migration
   def change
     create_table :contact_infos do |t|
-      t.integer :patient_id
+      t.references :patient, index: true
       t.string :email
       t.string :alternate_phone
       t.string :address_line1

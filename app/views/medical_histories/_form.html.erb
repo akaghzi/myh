@@ -16,9 +16,9 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :disease, :class => 'control-label' %>
+    <%= f.label :disease_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.collection_select(:disease, Disease.all, :name, :name) %>
+      <%= f.collection_select(:disease_id, Disease.all, :id, :name) %>
     </div>
   </div>
   <div class="control-group">
@@ -34,9 +34,9 @@
     </div>
   </div> -->
   <div class="control-group">
-    <%= f.label :self_or_family, :class => 'control-label' %>
+    <%= f.label :relationship_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.collection_select(:self_or_family, Relationship.all, :name, :name) %>
+      <%= f.collection_select(:relationship_id, Relationship.all, :id, :name) %>
     </div>
   </div>
 

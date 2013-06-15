@@ -1,7 +1,7 @@
 class CreateMenstrualHistories < ActiveRecord::Migration
   def change
     create_table :menstrual_histories do |t|
-      t.integer :patient_id
+      t.references :patient, index: true
       t.integer :onset_age
       t.boolean :normal_first_day_of_last_period
       t.integer :period_interval

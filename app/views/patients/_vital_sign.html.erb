@@ -7,14 +7,14 @@
 <% else %>
 <table class="table table-condensed">
 	<tr>
-		<td>Date</td>
-		<td>Temperature [F]</td>
-		<td>Heart Rate</td>
-		<td>BP Systolic [HHmg]</td>
-		<td>BP Diastolic [HHmg]</td>
-		<td>Respiratory Rate</td>
-		<td>Weight [Kg]</td>
-		<td>Height [Lb]</td>
+		<th>Date</th>
+		<th>Temperature [F]</th>
+		<th>Heart Rate</th>
+		<th>BP Systolic [HHmg]</th>
+		<th>BP Diastolic [HHmg]</th>
+		<th>Respiratory Rate</th>
+		<th>Weight [Kg]</th>
+		<th>Height [Lb]</th>
 	</tr>
 	<% @visits.each do | visit | %>
 	<% visit.vital_signs.each do | vital_sign | %>

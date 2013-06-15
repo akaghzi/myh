@@ -19,7 +19,7 @@
 			<h4 class="alert alert-error">
 				Visit Reason:
 			</h4>
-			<%= f.text_area :visit_reason, class: "input-xlarge" %>
+			<%= simple_format(@visit.visit_reason) %>
 		</div>
 		<div class="span6">
 			<h4 class="alert alert-error">

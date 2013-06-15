@@ -32,7 +32,7 @@ class ImmunizationsController < ApplicationController
 
     respond_to do |format|
       if @immunization.save
-        format.html { redirect_to @immunization, notice: 'Immunization was successfully created.' }
+        format.html { redirect_to patient_path(id: @immunization.patient_id), notice: 'Immunization was successfully created.' }
         format.json { render action: 'show', status: :created, location: @immunization }
       else
         format.html { render action: 'new' }
@@ -46,7 +46,7 @@ class ImmunizationsController < ApplicationController
   def update
     respond_to do |format|
       if @immunization.update(immunization_params)
-        format.html { redirect_to @immunization, notice: 'Immunization was successfully updated.' }
+        format.html { redirect_to patient_path(id: @immunization.patient_id), notice: 'Immunization was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

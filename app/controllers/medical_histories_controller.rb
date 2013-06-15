@@ -33,7 +33,7 @@ class MedicalHistoriesController < ApplicationController
 
     respond_to do |format|
       if @medical_history.save
-        format.html { redirect_to @medical_history, notice: 'Medical history was successfully created.' }
+        format.html { redirect_to patient_path(id: @medical_history.patient_id), notice: 'Medical history was successfully created.' }
         format.json { render action: 'show', status: :created, location: @medical_history }
       else
         format.html { render action: 'new' }
@@ -47,7 +47,7 @@ class MedicalHistoriesController < ApplicationController
   def update
     respond_to do |format|
       if @medical_history.update(medical_history_params)
-        format.html { redirect_to @medical_history, notice: 'Medical history was successfully updated.' }
+        format.html { redirect_to patient_path(id: @medical_history.patient_id), notice: 'Medical history was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

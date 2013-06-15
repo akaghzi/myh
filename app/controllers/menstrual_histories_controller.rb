@@ -30,7 +30,7 @@ class MenstrualHistoriesController < ApplicationController
 
     respond_to do |format|
       if @menstrual_history.save
-        format.html { redirect_to @menstrual_history, notice: 'Menstrual history was successfully created.' }
+        format.html { redirect_to patient_path(id: @menstrual_history.patient_id), notice: 'Menstrual history was successfully created.' }
         format.json { render action: 'show', status: :created, location: @menstrual_history }
       else
         format.html { render action: 'new' }
@@ -44,7 +44,7 @@ class MenstrualHistoriesController < ApplicationController
   def update
     respond_to do |format|
       if @menstrual_history.update(menstrual_history_params)
-        format.html { redirect_to @menstrual_history, notice: 'Menstrual history was successfully updated.' }
+        format.html { redirect_to patient_path(id: @menstrual_history.patient_id), notice: 'Menstrual history was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

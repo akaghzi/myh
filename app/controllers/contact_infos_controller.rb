@@ -28,7 +28,7 @@ class ContactInfosController < ApplicationController
 
     respond_to do |format|
       if @contact_info.save
-        format.html { redirect_to @contact_info, notice: 'Contact info was successfully created.' }
+        format.html { redirect_to patient_path(id: @contact_info.patient_id), notice: 'Contact info was successfully created.' }
         format.json { render action: 'show', status: :created, location: @contact_info }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class ContactInfosController < ApplicationController
   def update
     respond_to do |format|
       if @contact_info.update(contact_info_params)
-        format.html { redirect_to @contact_info, notice: 'Contact info was successfully updated.' }
+        format.html { redirect_to patient_path(id: @contact_info.patient_id), notice: 'Contact info was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

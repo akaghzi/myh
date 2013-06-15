@@ -30,7 +30,7 @@ class ContraceptiveHistoriesController < ApplicationController
 
     respond_to do |format|
       if @contraceptive_history.save
-        format.html { redirect_to @contraceptive_history, notice: 'Contraceptive history was successfully created.' }
+        format.html { redirect_to patient_path(id: @contraceptive_history.patient_id), notice: 'Contraceptive history was successfully created.' }
         format.json { render action: 'show', status: :created, location: @contraceptive_history }
       else
         format.html { render action: 'new' }
@@ -44,7 +44,7 @@ class ContraceptiveHistoriesController < ApplicationController
   def update
     respond_to do |format|
       if @contraceptive_history.update(contraceptive_history_params)
-        format.html { redirect_to @contraceptive_history, notice: 'Contraceptive history was successfully updated.' }
+        format.html { redirect_to patient_path(id: @contraceptive_history.patient_id), notice: 'Contraceptive history was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -55,13 +55,13 @@ class ContraceptiveHistoriesController < ApplicationController
 
   # DELETE /contraceptive_histories/1
   # DELETE /contraceptive_histories/1.json
-  def destroy
-    @contraceptive_history.destroy
-    respond_to do |format|
-      format.html { redirect_to contraceptive_histories_url }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @contraceptive_history.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to contraceptive_histories_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

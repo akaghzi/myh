@@ -2,11 +2,6 @@ class VisitLabTestXrefsController < ApplicationController
   before_action :set_visit_lab_test_xref, only: [:show, :edit, :update]
   
   def new
-    # find visit
-    # @visit = Visit.find(params[:visit_id])
-    # build lab_test_xrefs for the visit
-    # lab_tests = LabTest.all.each do |lab_test|
-    #   @visit_lab_test_xref = @visit.visit_lab_test_xrefs.build(visit_id: @visit.id, lab_test_id: lab_test.id)
   end
   def edit
   end

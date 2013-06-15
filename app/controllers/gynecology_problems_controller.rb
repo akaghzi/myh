@@ -53,13 +53,13 @@ class GynecologyProblemsController < ApplicationController
 
   # DELETE /gynecology_problems/1
   # DELETE /gynecology_problems/1.json
-  def destroy
-    @gynecology_problem.destroy
-    respond_to do |format|
-      format.html { redirect_to gynecology_problems_url }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @gynecology_problem.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to gynecology_problems_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

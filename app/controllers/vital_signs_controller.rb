@@ -32,7 +32,7 @@ class VitalSignsController < ApplicationController
 
     respond_to do |format|
       if @vital_sign.save
-        format.html { redirect_to @vital_sign, notice: 'Vital sign was successfully created.' }
+        format.html { redirect_to edit_visit_path(id: @vital_sign.visit_id), notice: 'Vital sign was successfully created.' }
         format.json { render action: 'show', status: :created, location: @vital_sign }
       else
         format.html { render action: 'new' }

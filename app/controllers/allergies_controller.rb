@@ -33,7 +33,7 @@ class AllergiesController < ApplicationController
 
     respond_to do |format|
       if @allergy.save
-        format.html { redirect_to @allergy, notice: 'Allergy was successfully created.' }
+        format.html { redirect_to patient_path(id: @allergy.patient_id), notice: 'Allergy was successfully created.' }
         format.json { render action: 'show', status: :created, location: @allergy }
       else
         format.html { render action: 'new' }
@@ -47,7 +47,7 @@ class AllergiesController < ApplicationController
   def update
     respond_to do |format|
       if @allergy.update(allergy_params)
-        format.html { redirect_to @allergy, notice: 'Allergy was successfully updated.' }
+        format.html { redirect_to patient_path(id: @allergy.patient_id), notice: 'Allergy was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

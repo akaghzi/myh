@@ -28,7 +28,7 @@ class InsuranceInfosController < ApplicationController
 
     respond_to do |format|
       if @insurance_info.save
-        format.html { redirect_to @insurance_info, notice: 'Insurance info was successfully created.' }
+        format.html { redirect_to patient_path(id: @insurance_info.patient_id), notice: 'Insurance info was successfully created.' }
         format.json { render action: 'show', status: :created, location: @insurance_info }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class InsuranceInfosController < ApplicationController
   def update
     respond_to do |format|
       if @insurance_info.update(insurance_info_params)
-        format.html { redirect_to @insurance_info, notice: 'Insurance info was successfully updated.' }
+        format.html { redirect_to patient_path(id: @insurance_info.patient_id), notice: 'Insurance info was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

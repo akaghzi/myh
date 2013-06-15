@@ -28,7 +28,7 @@ class SocialHistoriesController < ApplicationController
 
     respond_to do |format|
       if @social_history.save
-        format.html { redirect_to @social_history, notice: 'Social history was successfully created.' }
+        format.html { redirect_to patient_path(id: @social_history.patient_id), notice: 'Social history was successfully created.' }
         format.json { render action: 'show', status: :created, location: @social_history }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class SocialHistoriesController < ApplicationController
   def update
     respond_to do |format|
       if @social_history.update(social_history_params)
-        format.html { redirect_to @social_history, notice: 'Social history was successfully updated.' }
+        format.html { redirect_to patient_path(id: @social_history.patient_id), notice: 'Social history was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

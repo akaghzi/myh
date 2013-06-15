@@ -53,13 +53,13 @@ class RelationshipsController < ApplicationController
 
   # DELETE /relationships/1
   # DELETE /relationships/1.json
-  def destroy
-    @relationship.destroy
-    respond_to do |format|
-      format.html { redirect_to relationships_url }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @relationship.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to relationships_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

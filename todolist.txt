@@ -1,7 +1,6 @@
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 To Do:
 Add Administative workflow for maintaining lookup tables
-Add workflow for appointment/visit
 Add lab work categorised on patient show page into ordered, received and reviewed
 Add Lab Test workflow:
   add tests ordered_on and reviewed_on
@@ -42,6 +41,7 @@ Add validation for dates for:
 	patient DOB
 Add validation for dates for:
 	visit date
+Add workflow for appointment/visit
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Parking List:
 Add tests for visit type

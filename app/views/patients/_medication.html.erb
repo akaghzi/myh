@@ -6,20 +6,24 @@
 		</h4>
 		<% if @current_medications.blank? %>
 		<p>No current medication information found on record</p>
-		<% end%>		
-		<% @patient.current_medications.each do | current_medication |%>
-		<dl class="dl-horizontal">
-			<dt>Medication Name:</dt>
-			<dd>
-				<%= current_medication.name %>
-				<%= link_to 'Edit', edit_current_medication_path(current_medication.id), :class => 'btn btn-mini btn-info' %>
-			</dd>
-			<dt>Dosage:</dt>
-			<dd><%= current_medication.dosage %></dd>
-			<dt>Frequency:</dt>
-			<dd><%= current_medication.medication_frequency.short_name %></dd>
-			<dt>Route:</dt>
-			<dd><%= current_medication.medication_route.short_name.downcase %></dd>
-		</dl>
+		<% else %>
+		<table class="table table-condensed">
+			<tr>
+				<th>Name</th>
+				<th>Dosage</th>
+				<th>Frequency</th>
+				<th>Route</th>
+				<th></th>
+			</tr>
+			<% @patient.current_medications.each do | current_medication |%>
+			<tr>
+				<td><%= current_medication.name %></td>
+				<td><%= current_medication.dosage %></td>
+				<td><%= current_medication.medication_frequency.short_name %></td>
+				<td><%= current_medication.medication_route.short_name.downcase %></td>
+				<td><%= link_to 'Edit', edit_current_medication_path(current_medication.id), :class => 'btn btn-mini btn-info' %></td>
+			</tr>
+			<% end %>
+		</table>
 		<% end %>
 	</span>

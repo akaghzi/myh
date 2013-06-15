@@ -10,17 +10,23 @@
 </div>
 <% end %>
 
-<%= f.hidden_field :patient_id, :class => 'hidden_field' %>
-<%= f.hidden_field :appointment_id, class: "hidden_field" %>
-<%= f.hidden_field :visited_at, class: "hidden_field" %>
+<% f.hidden_field :patient_id, :class => 'hidden_field' %>
+<% f.hidden_field :appointment_id, class: "hidden_field" %>
+<% f.hidden_field :visited_at, class: "hidden_field" %>
 <div class="row-fluid">
 	<div class="span12">
-		<!-- Visit Date:&nbsp
-		<div class="input-append date datetimepicker">
-			
-			<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
-		</div> -->
-		Visit Reason:&nbsp<%= f.text_area :visit_reason, class: "input-xxlarge" %>
+		<div class="span6">
+			<h4 class="alert alert-error">
+				Visit Reason:
+			</h4>
+			<%= f.text_area :visit_reason, class: "input-xlarge" %>
+		</div>
+		<div class="span6">
+			<h4 class="alert alert-error">
+				Summary:
+			</h4>
+			<%= simple_format(@visit.patient.summary) %>
+		</div>
 	</div>
 </div>
 <div class="row-fluid">

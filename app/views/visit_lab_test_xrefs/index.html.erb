@@ -1,46 +1,40 @@
 <%- model_class = VisitLabTestXref -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+	<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:visit_id) %></th>
-      <th><%= model_class.human_attribute_name(:lab_test_id) %></th>
-      <th><%= model_class.human_attribute_name(:measurement) %></th>
-      <th><%= model_class.human_attribute_name(:received_at) %></th>
-      <th><%= model_class.human_attribute_name(:reviewed_at) %></th>
-      <th><%= model_class.human_attribute_name(:lab_note) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @visit_lab_test_xrefs.each do |visit_lab_test_xref| %>
-      <tr>
-        <td><%= link_to visit_lab_test_xref.id, visit_lab_test_xref_path(visit_lab_test_xref) %></td>
-        <td><%= visit_lab_test_xref.visit_id %></td>
-        <td><%= visit_lab_test_xref.lab_test_id %></td>
-        <td><%= visit_lab_test_xref.measurement %></td>
-        <td><%= visit_lab_test_xref.received_at %></td>
-        <td><%= visit_lab_test_xref.reviewed_at %></td>
-        <td><%= visit_lab_test_xref.lab_note %></td>
-        <td><%=l visit_lab_test_xref.created_at %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_visit_lab_test_xref_path(visit_lab_test_xref), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      visit_lab_test_xref_path(visit_lab_test_xref),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<table class="table table-condensed">
+		<tr>
+			<th><%= model_class.human_attribute_name(:id) %></th>
+			<th>Patient</th>
+			<th><%= model_class.human_attribute_name(:lab_test_id) %></th>
+			<th><%= model_class.human_attribute_name(:measurement) %></th>
+			<th><%= model_class.human_attribute_name(:received_at) %></th>
+			<th><%= model_class.human_attribute_name(:reviewed_at) %></th>
+			<th><%= model_class.human_attribute_name(:lab_note) %></th>
+			<th></th>
+		</tr>
+		<% @visit_lab_test_xrefs.each do |visit_lab_test_xref| %>
+		<tr>
+			<td><%= link_to visit_lab_test_xref.id, visit_lab_test_xref_path(visit_lab_test_xref) %></td>
+			<td><%= link_to visit_lab_test_xref.visit.patient.full_name, patient_path(id: visit_lab_test_xref.visit.patient_id) %></td>
+			<td><%= visit_lab_test_xref.lab_test.full_name %></td>
+			<td><%= visit_lab_test_xref.measurement %></td>
+			<td><%= visit_lab_test_xref.received_at %></td>
+			<td><%= visit_lab_test_xref.reviewed_at %></td>
+			<td><%= visit_lab_test_xref.lab_note %></td>
+			<td>
+				<%= link_to t('.edit', :default => t("helpers.links.edit")),
+				edit_visit_lab_test_xref_path(visit_lab_test_xref), :class => 'btn btn-mini btn-info' %>
+				<!-- <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+					visit_lab_test_xref_path(visit_lab_test_xref),
+					:method => :delete,
+					:data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+					:class => 'btn btn-mini btn-danger' %> -->
+				</td>
+			</tr>
+			<% end %>
+	</table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_visit_lab_test_xref_path,
-            :class => 'btn btn-primary' %>
+	<!-- <%= link_to t('.new', :default => t("helpers.links.new")),
+	new_visit_lab_test_xref_path,
+	:class => 'btn btn-primary' %> -->

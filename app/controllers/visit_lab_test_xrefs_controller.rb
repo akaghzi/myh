@@ -1,11 +1,19 @@
 class VisitLabTestXrefsController < ApplicationController
   before_action :set_visit_lab_test_xref, only: [:show, :edit, :update]
-  
+  def index 
+    @visit_lab_test_xrefs = VisitLabTestXref.ordered.order("created_at")   
+  end
   def new
   end
   def edit
+    @visit_lab_test_xref = VisitLabTestXref.find(params[:id])
   end
   def update
+    if @visit_lab_test_xref.update(visit_lab_test_xref_params)
+      redirect_to visit_lab_test_xrefs_path, notice: 'Lab Test was successfully updated.' 
+    else
+      render action: 'edit'
+    end
   end
   def show
   end

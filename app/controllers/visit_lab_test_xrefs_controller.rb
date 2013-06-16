@@ -29,6 +29,7 @@ class VisitLabTestXrefsController < ApplicationController
     params.require(:visit_lab_test_xref).permit(:visit_id,
                                                 :lab_test_id,
                                                 :measurement,
+                                                :conducted_at,
                                                 :received_at,
                                                 :reviewed_at,
                                                 :lab_note

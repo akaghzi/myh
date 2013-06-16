@@ -23,7 +23,12 @@
 		<%= @visit_lab_test_xref.created_at %>
 	</div>
 </div>
-			
+<div class="control-group">
+	<%= f.label :conducted_at, :class => 'control-label' %>
+	<div class="controls">
+		<%= f.date_field :conducted_at, :class => 'date_field' %>
+	</div>
+</div>			
 <div class="control-group">
 	<%= f.label :measurement, :class => 'control-label' %>
 	<div class="controls">

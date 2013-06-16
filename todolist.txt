@@ -8,6 +8,7 @@ Add tests done recently by other providers
 Add patient summary with current medication, alergies etc
 Add search for appointments	
 Add color coding to vital signs for any abnormal readings
+
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Done:
 Add user authentication
@@ -42,6 +43,7 @@ Add validation for dates for:
 Add validation for dates for:
 	visit date
 Add workflow for appointment/visit
+Add check to keep from changing the appointment if patient vist has been generated
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Parking List:
 Add tests for visit type

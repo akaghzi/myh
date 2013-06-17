@@ -48,6 +48,7 @@ Myh::Application.routes.draw do
   resources :contact_infos
   resources :insurance_infos
   resources :sessions, only: [:new, :create, :destroy]
+  get "/work", to: "static_pages#work"
   get "/help", to: "static_pages#help"
   get "/contact", to: "static_pages#contact"
   match "/signin", to: "sessions#new", via: :get

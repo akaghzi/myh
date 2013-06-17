@@ -1,0 +1,29 @@
+<h4 class="alert alert-info">
+	Lab tests to be reviewed:
+</h4>
+	<% if @lab_tests.blank? %>
+	<p>No Lab Tests to be reviewed found on record</p>
+	<% else %>
+	<table class="table table-condensed">
+		<tr>
+			<th>Patient</th>
+			<th>Lab Test</th>
+			<th>Ordered at</th>
+			<th>Conducted at</th>
+			<th>Received at</th>
+			<th>Lab Notes</th>
+			<th></th>
+		</tr>
+		<% @lab_tests.each do | lab_test |%>
+		<tr>
+			<td><%= lab_test.visit.patient.full_name %></td>
+			<td><%= lab_test.lab_test.full_name %></td>
+			<td><%= lab_test.created_at.to_date %></td>
+			<td><%= lab_test.conducted_at %></td>
+			<td><%= lab_test.received_at %></td>
+			<td><%= lab_test.lab_note %></td>
+			<td><%= link_to 'Review', edit_visit_lab_test_xref_path(id: lab_test.id), class: "btn btn-mini btn-info" %>
+		</tr>
+		<% end %>
+	</table>
+	<% end %>

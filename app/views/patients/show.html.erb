@@ -54,12 +54,14 @@
 </div>
 <% if @patient.woman? %>
 <div class="row-fluid">
-	<%= render :partial => 'pregnancy_history' %>
-	<%= render :partial => 'menstrual_history' %>
-</div>
-<div class="row-fluid">
 	<%= render :partial => 'gynecology_history' %>
 	<%= render :partial => 'contraceptive_history' %>
+</div>
+<div class="row-fluid">
+	<%= render :partial => 'pregnancy_history' %>
+</div>
+<div class="row-fluid">
+	<%= render :partial => 'menstrual_history' %>
 </div>
 <% end %>
 <div class="row-fluid">

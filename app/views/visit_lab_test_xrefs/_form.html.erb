@@ -26,7 +26,7 @@
 <div class="control-group">
 	<%= f.label :conducted_at, :class => 'control-label' %>
 	<div class="controls">
-		<%= f.date_field :conducted_at, :class => 'date_field' %>
+		<%= f.text_field :conducted_at, :class => 'datepicker', data: {date_format: "yyyy-mm-dd"} %>
 	</div>
 </div>			
 <div class="control-group">
@@ -38,13 +38,13 @@
 <div class="control-group">
 	<%= f.label :received_at, :class => 'control-label' %>
 	<div class="controls">
-		<%= f.date_field :received_at, :class => 'date_field' %>
+		<%= f.text_field :received_at, :class => 'datepicker', data: {date_format: "yyyy-mm-dd"} %>
 	</div>
 </div>
 <div class="control-group">
 	<%= f.label :reviewed_at, :class => 'control-label' %>
 	<div class="controls">
-		<%= f.date_field :reviewed_at, :class => 'date_field' %>
+		<%= f.text_field :reviewed_at, :class => 'datepicker', data: {date_format: "yyyy-mm-dd"} %>
 	</div>
 </div>
 <div class="control-group">
@@ -55,7 +55,7 @@
 </div>
 
 <div class="form-actions">
-	<%= f.submit nil, :class => 'btn btn-primary' %>
+	<%= f.submit 'Submit', :class => 'btn btn-primary' %>
 	<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
 	visit_lab_test_xrefs_path, :class => 'btn' %>
 </div>

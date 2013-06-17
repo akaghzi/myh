@@ -23,7 +23,7 @@
   <div class="control-group">
     <%= f.label :hospitalization_date, :class => 'control-label' %>
     <div class="controls">
-      <%= f.date_field :hospitalization_date, :class => 'date_field' %>
+      <%= f.date_field :hospitalization_date, :class => 'datepicker', data: {date_format: "yyyy-MM-dd"} %>
     </div>
   </div>
   <div class="control-group">

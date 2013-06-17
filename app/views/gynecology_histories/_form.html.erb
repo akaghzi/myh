@@ -23,7 +23,7 @@
   <div class="control-group">
     <%= f.label :problem_date, :class => 'control-label' %>
     <div class="controls">
-      <%= f.date_field :problem_date, :class => 'date_field' %>
+      <%= f.text_field :problem_date, :class => 'datepicker', data: {date_format: "yyyy-MM-dd"} %>
     </div>
   </div>
   <div class="control-group">

@@ -10,7 +10,7 @@ group :assets do
   gem 'sass-rails',  '~> 4.0.0.rc1'
   gem 'coffee-rails', '~> 4.0.0.rc1'
   gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-  # gem 'bootstrap-datepicker-rails'
+  gem 'bootstrap-datepicker-rails'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', platforms: :ruby
   gem 'uglifier', '>= 1.0.3'

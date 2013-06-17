@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
   def home
   end
   def work
-    @appointments = Appointment.future
+    @appointments = Appointment.todays
     @lab_tests = VisitLabTestXref.received.order("created_at")
   end
   def help

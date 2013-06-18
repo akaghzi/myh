@@ -138,8 +138,8 @@ PLATFORMS
 DEPENDENCIES
   annotate
   bcrypt-ruby (>= 3.0.0)
-  coffee-rails (~> 4.0.0.rc2)
   bootstrap-datepicker-rails
+  coffee-rails (~> 4.0.0.rc2)
   jbuilder (>= 1.0.1)
   jquery-rails
   less-rails

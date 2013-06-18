@@ -1,13 +1,16 @@
 <div class="hero-unit">
+	<h2>
+		Mind Your Health
+	</h2>
 	<h3> 
-		Welcome, 
+		Welcome,
 	</h3>
 	<p>Mind you health, it can not be outsourced.</p>
 	<p>
 		<% if session[:user_id].blank? %>	
-			<%= link_to 'Signin', signin_url, class: "btn btn-primary" %>
+		<%= link_to 'Signin', signin_url, class: "btn btn-primary" %>
 		<% else %>	
-			<%= link_to 'Signout', session_path(session[:user_id]), method: :delete, class: 'btn btn-danger' %>
+		<%= link_to 'Signout', session_path(session[:user_id]), method: :delete, class: 'btn btn-danger' %>
 		<% end %>
 	</p>
 </div>

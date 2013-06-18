@@ -8,7 +8,7 @@ Add tests done recently by other providers
 Add patient summary with current medication, alergies etc
 Add search for appointments	
 Add color coding to vital signs for any abnormal readings
-
+Add mechanism to call patient after reviewing the lab tests
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Done:
 Add user authentication

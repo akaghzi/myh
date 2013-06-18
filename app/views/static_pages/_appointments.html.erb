@@ -10,18 +10,28 @@
 			<th>Gender</th>
 			<th>Age</th>
 			<th>Date of Birth</th>
-			<th></th>
+			<th>Time Slot</th>
 			<th>Summary</th>
 			<th></th>
 		</tr>
 		<% @appointments.each do | appointment |%>
 		<tr>
-			<td><%= appointment.patient.full_name.titleize %></td>
+			<td><%= link_to appointment.patient.full_name.titleize, patient_path(id: appointment.patient_id) %></td>
 			<td><%= appointment.patient.gender.titleize %></td>
 			<td><%= appointment.patient.age %></td>
 			<td><%= appointment.patient.date_of_birth %></td>
-			<td><%#= appointment.received_at %></td>
-			<td><%#= appointment.lab_note %></td>
+			<td><%= appointment.appointment_slot.name %></td>
+			<td>
+				<% if (appointment.appointment_date == Date.today && appointment.visit.blank?) %>
+				<%= link_to 'Attend Patient', 
+											new_visit_path(patient_id: appointment.patient_id, 
+											appointment_id: appointment.id,
+											visit_reason: appointment.appointment_reason), 
+											class: "btn btn-mini btn-primary" %>
+					<% else %>
+					Completed
+					<% end %>
+				<%#= appointment.lab_note %></td>
 			<td><%#= link_to 'Review', edit_visit_appointment_xref_path(id: appointment.id), class: "btn btn-mini btn-info" %></td>
 		</tr>
 		<% end %>

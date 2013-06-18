@@ -19,18 +19,8 @@
 			<td><%= appointment.appointment_type.titleize %></td>
 			<td><%= appointment.created_at %></td>
 			<td>
-				<% if (appointment.appointment_date == Date.today && appointment.visit.blank?) %>
-				<%= link_to 'Attend Patient', 
-				new_visit_path(patient_id: appointment.patient_id, 
-				appointment_id: appointment.id,
-				visit_reason: appointment.appointment_reason), 
-				class: "btn btn-mini btn-primary" %>
-					<% elsif (appointment.appointment_date > Date.today) %>
 					<%= link_to t('.edit', :default => t("helpers.links.edit")),
 					edit_appointment_path(appointment), :class => 'btn btn-mini btn-info' %>
-					<% else %>
-					<%= "Completed" %>
-					<% end %>
 					<!-- <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
 						appointment_path(appointment),
 						:method => :delete,

@@ -2,13 +2,12 @@
 To Do:
 Add Administative workflow for maintaining lookup tables
 Add lab work categorised on patient show page into ordered, received and reviewed
-Add Lab Test workflow:
-  add tests ordered_on and reviewed_on
 Add tests done recently by other providers
 Add patient summary with current medication, alergies etc
 Add search for appointments	
 Add color coding to vital signs for any abnormal readings
 Add mechanism to call patient after reviewing the lab tests
+Add pagination to index page for patients
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Done:
 Add user authentication
@@ -44,6 +43,9 @@ Add validation for dates for:
 	visit date
 Add workflow for appointment/visit
 Add check to keep from changing the appointment if patient vist has been generated
+Add Lab Test workflow:
+  add tests ordered_on and reviewed_on
+
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Parking List:
 Add tests for visit type

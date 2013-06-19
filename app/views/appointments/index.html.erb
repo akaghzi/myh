@@ -1,7 +1,17 @@
 <%- model_class = Appointment -%>
 <div class="page-header">
-	<h4><%=t '.title', :default => model_class.model_name.human.pluralize %></h4>
+  <span><%#= model_class %>
+	  <%= form_tag patients_path, :method => 'get' do %>
+		  <!-- <i class="icon-search"></i> -->
+			<%= search_field_tag :search, params[:search], class: "search-query" , 
+					placeholder: "patient name" %>
+      
+		  <%= submit_tag "Search Appointments", class: "btn btn-primary", :name => nil %>
+	  <% end %>
+  </span>
 </div>
+<div>
+
 <table class="table table-condensed">
 		<tr>
 			<th><%= model_class.human_attribute_name(:patient_id) %></th>

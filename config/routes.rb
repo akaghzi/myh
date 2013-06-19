@@ -1,36 +1,20 @@
 Myh::Application.routes.draw do  
   resources :appointment_slots
-
   resources :appointments
-
   resources :contraceptives
-
   resources :gynecology_problems
-
   resources :gynecology_histories
-
   resources :contraceptive_histories
-
   resources :pregnancy_histories
-
   resources :menstrual_histories
-
   resources :hospitalizations
-
   resources :social_histories
-
   resources :medication_routes
-
   resources :medication_frequencies
-
   resources :vaccines
-
   resources :relationships
-
   resources :medical_histories
-
   resources :diseases
-
   root to: "static_pages#home"
   resources :lab_tests
   resources :patients

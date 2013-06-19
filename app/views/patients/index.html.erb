@@ -1,53 +1,60 @@
 <%- model_class = Patient -%>
 <div class="page-header">
-  <span><%#= model_class %>
-	  <%= form_tag patients_path, :method => 'get' do %>
-		  <!-- <i class="icon-search"></i> -->
-			<%= search_field_tag :search, params[:search], class: "search-query" , 
-					placeholder: "patient name" %>
+	<span><%#= model_class %>
+		<%= form_tag patients_path, :method => 'get' do %>
+		<!-- <i class="icon-search"></i> -->
+		<%= search_field_tag :search, params[:search], class: "search-query" , 
+		placeholder: "patient name" %>
       
-		  <%= submit_tag "Search Patients", class: "btn btn-primary", :name => nil %>
-			<%= link_to t('.new', :default => t("helpers.links.new")),
-			            new_patient_path,
-			            :class => 'btn btn-primary' %>
-	  <% end %>
-  </span>
+		<%= submit_tag "Search Patients", class: "btn btn-primary", :name => nil %>
+		<%= link_to t('.new', :default => t("helpers.links.new")),
+		new_patient_path,
+		:class => 'btn btn-primary' %>
+		<% end %>
+	</span>
 </div>
 <div>
 
 </div>
 <table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:full_name) %></th>
-      <th><%= model_class.human_attribute_name(:date_of_birth) %></th>
-      <th><%= model_class.human_attribute_name(:gender) %></th>
-      <th><%= model_class.human_attribute_name(:phone) %></th>
-      <th><%= model_class.human_attribute_name(:externalid) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @patients.each do |patient| %>
-      <tr>
-        <td><%= link_to patient.id, patient_path(patient) %></td>
-        <td><%= link_to patient.full_name.titleize, patient_path(patient) %></td>
-        <td><%= patient.date_of_birth %></td>
-        <td><%= patient.gender.capitalize %></td>
-        <td><%= patient.phone %></td>
-        <td><%= patient.externalid %></td>
-        <td>
-          <%= link_to t('.show', :default => t("helpers.links.show")),
-                      patient_path(patient), :class => 'btn btn-mini btn-success' %>
-          <%= link_to 'Add Appointment', new_appointment_path(patient_id: patient), class: "btn btn-mini btn-primary" %>
-          <%#= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              patient_path(patient),
-              :method => :delete,
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
+	<thead>
+		<tr>
+			<th><%= model_class.human_attribute_name(:id) %></th>
+			<th><%= model_class.human_attribute_name(:full_name) %></th>
+			<th><%= model_class.human_attribute_name(:date_of_birth) %></th>
+			<th><%= model_class.human_attribute_name(:gender) %></th>
+			<th><%= model_class.human_attribute_name(:phone) %></th>
+			<th><%= model_class.human_attribute_name(:externalid) %></th>
+			<th><%=t '.actions', :default => t("helpers.actions") %></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @patients.each do |patient| %>
+		<tr>
+			<td><%= link_to patient.id, patient_path(patient) %></td>
+			<td><%= link_to patient.full_name.titleize, patient_path(patient) %></td>
+			<td><%= patient.date_of_birth %></td>
+			<td><%= patient.gender.capitalize %></td>
+			<td><%= patient.phone %></td>
+			<td><%= patient.externalid %></td>
+			<td>
+				<%= link_to t('.show', :default => t("helpers.links.show")),
+				patient_path(patient), :class => 'btn btn-mini btn-success' %>
+				<% if patient.appointments.future.blank? %>
+				<%= link_to 'Add Appointment', new_appointment_path(patient_id: patient), class: "btn btn-mini btn-primary" %>
+				<%# else %>
+				<%# patient.appointments.each do |appointment | %>
+				<%#= link_to 'Edit Appointment' edit_appointment_path(id: appointment.id) %>
+				
+				<%# end %>
+				<% end %>
+				<%#= link_to t('.destroy', :default => t("helpers.links.destroy")),
+				patient_path(patient),
+				:method => :delete,
+				:data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+				:class => 'btn btn-mini btn-danger' %>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
 </table>

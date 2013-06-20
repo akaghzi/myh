@@ -4,7 +4,8 @@ class AppointmentsController < ApplicationController
   # GET /appointments
   # GET /appointments.json
   def index
-    @appointments = Appointment.future.order("appointment_date,appointment_slot_id")
+    @appointments = self.search(params[:search]) || Appointment.future
+    # @appointments = Appointment.future.order("appointment_date,appointment_slot_id")
   end
 
   # GET /appointments/1
@@ -52,16 +53,20 @@ class AppointmentsController < ApplicationController
       end
     end
   end
-
+  def search(search_string)
+    # @appointments = Appointment.future.where("appointment_reason like lower('%#{search_string}%')")
+    @appointments = Appointment.future.joins(:patient).where("patients.last_name like lower('%#{search_string}%')")
+    # notice: "No patient found with that spelling try with alternate one" if @patients.blank?
+  end
   # DELETE /appointments/1
   # DELETE /appointments/1.json
-  def destroy
-    @appointment.destroy
-    respond_to do |format|
-      format.html { redirect_to appointments_url }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @appointment.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to appointments_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

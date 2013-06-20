@@ -349,6 +349,7 @@ Relationship.create(name: "sister")
 User.all.each do |d|
   d.destroy
 end
+User.create(first_name: "asim", last_name: "kaghzi", username: "akaghzi", user_type: "administrator", password: "hussain7", password_confirmation: "hussain7")
 User.create(first_name: "asim", last_name: "kaghzi", username: "akaghzi", user_type: "doctor", password: "hussain7", password_confirmation: "hussain7")
 User.create(first_name: "jamila", last_name: "kureshi", username: "jkureshi", user_type: "doctor", password: "jamilah", password_confirmation: "jamilah")
 Vaccine.all.each do |d|

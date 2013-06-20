@@ -11,7 +11,7 @@
 			<th>Age</th>
 			<th>Date of Birth</th>
 			<th>Time Slot</th>
-			<th>Summary</th>
+			<th>Reason</th>
 			<th></th>
 		</tr>
 		<% @appointments.each do | appointment |%>
@@ -21,6 +21,7 @@
 			<td><%= appointment.patient.age %></td>
 			<td><%= appointment.patient.date_of_birth %></td>
 			<td><%= appointment.appointment_slot.name %></td>
+			<td><%= appointment.appointment_reason %></td>
 			<td>
 				<% if (appointment.appointment_date == Date.today && appointment.visit.blank?) %>
 				<%= link_to 'Attend Patient', 

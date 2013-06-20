@@ -10,7 +10,11 @@ class SessionsController < ApplicationController
       signin user
       # session[:user_id] = user.id
       # flash.now[:notice] = "You have logged in"
-      redirect_to patients_path
+      if session[:user_type] == 'doctor'
+        redirect_to work_path
+      else
+        redirect_to appointments_path
+      end
     else
       flash.now[:error] = "Invalid email or password"
       render 'new'

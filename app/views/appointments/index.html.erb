@@ -1,17 +1,24 @@
 <%- model_class = Appointment -%>
 <div class="page-header">
-  <span><%#= model_class %>
-	  <%= form_tag appointments_path, :method => 'get' do %>
-		  <!-- <i class="icon-search"></i> -->
-			<%= search_field_tag :search, params[:search], class: "search-query" , 
-					placeholder: "patient name" %>      
-		  <%= submit_tag "Search Appointments", class: "btn btn-primary", :name => nil %>
-	  <% end %>
-  </span>
+	<span><%#= model_class %>
+		<%= form_tag appointments_path, :method => 'get' do %>
+		<!-- <i class="icon-search"></i> -->
+		<%= search_field_tag :search, params[:search], class: "search-query" , 
+		placeholder: "patient name" %>      
+		<%= submit_tag "Search Appointments", class: "btn btn-primary", :name => nil %>
+		<% end %>
+	</span>
 </div>
 <div>
-
-<table class="table table-condensed">
+	<h4 class="alert alert-info">
+		Future Appointments:
+	</h4>
+	<% if @appointments.blank? %>
+	<p>
+		No future appointments found on record		
+	</p>
+	<% else %>
+	<table class="table table-condensed">
 		<tr>
 			<th><%= model_class.human_attribute_name(:patient_id) %></th>
 			<th><%= model_class.human_attribute_name(:appointment_date) %></th>
@@ -30,18 +37,13 @@
 			<td><%= appointment.appointment_type.titleize %></td>
 			<td><%= appointment.created_at %></td>
 			<td>
-					<%= link_to t('.edit', :default => t("helpers.links.edit")),
-					edit_appointment_path(appointment), :class => 'btn btn-mini btn-info' %>
-					<!-- <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-						appointment_path(appointment),
-						:method => :delete,
-						:data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-						:class => 'btn btn-mini btn-danger' %> -->
-					</td>
+				<%= link_to t('.edit', :default => t("helpers.links.edit")),
+				edit_appointment_path(appointment), :class => 'btn btn-mini btn-info' %>
+			</td>
 			</tr>
 			<% end %>
-	</table>
-
-	<!-- <%= link_to t('.new', :default => t("helpers.links.new")),
-	new_appointment_path,
-	:class => 'btn btn-small btn-primary' %> -->
+		</table>
+		<% end %>
+		<%= link_to t('.new', :default => t("helpers.links.new")),
+			patients_path,
+			:class => 'btn btn-primary' %>

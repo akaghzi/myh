@@ -5,7 +5,7 @@ class PatientsController < ApplicationController
   # GET /patients.json
   def index
     # added search patient option
-    @patients = self.search(params[:search]) || Patient.all.order("last_name,first_name")
+    @patients = self.search(params[:search]) || Patient.order("last_name,first_name")
   end
   # GET /patients/1
   # GET /patients/1.json

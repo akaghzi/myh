@@ -55,7 +55,7 @@ class AppointmentsController < ApplicationController
   end
   def search(search_string)
     # @appointments = Appointment.future.where("appointment_reason like lower('%#{search_string}%')")
-    @appointments = Appointment.future.joins(:patient).where("(patients.last_name||patients.first_name) like lower('%#{search_string}%')")
+    @appointments = Appointment.future.joins(:patient).where("(patients.last_name||patients.first_name) like lower('%#{search_string}%')").order("appointment_date,last_name,first_name")
     # notice: "No patient found with that spelling try with alternate one" if @patients.blank?
   end
   # DELETE /appointments/1

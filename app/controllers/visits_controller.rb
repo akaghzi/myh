@@ -14,8 +14,8 @@ class VisitsController < ApplicationController
 
   # GET /visits/new
   def new
-    @visit = Visit.create(patient_id: (params[:patient_id]), 
-                          appointment_id: (params[:appointment_id]),
+    @patient = Patient.find(params[:patient_id])
+    @visit = @patient.visits.create( appointment_id: (params[:appointment_id]),
                           visited_at: Time.now.to_datetime, 
                           visit_reason: (params[:visit_reason]))
   end

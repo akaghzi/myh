@@ -5,7 +5,7 @@ class PatientsController < ApplicationController
   # GET /patients.json
   def index
     # added search patient option
-    @patients = self.search(params[:search]) || Patient.all
+    @patients = self.search(params[:search]) || Patient.all.order("last_name,first_name")
   end
   # GET /patients/1
   # GET /patients/1.json
@@ -67,7 +67,7 @@ class PatientsController < ApplicationController
     end
   end
   def search(search_string)
-    @patients = Patient.where("last_name||' '||first_name||' '||middle_name like lower('%#{search_string}%')")
+    @patients = Patient.where("last_name||' '||first_name||' '||middle_name like lower('%#{search_string}%')").order("last_name,first_name")
     # notice: "No patient found with that spelling try with alternate one" if @patients.blank?
   end
 

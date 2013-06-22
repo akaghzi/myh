@@ -38,30 +38,20 @@
 		<%= render :partial => 'layouts/header' %>
 		<div class="container-fluid">
 			<div class="row-fluid">
-				<!-- ><div class="span3">
-					<div class="well sidebar-nav">
-					<ul class="nav nav-list">
-					<li class="nav-header">Sidebar</li>
-					<li><%#= link_to "Link1", "/path1"  %></li>
-					<li><%#= link_to "Link2", "/path2"  %></li>
-					<li><%#= link_to "Link3", "/path3"  %></li>
-					</ul>
-					</div><!--/.well -->
-					<!--</div>--><!--/span -->
-					<div class="span12">
-						<%= bootstrap_flash %>
-						<%= yield %>
-					</div>
-				</div><!--/row-->
-				<%= render :partial => 'layouts/footer' %>
-			</div> <!-- /container -->
-			<div class="debug">
-				<%= debug(params) if Rails.env.development? %>
-			</div>
-			<!-- Javascripts
-				================================================== -->
-				<!-- Placed at the end of the document so the pages load faster -->
-				<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+				<div class="span12">
+					<%= bootstrap_flash %>
+					<%= yield %>
+				</div>
+			</div><!--/row-->
+			<%= render :partial => 'layouts/footer' %>
+		</div> <!-- /container -->
+		<div class="debug">
+			<%= debug(params) if Rails.env.development? %>
+		</div>
+		<!-- Javascripts
+			================================================== -->
+			<!-- Placed at the end of the document so the pages load faster -->
+			<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 
-			</body>
-			</html>
+		</body>
+		</html>

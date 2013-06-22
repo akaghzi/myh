@@ -18,6 +18,8 @@ end
 
 gem 'jquery-rails'
 gem "twitter-bootstrap-rails"
+# Required by heroku for RAILS 4
+gem 'rails_12factor'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

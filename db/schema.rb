@@ -318,6 +318,7 @@ ActiveRecord::Schema.define(version: 20130613044731) do
     t.date     "conducted_at"
     t.date     "received_at"
     t.date     "reviewed_at"
+    t.boolean  "alert_flag"
     t.text     "lab_note"
     t.datetime "created_at"
     t.datetime "updated_at"

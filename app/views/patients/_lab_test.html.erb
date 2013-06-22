@@ -8,6 +8,10 @@
 		<% @lab_tests.each do | lab_test | %>
 		<li>
 			<%= link_to lab_test.lab_test.full_name, edit_visit_lab_test_xref_path(id: lab_test.id), class: "link" %>
+			<% if lab_test.alert_flag %>
+			<i class="icon-asterisk alert-flag">
+			</i>
+			<% end %>
 		</li>
 		<% end %>
 	</ul>

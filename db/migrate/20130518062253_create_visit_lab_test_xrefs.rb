@@ -7,6 +7,7 @@ class CreateVisitLabTestXrefs < ActiveRecord::Migration
       t.date :conducted_at
       t.date :received_at
       t.date :reviewed_at
+      t.boolean :alert_flag
       t.text :lab_note
 
       t.timestamps

@@ -7,11 +7,10 @@ class VisitLabTestXrefsController < ApplicationController
   end
   def edit
     @patient = VisitLabTestXref.find(params[:id]).visit.patient
-    @visit_lab_test_xref = VisitLabTestXref.find(params[:id])
   end
   def update
     if @visit_lab_test_xref.update(visit_lab_test_xref_params)
-      redirect_to visit_lab_test_xrefs_path, notice: 'Lab Test was successfully updated.' 
+      redirect_to visit_path(id: @visit_lab_test_xref.visit_id), notice: 'Lab Test was successfully updated.' 
     else
       render action: 'edit'
     end
@@ -34,7 +33,7 @@ class VisitLabTestXrefsController < ApplicationController
                                                 :conducted_at,
                                                 :received_at,
                                                 :reviewed_at,
-                                                :lab_note
-    )
+                                                :alert_flag,
+                                                :lab_note)
   end
 end

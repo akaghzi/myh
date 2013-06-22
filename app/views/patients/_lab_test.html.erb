@@ -5,12 +5,10 @@
 	<p>No lab test information found on record</p>
 	<% else %>
 	<ul>
-		<% @visits.each do | visit | %>
-		<% visit.lab_tests.each do | lab_test | %>
+		<% @lab_tests.each do | lab_test | %>
 		<li>
-			<%= link_to lab_test.full_name, edit_visit_lab_test_xref_path(id: lab_test.id), class: "link" %>
+			<%= link_to lab_test.lab_test.full_name, edit_visit_lab_test_xref_path(id: lab_test.id), class: "link" %>
 		</li>
-		<% end %>
 		<% end %>
 	</ul>
 	<% end %>

@@ -6,6 +6,7 @@ class VisitLabTestXrefsController < ApplicationController
   def new
   end
   def edit
+    @patient = VisitLabTestXref.find(params[:id]).visit.patient
     @visit_lab_test_xref = VisitLabTestXref.find(params[:id])
   end
   def update
@@ -16,6 +17,7 @@ class VisitLabTestXrefsController < ApplicationController
     end
   end
   def show
+    @patient = VisitLabTestXref.find(params[:id]).visit.patient
   end
   def create
   end

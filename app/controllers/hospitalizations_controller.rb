@@ -23,6 +23,7 @@ class HospitalizationsController < ApplicationController
 
   # GET /hospitalizations/1/edit
   def edit
+    @patient = Hospitalization.find(params[:id]).patient
   end
 
   # POST /hospitalizations

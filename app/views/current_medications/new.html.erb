@@ -1,24 +1,3 @@
 <%- model_class = CurrentMedication -%>
-<div>
-	<h4>
-		<%= model_class %>
-		<h4>
-</div>
-<div class="page-header">
-	<h4>
-		<span class="titlehighlight">
-			<%= @current_medication.patient.full_name.titleize %>
-		</span>
-		<span class="bluehighlight">
-			<%= @current_medication.patient.gender.titleize %>
-		</span>
-		<span class="titlehighlight">
-			<%= @current_medication.patient.age %>
-		</span>
-		<span class="bluehighlight">
-			DOB:<%= @current_medication.patient.date_of_birth %>
-		</span>
-	</h4>
-</div>
-
+<%= render partial: "common/patient_header"%>
 <%= render :partial => 'form' %>

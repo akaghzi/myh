@@ -311,25 +311,6 @@ end
 Patient.create(first_name: "john", middle_name: "smith", last_name: "doe", gender: "male", date_of_birth: "1968-01-01", phone: "4035552345", externalid: "123211")
 Patient.create(first_name: "little", middle_name: "smith", last_name: "jonny", gender: "male", date_of_birth: "2007-11-21", phone: "2035552345", externalid: "1332221")
 Patient.create(first_name: "mary", middle_name: "smith", last_name: "jane", gender: "female", date_of_birth: "1998-12-11", phone: "3035552345", externalid: "123213")
-RegQuestion.all.each do |d|
-  d.destroy
-end
-RegQuestion.create(content: 'any concerned related to sexual functions, if none, put none',minimum_age: 18,gender: 'both')
-RegQuestion.create(content: 'any recent occurance of shortness of breath, wheezing, heart racing, difficulty breathing while sleeping or leg swelling etc',minimum_age: 5,gender: 'both')
-RegQuestion.create(content: 'during the past month have you felt depressed, down, or hopeless, if none, put none',minimum_age: 18,gender: 'both')
-RegQuestion.create(content: 'for children < 18 years, problems or complications of pregnancy, labor, delivery, or early newborn period, adults skip this ',minimum_age: 0,gender: 'both')
-RegQuestion.create(content: 'how did you hear about us',minimum_age: 18,gender: 'both')
-RegQuestion.create(content: 'men\'s screening, i.e., prostrate cancer etc',minimum_age: 40,gender: 'male')
-RegQuestion.create(content: 'other healthcare provider, if so, include names and for what condition they are involved',minimum_age: 0,gender: 'both')
-RegQuestion.create(content: 'recent changes in urination, frequency, color , pain, burning sensation, difficulty starting or stopping stream of urine, blood in urine, leakage etc',minimum_age: 10,gender: 'both')
-RegQuestion.create(content: 'recent changes to sense of smell, ability to chew or swallow, vision, hearing',minimum_age: 5,gender: 'both')
-RegQuestion.create(content: 'recent changes to weight, chills, fever, excessive fatigue',minimum_age: 0,gender: 'both')
-RegQuestion.create(content: 'recent problems of back pain, joint pain, injuries',minimum_age: 5,gender: 'both')
-RegQuestion.create(content: 'recent problems of digestion, nasuea, vomiting, abdominal pain, diarrhea, constipation, blood in stool, changes in bowel movement, color or frequency etc',minimum_age: 5,gender: 'both')
-RegQuestion.create(content: 'recent problems of dizziness, headache, unusual numbness or tingling sensation, if none, put none',minimum_age: 18,gender: 'both')
-RegQuestion.create(content: 'recent tests done, i.e., cholestrol, blood work, urine analysis, x-ray, please bring in test reports for accuracy',minimum_age: 0,gender: 'both')
-RegQuestion.create(content: 'recreational activities you enjoy',minimum_age: 5,gender: 'both')
-RegQuestion.create(content: 'reproductive history, i.e., pregnancy, still births, births , mamograms, menopause, bone density test',minimum_age: 18,gender: 'female')
 Relationship.all.each do |d|
   d.destroy
 end
@@ -384,6 +365,7 @@ Vaccine.create(name: "yellow fever")
 MedicationRoute.all.each do |d|
   d.destroy
 end
+MedicationRoute.create(full_name: "ORAL", description: "Administration to or by way of the mouth.", short_name: "ORAL")
 MedicationRoute.create(full_name: "AURICULAR (OTIC)", description: "Administration to or by way of the ear.", short_name: "OTIC")
 MedicationRoute.create(full_name: "BUCCAL", description: "Administration directed toward the cheek, generally from within the mouth.", short_name: "BUCCAL")
 MedicationRoute.create(full_name: "CONJUNCTIVAL", description: "Administration to the conjunctiva, the delicate membrane that lines the eyelids and covers the exposed surface of the eyeball.", short_name: "CONJUNC")
@@ -466,7 +448,6 @@ MedicationRoute.create(full_name: "NASAL", description: "Administration to the n
 MedicationRoute.create(full_name: "NASOGASTRIC", description: "Administration through the nose and into the stomach, usually by means of a tube.", short_name: "NG")
 MedicationRoute.create(full_name: "OCCLUSIVE DRESSING TECHNIQUE", description: "Administration by the topical route which is then covered by a dressing which occludes the area.", short_name: "OCCLUS")
 MedicationRoute.create(full_name: "OPHTHALMIC", description: "Administration  to the external eye.", short_name: "OPHTHALM")
-MedicationRoute.create(full_name: "ORAL", description: "Administration to or by way of the mouth.", short_name: "ORAL")
 MedicationRoute.create(full_name: "OROPHARYNGEAL", description: "Administration directly to the mouth and pharynx.", short_name: "ORO")
 MedicationRoute.create(full_name: "PARENTERAL", description: "Administration by injection, infusion, or implantation.", short_name: "PAREN")
 MedicationRoute.create(full_name: "PERCUTANEOUS", description: "Administration through the skin.", short_name: "PERCUT")

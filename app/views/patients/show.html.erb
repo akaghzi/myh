@@ -9,24 +9,18 @@
 	</ul>
 </div>
 <% end %>
-<div class="page-header">
-	<h3>
-		<span class="titlehighlight">
-			<%= @patient.full_name.titleize %>
-		</span>
-		<span class="bluehighlight">
-			<%= @patient.gender.titleize %>
-		</span>
-		<span class="titlehighlight">
-			<%= @patient.age %>
-		</span>
-		<span class="bluehighlight">
-			DOB:<%= @patient.date_of_birth %>
-		</span>
-	</h3>
-	<h4>
-		<%= "Phone: #{@patient.phone} Externalid: #{@patient.externalid}" %>
-	</h4> 
+<%= render partial: "common/patient_header" %>
+<div class="row-fluid">
+	<h4 class="alert">
+		Summary:
+	</h4>
+	<p>
+		<% if @patient.summary.blank? %>
+		No summary information found on record
+		<% else %>
+		<%= simple_format(@patient.summary) %>
+		<% end %>
+	</p>
 </div>
 <div class="row-fluid">
 	<%= render :partial => 'allergy' %>
@@ -66,18 +60,6 @@
 <% end %>
 <div class="row-fluid">
 	<%= render :partial => 'social_history' %>
-</div>
-<div class="row-fluid">
-	<h4 class="alert alert-info">
-		Summary:
-	</h4>
-	<p>
-		<% if @patient.summary.blank? %>
-		No summary information found on record
-		<% else %>
-		<%= simple_format(@patient.summary) %>
-		<% end %>
-	</p>
 </div>
 <div class="row-fluid">	
 	<span class="span6">

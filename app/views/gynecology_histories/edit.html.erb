@@ -1,19 +1,4 @@
 <%- model_class = GynecologyHistory -%>
-<div class="page-header">
-	<h4>
-		<span class="titlehighlight">
-			<%= @gynecology_history.patient.full_name.titleize %>
-		</span>
-		<span class="bluehighlight">
-			<%= @gynecology_history.patient.gender.titleize %>
-		</span>
-		<span class="titlehighlight">
-			<%= @gynecology_history.patient.age %>
-		</span>
-		<span class="bluehighlight">
-			DOB:<%= @gynecology_history.patient.date_of_birth %>
-		</span>
-	</h4>
-</div>
+<%= render partial: "common/patient_header"%>
 
 <%= render :partial => 'form' %>

@@ -8,7 +8,7 @@
 		<% @visits.each do | visit | %>
 		<% visit.lab_tests.each do | lab_test | %>
 		<li>
-			<%= "#{lab_test.full_name}" %>
+			<%= link_to lab_test.full_name, edit_visit_lab_test_xref_path(id: lab_test.id), class: "link" %>
 		</li>
 		<% end %>
 		<% end %>

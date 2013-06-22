@@ -6,6 +6,8 @@ class CreateCurrentMedications < ActiveRecord::Migration
       t.references :medication_frequency, index: true
       t.string :name
       t.string :dosage
+      t.date :start_date
+      t.date :end_date
 
       t.timestamps
     end

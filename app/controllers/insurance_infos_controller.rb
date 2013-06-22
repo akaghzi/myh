@@ -10,6 +10,7 @@ class InsuranceInfosController < ApplicationController
   # GET /insurance_infos/1
   # GET /insurance_infos/1.json
   def show
+    @patient = InsuranceInfo.find(params[:id]).patient
   end
 
   # GET /insurance_infos/new
@@ -19,6 +20,7 @@ class InsuranceInfosController < ApplicationController
 
   # GET /insurance_infos/1/edit
   def edit
+    @patient = InsuranceInfo.find(params[:id]).patient
   end
 
   # POST /insurance_infos

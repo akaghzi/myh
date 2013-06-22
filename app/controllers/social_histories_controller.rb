@@ -19,6 +19,7 @@ class SocialHistoriesController < ApplicationController
 
   # GET /social_histories/1/edit
   def edit
+    @patient = SocialHistory.find(params[:id]).patient
   end
 
   # POST /social_histories

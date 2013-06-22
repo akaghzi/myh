@@ -17,13 +17,14 @@ class AllergiesController < ApplicationController
     # find patient for the allergy
     @patient = Patient.find(params[:patient_id])
     # build the allergy for the patient
-    @allergy = @patient.allergies.build(patient_id: @patient.id)
+    @allergy = @patient.allergies.build
     # @allergy = Allergy.new
 
   end
 
   # GET /allergies/1/edit
   def edit
+    @patient = Allergy.find(params[:id]).patient
   end
 
   # POST /allergies

@@ -24,6 +24,7 @@ class MedicalHistoriesController < ApplicationController
 
   # GET /medical_histories/1/edit
   def edit
+    @patient = MedicalHistory.find(params[:id]).patient
   end
 
   # POST /medical_histories

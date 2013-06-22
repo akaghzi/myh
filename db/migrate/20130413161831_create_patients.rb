@@ -8,6 +8,7 @@ class CreatePatients < ActiveRecord::Migration
       t.string :gender
       t.string :phone
       t.string :externalid
+      t.boolean :alert_flag
       t.text :summary
 
       t.timestamps

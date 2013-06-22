@@ -10,6 +10,7 @@ class ContactInfosController < ApplicationController
   # GET /contact_infos/1
   # GET /contact_infos/1.json
   def show
+    @patient = ContactInfo.find(params[:id]).patient
   end
 
   # GET /contact_infos/new
@@ -19,6 +20,7 @@ class ContactInfosController < ApplicationController
 
   # GET /contact_infos/1/edit
   def edit
+    @patient = ContactInfo.find(params[:id]).patient
   end
 
   # POST /contact_infos

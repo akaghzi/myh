@@ -10,7 +10,7 @@
 	</p>
 	<ul class="ul-horizontal">
 		<% @visit.lab_tests.each do | lab_test |%>
-		<li><%= lab_test.full_name %></li>
+		<li><%= link_to lab_test.full_name, edit_visit_lab_test_xref_path(id: lab_test.id), class: "link" %></li>
 		<% end %>
 	</ul>
 	<%= link_to 'Edit', visit_order_lab_tests_path(@visit), class: "btn btn-mini btn-info" %>

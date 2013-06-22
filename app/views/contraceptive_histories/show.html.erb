@@ -1,21 +1,5 @@
 <%- model_class = ContraceptiveHistory -%>
-<div class="page-header">
-	<h4>
-		<span class="titlehighlight">
-			<%= @contraceptive_history.patient.full_name.titleize %>
-		</span>
-		<span class="bluehighlight">
-			<%= @contraceptive_history.patient.gender.titleize %>
-		</span>
-		<span class="titlehighlight">
-			<%= @contraceptive_history.patient.age %>
-		</span>
-		<span class="bluehighlight">
-			DOB:<%= @contraceptive_history.patient.date_of_birth %>
-		</span>
-	</h4>
-</div>
-
+<%= render partial: "common/patient_header"%>
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:contraceptive_id) %>:</strong></dt>
   <dd><%= @contraceptive_history.contraceptive.name %></dd>

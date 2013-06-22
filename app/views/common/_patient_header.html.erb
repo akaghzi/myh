@@ -1,0 +1,23 @@
+<div class="page-header">
+	<h3>
+		<span class="titlehighlight">
+			<%= @patient.full_name.titleize %>
+		</span>
+		<span class="bluehighlight">
+			<%= @patient.gender.titleize %>
+		</span>
+		<span class="titlehighlight">
+			<%= @patient.age %>
+		</span>
+		<span class="bluehighlight">
+			DOB:<%= @patient.date_of_birth %>
+		</span>
+		<% if @patient.alert_flag %>
+		<i class="icon-asterisk alert-flag">
+		</i>
+		<% end %>
+	</h3>
+	<h4>
+		<%= "Phone: #{@patient.phone} Externalid: #{@patient.externalid}" %>
+	</h4> 
+</div>

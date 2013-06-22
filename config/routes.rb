@@ -1,4 +1,5 @@
 Myh::Application.routes.draw do  
+  root to: "static_pages#home"
   resources :appointment_slots
   resources :appointments
   resources :contraceptives
@@ -15,11 +16,8 @@ Myh::Application.routes.draw do
   resources :relationships
   resources :medical_histories
   resources :diseases
-  root to: "static_pages#home"
   resources :lab_tests
-  resources :patients
-  resources :reg_questions
-  resources :reg_answers
+  resources :patients    
   resources :users
   resources :vital_signs
   resources :visits do

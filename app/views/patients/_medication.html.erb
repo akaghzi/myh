@@ -13,6 +13,8 @@
 				<th>Dosage</th>
 				<th>Frequency</th>
 				<th>Route</th>
+				<th>From</th>
+				<th>To</th>
 				<th></th>
 			</tr>
 			<% @patient.current_medications.each do | current_medication |%>
@@ -21,6 +23,8 @@
 				<td><%= current_medication.dosage %></td>
 				<td><%= current_medication.medication_frequency.short_name %></td>
 				<td><%= current_medication.medication_route.short_name.downcase %></td>
+				<td><%= current_medication.start_date %></td>
+				<td><%= current_medication.end_date %></td>
 				<td><%= link_to 'Edit', edit_current_medication_path(current_medication.id), :class => 'btn btn-mini btn-info' %></td>
 			</tr>
 			<% end %>

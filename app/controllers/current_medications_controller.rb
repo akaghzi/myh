@@ -10,6 +10,7 @@ class CurrentMedicationsController < ApplicationController
   # GET /current_medications/1
   # GET /current_medications/1.json
   def show
+    # @patient = CurrentMedication.find(params[:id]).patient
   end
 
   # GET /current_medications/new
@@ -23,6 +24,7 @@ class CurrentMedicationsController < ApplicationController
 
   # GET /current_medications/1/edit
   def edit
+    @patient = CurrentMedication.find(params[:id]).patient
   end
 
   # POST /current_medications
@@ -73,6 +75,7 @@ class CurrentMedicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def current_medication_params
-      params.require(:current_medication).permit(:patient_id, :name, :dosage, :medication_frequency_id, :medication_route_id)
+      params.require(:current_medication).permit(:patient_id, :name, :dosage, :medication_frequency_id, :medication_route_id,
+                                                  :start_date, :end_date)
     end
 end

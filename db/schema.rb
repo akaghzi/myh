@@ -90,6 +90,8 @@ ActiveRecord::Schema.define(version: 20130613044731) do
     t.integer  "medication_frequency_id"
     t.string   "name"
     t.string   "dosage"
+    t.date     "start_date"
+    t.date     "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -218,6 +220,7 @@ ActiveRecord::Schema.define(version: 20130613044731) do
     t.string   "gender"
     t.string   "phone"
     t.string   "externalid"
+    t.boolean  "alert_flag"
     t.text     "summary"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -55,33 +55,16 @@
     </div>
   </div>
   <div class="control-group">
+    <%= f.label :alert_flag, class:  'control-label' %>
+    <div class="controls">
+      <%= f.check_box :alert_flag, class: 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
     <%= f.label :summary, class:  'control-label' %>
     <div class="controls">
       <%= f.text_area :summary, rows: 4, :class => 'input-xxlarge' %>
     </div>
-  </div>
-	<div class="control-group">
-		<% if @patient.reg_answers.blank? %>
-			<p>This is not registration information available for this patient as yet.
-			</p>
-		<% else %>
-		<div class="control-group">
-			<%= f.fields_for :reg_answers do |ans| %>
-				<strong>Question :</strong>
-		    <div class="controls">
-				<%= ans.hidden_field :reg_question_id %>
-				<%= ans.text_field :reg_question_text, disabled: true, rows: 2, class: "input-xxlarge" %><br />
-			</div>
-				<strong>Answer:   </strong>
-				<div class="control-group">
-		    <div class="controls">
-				<%= ans.text_field :content %><br />
-			</div>
-			</div>
-			<% end %>
-		</div>
-		
-		<% end%>
   </div>
   <div class="form-actions">
     <%= f.submit nil, class:  'btn btn-primary' %>

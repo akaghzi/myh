@@ -6,6 +6,7 @@ Add tests done recently by other providers
 Add to visit page patient summary with current medication, alergies etc
 Add mechanism to call patient after reviewing the lab tests
 Add pagination to index page for patients
+Add appointment cancellation
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Done:

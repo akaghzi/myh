@@ -10,3 +10,8 @@
 .lowercase{
 	text-transform: lowercase;
 }
+#logo{
+	font-size:2em;
+	color:green;
+	font-weight:bold;
+}

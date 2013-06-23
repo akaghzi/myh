@@ -4,7 +4,6 @@ Add Administative workflow for maintaining lookup tables
 Add lab work categorised on patient show page into ordered, received and reviewed
 Add tests done recently by other providers
 Add to visit page patient summary with current medication, alergies etc
-Add color coding to vital signs for any abnormal readings
 Add mechanism to call patient after reviewing the lab tests
 Add pagination to index page for patients
 
@@ -49,6 +48,8 @@ Add search for appointments
 Fix Patient Header for all other scaffolds
 Add dates to current medication as medication history
 Add patient * cancer/tb/strong family history of sickness to be highlighted SERIOUSNESS STAR
+Add color coding to vital signs for any abnormal readings
+
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Parking List:
 Add tests for visit type

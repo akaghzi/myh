@@ -8,7 +8,7 @@ Add mechanism to call patient after reviewing the lab tests
 Add pagination to index page for patients
 Add appointment cancellation
 Reviewed lab test may not be edited
-
+Move Work from static pages controller to some other controller
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Done:
 Add user authentication

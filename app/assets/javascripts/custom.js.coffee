@@ -1,6 +1,7 @@
 do_on_load = ->
  # $('.datetimepicker').datetimepicker()
-  $('.datepicker').datepicker()
+  $('.datepicker').datepicker
+	  autoclose: true
 	
 $(document).ready ->
   do_on_load()

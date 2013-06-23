@@ -1,7 +1,7 @@
 class VisitLabTestXrefsController < ApplicationController
   before_action :set_visit_lab_test_xref, only: [:show, :edit, :update]
   def index 
-    @visit_lab_test_xrefs = VisitLabTestXref.ordered.order("created_at")   
+    @visit_lab_test_xrefs = self.search(params[:search]) || VisitLabTestXref.ordered.order("created_at")   
   end
   def new
   end
@@ -20,7 +20,14 @@ class VisitLabTestXrefsController < ApplicationController
   end
   def create
   end
-
+  def search(search_string)
+    # @patient = Patient.where("(patients.last_name||patients.first_name) like lower('%#{search_string}%')")
+    # @visits = @patient.visit_ids
+    @visit_lab_test_xrefs = 
+      VisitLabTestXref.ordered.joins("inner join visits on visits.id = visit_lab_test_xrefs.visit_id 
+                              inner join patients on patients.id = visits.patient_id 
+                              and (patients.last_name||patients.first_name) like lower('%#{search_string}%') ").order("visit_id")
+  end
   private
   def set_visit_lab_test_xref
     @visit_lab_test_xref = VisitLabTestXref.find(params[:id])

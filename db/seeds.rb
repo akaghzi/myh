@@ -314,7 +314,6 @@ Patient.create(first_name: "mary", middle_name: "smith", last_name: "jane", gend
 Relationship.all.each do |d|
   d.destroy
 end
-Relationship.create(name: "self")
 Relationship.create(name: "brother")
 Relationship.create(name: "father")
 Relationship.create(name: "father's brother")
@@ -327,10 +326,11 @@ Relationship.create(name: "mother's father")
 Relationship.create(name: "mother's mom")
 Relationship.create(name: "mother's sister")
 Relationship.create(name: "sister")
+Relationship.create(name: "self")
 User.all.each do |d|
   d.destroy
 end
-User.create(first_name: "asim", last_name: "kaghzi", username: "akaghzi", user_type: "administrator", password: "hussain7", password_confirmation: "hussain7")
+User.create(first_name: "asim", last_name: "kaghzi", username: "asimkaghzi", user_type: "administrator", password: "drirum7", password_confirmation: "drirum7")
 User.create(first_name: "asim", last_name: "kaghzi", username: "akaghzi", user_type: "doctor", password: "hussain7", password_confirmation: "hussain7")
 User.create(first_name: "jamila", last_name: "kureshi", username: "jkureshi", user_type: "doctor", password: "jamilah", password_confirmation: "jamilah")
 Vaccine.all.each do |d|

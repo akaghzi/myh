@@ -7,6 +7,8 @@ class CreateAppointments < ActiveRecord::Migration
       t.date :appointment_date
       t.string :appointment_type
       t.string :appointment_reason
+      t.boolean :cancelled
+      t.string :cancellation_reason
 
       t.timestamps
     end

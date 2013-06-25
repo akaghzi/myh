@@ -45,6 +45,18 @@
 		<%= f.text_area :appointment_reason, rows: 2, :class => 'input-xxlarge' %>
 	</div>
 </div>
+<div class="control-group">
+	<%= f.label :cancelled, :class => 'control-label' %>
+	<div class="controls">
+		<%= f.check_box :cancelled, :class => 'check_box' %>
+	</div>
+</div>
+<div class="control-group">
+	<%= f.label :cancellation_reason, :class => 'control-label' %>
+	<div class="controls">
+		<%= f.text_area :cancellation_reason, rows: 2, :class => 'input-xxlarge' %>
+	</div>
+</div>
 
 <div class="form-actions">
 	<%= f.submit nil, :class => 'btn btn-primary' %>

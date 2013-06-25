@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20130613044731) do
     t.date     "appointment_date"
     t.string   "appointment_type"
     t.string   "appointment_reason"
+    t.boolean  "cancelled"
+    t.string   "cancellation_reason"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

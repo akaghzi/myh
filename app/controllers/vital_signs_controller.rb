@@ -16,6 +16,7 @@ class VitalSignsController < ApplicationController
   def new
     # Find visit
     @visit = Visit.find(params[:visit_id])
+    @patient = Patient.find(@visit.patient.id)
     # build vital signs
     @vital_sign = @visit.vital_signs.build(visit_id: @visit.id)
     # @vital_sign = VitalSign.new
@@ -23,6 +24,7 @@ class VitalSignsController < ApplicationController
 
   # GET /vital_signs/1/edit
   def edit
+    @patient = VitalSign.find(params[:id]).visit.patient
   end
 
   # POST /vital_signs

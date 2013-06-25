@@ -32,7 +32,7 @@
   <div class="control-group">
     <%= f.label :date_of_birth, class:  'control-label' %>
     <div class="controls">
-      <%= f.text_field :date_of_birth, class: "datepicker", data: {"date-format" => "yyyy-mm-dd"} %>
+      <%= f.text_field :date_of_birth, class: "datepicker", data: {date_end_date: Date.today} %>
     </div>
   </div>
   <div class="control-group">

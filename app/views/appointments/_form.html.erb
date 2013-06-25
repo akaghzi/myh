@@ -23,7 +23,7 @@
 	<%= f.label :appointment_date, :class => 'control-label' %>
 	<div class="controls">
 	<span>
-			<%= f.text_field :appointment_date, class: "datepicker", data: {date_format: "yyyy-mm-dd"} %>
+			<%= f.text_field :appointment_date, class: "datepicker", data: {date_start_date: Date.today, date_end_date: Date.today+90} %>
 			</span>
 	</div>	
 </div>

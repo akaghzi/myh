@@ -28,11 +28,4 @@
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               patient_path(id: @visit.patient.id), :class => 'btn'  %>
-  <!--<%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_visit_path(@visit), :class => 'btn btn-info' %>
-   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              visit_path(@visit),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %> -->
 </div>

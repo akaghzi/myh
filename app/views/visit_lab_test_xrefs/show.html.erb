@@ -3,9 +3,9 @@
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:visit_id) %>:</strong></dt>
-  <dd><%= @visit_lab_test_xref.visit_id %></dd>
+  <dd><%= @visit_lab_test_xref.visit.visited_at %></dd>
   <dt><strong><%= model_class.human_attribute_name(:lab_test_id) %>:</strong></dt>
-  <dd><%= @visit_lab_test_xref.lab_test_id %></dd>
+  <dd><%= @visit_lab_test_xref.lab_test.full_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:conducted_at) %>:</strong></dt>
   <dd><%= @visit_lab_test_xref.conducted_at %></dd>
   <dt><strong><%= model_class.human_attribute_name(:measurement) %>:</strong></dt>
@@ -20,12 +20,5 @@
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              visit_lab_test_xrefs_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_visit_lab_test_xref_path(@visit_lab_test_xref), :class => 'btn' %>
-  <!-- <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              visit_lab_test_xref_path(@visit_lab_test_xref),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %> -->
+              patient_path(id: @visit_lab_test_xref.visit.patient_id), :class => 'btn'  %>
 </div>

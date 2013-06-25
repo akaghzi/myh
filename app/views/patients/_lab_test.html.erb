@@ -5,12 +5,15 @@
 	<p>No lab test information found on record</p>
 	<% else %>
 	<ul>
-		<% @lab_tests.each do | lab_test | %>
+		<% @lab_tests.order("created_at,received_at,reviewed_at").each do | lab_test | %>
 		<li>
+			<% if lab_test.reviewed_at %>
+			<%= link_to lab_test.lab_test.full_name, visit_lab_test_xref_path(id: lab_test.id), class: "link" %>
+			<% else %>
 			<%= link_to lab_test.lab_test.full_name, edit_visit_lab_test_xref_path(id: lab_test.id), class: "link" %>
+			<% end %>
 			<% if lab_test.alert_flag %>
-			<i class="icon-asterisk alert-flag">
-			</i>
+			<i class="icon-asterisk alert-flag"></i>
 			<% end %>
 		</li>
 		<% end %>

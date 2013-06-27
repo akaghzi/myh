@@ -58,13 +58,13 @@ class HospitalizationsController < ApplicationController
 
   # DELETE /hospitalizations/1
   # DELETE /hospitalizations/1.json
-  def destroy
-    @hospitalization.destroy
-    respond_to do |format|
-      format.html { redirect_to hospitalizations_url }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @hospitalization.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to hospitalizations_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

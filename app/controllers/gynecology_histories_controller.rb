@@ -21,6 +21,7 @@ class GynecologyHistoriesController < ApplicationController
 
   # GET /gynecology_histories/1/edit
   def edit
+    @patient = GynecologyHistory.find(params[:id]).patient
   end
 
   # POST /gynecology_histories
@@ -55,13 +56,13 @@ class GynecologyHistoriesController < ApplicationController
 
   # DELETE /gynecology_histories/1
   # DELETE /gynecology_histories/1.json
-  def destroy
-    @gynecology_history.destroy
-    respond_to do |format|
-      format.html { redirect_to gynecology_histories_url }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @gynecology_history.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to gynecology_histories_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

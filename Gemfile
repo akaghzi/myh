@@ -19,7 +19,9 @@ end
 gem 'jquery-rails'
 gem "twitter-bootstrap-rails"
 # Required by heroku for RAILS 4
-gem 'rails_12factor'
+group :production do
+	gem 'rails_12factor'
+end
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -37,8 +39,8 @@ gem 'bcrypt-ruby', '>= 3.0.0'
 # gem 'capistrano', group: :development
 
 # To use debugger
-# gem 'debugger'
 group :development do
+ gem 'debugger'
   gem 'annotate'
 end
 

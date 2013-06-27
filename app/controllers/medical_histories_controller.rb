@@ -59,13 +59,13 @@ class MedicalHistoriesController < ApplicationController
 
   # DELETE /medical_histories/1
   # DELETE /medical_histories/1.json
-  def destroy
-    @medical_history.destroy
-    respond_to do |format|
-      format.html { redirect_to medical_histories_url }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @medical_history.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to medical_histories_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

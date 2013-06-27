@@ -21,6 +21,7 @@ class ContraceptiveHistoriesController < ApplicationController
 
   # GET /contraceptive_histories/1/edit
   def edit
+    @patient = ContraceptiveHistory.find(params[:id]).patient
   end
 
   # POST /contraceptive_histories

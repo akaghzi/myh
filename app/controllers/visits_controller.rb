@@ -22,8 +22,6 @@ class VisitsController < ApplicationController
 
   # GET /visits/1/edit
   def edit
-    # @visit = Visit.find(params[:id])
-    @patient = Visit.find(params[:id]).patient
   end
 
   # POST /visits
@@ -79,6 +77,7 @@ class VisitsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_visit
     @visit = Visit.find(params[:id])
+    @patient = @visit.patient
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

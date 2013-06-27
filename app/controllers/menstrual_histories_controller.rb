@@ -21,7 +21,6 @@ class MenstrualHistoriesController < ApplicationController
 
   # GET /menstrual_histories/1/edit
   def edit
-    @patient = MenstrualHistory.find(params[:id]).patient
   end
 
   # POST /menstrual_histories
@@ -68,6 +67,7 @@ class MenstrualHistoriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_menstrual_history
       @menstrual_history = MenstrualHistory.find(params[:id])
+      @patient = @mestrual_history.patient
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

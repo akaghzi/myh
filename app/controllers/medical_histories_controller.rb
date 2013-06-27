@@ -24,7 +24,6 @@ class MedicalHistoriesController < ApplicationController
 
   # GET /medical_histories/1/edit
   def edit
-    @patient = MedicalHistory.find(params[:id]).patient
   end
 
   # POST /medical_histories
@@ -71,6 +70,7 @@ class MedicalHistoriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_medical_history
       @medical_history = MedicalHistory.find(params[:id])
+      @patient = medical_history.patient
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

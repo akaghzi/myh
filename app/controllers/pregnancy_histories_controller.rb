@@ -21,7 +21,6 @@ class PregnancyHistoriesController < ApplicationController
 
   # GET /pregnancy_histories/1/edit
   def edit
-    @patient = PregnancyHistory.find(params[:id]).patient
   end
 
   # POST /pregnancy_histories
@@ -68,6 +67,7 @@ class PregnancyHistoriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_pregnancy_history
       @pregnancy_history = PregnancyHistory.find(params[:id])
+      @patient = @pregnancy_history.patient
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

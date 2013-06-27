@@ -24,7 +24,6 @@ class CurrentMedicationsController < ApplicationController
 
   # GET /current_medications/1/edit
   def edit
-    @patient = CurrentMedication.find(params[:id]).patient
   end
 
   # POST /current_medications
@@ -71,6 +70,7 @@ class CurrentMedicationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_current_medication
       @current_medication = CurrentMedication.find(params[:id])
+      @patient = @current_medication.patient
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

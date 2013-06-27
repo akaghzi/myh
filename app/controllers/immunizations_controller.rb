@@ -23,7 +23,6 @@ class ImmunizationsController < ApplicationController
 
   # GET /immunizations/1/edit
   def edit
-    @patient = Immunization.find(params[:id]).patient
   end
 
   # POST /immunizations
@@ -70,6 +69,7 @@ class ImmunizationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_immunization
       @immunization = Immunization.find(params[:id])
+      @patient = @immunization.patient
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

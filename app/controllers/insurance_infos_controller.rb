@@ -10,7 +10,6 @@ class InsuranceInfosController < ApplicationController
   # GET /insurance_infos/1
   # GET /insurance_infos/1.json
   def show
-    @patient = InsuranceInfo.find(params[:id]).patient
   end
 
   # GET /insurance_infos/new
@@ -20,7 +19,6 @@ class InsuranceInfosController < ApplicationController
 
   # GET /insurance_infos/1/edit
   def edit
-    @patient = InsuranceInfo.find(params[:id]).patient
   end
 
   # POST /insurance_infos
@@ -67,6 +65,7 @@ class InsuranceInfosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_insurance_info
       @insurance_info = InsuranceInfo.find(params[:id])
+      @patient = @insurance_info.patient
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

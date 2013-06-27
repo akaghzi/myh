@@ -11,7 +11,6 @@ class VisitLabTestXrefsController < ApplicationController
   # GET /visit_lab_test_xrefs/1
   # GET /visit_lab_test_xrefs/1.json
   def show
-    @patient = VisitLabTestXref.find(params[:id]).visit.patient
   end
 
   # GET /visit_lab_test_xrefs/new
@@ -20,7 +19,6 @@ class VisitLabTestXrefsController < ApplicationController
 
   # GET /visit_lab_test_xrefs/1/edit
   def edit
-    @patient = VisitLabTestXref.find(params[:id]).visit.patient
   end
 
   # POST /visit_lab_test_xrefs
@@ -31,7 +29,6 @@ class VisitLabTestXrefsController < ApplicationController
   # PATCH/PUT /visit_lab_test_xrefs/1
   # PATCH/PUT /visit_lab_test_xrefs/1.json
   def update
-    @patient = VisitLabTestXref.find(params[:id]).visit.patient
     respond_to do |format|
       if @visit_lab_test_xref.update(visit_lab_test_xref_params)
         format.html { redirect_to visit_lab_test_xrefs_path, notice: 'VisitLabTestXref was successfully updated.' }
@@ -62,6 +59,7 @@ class VisitLabTestXrefsController < ApplicationController
   private
   def set_visit_lab_test_xref
     @visit_lab_test_xref = VisitLabTestXref.find(params[:id])
+    @patient = @visit_lab_test_xref.visit.patient
   end
   # Never trust parameters from the scary internet, only allow the white list through.
   def visit_lab_test_xref_params

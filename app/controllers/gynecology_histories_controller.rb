@@ -21,7 +21,6 @@ class GynecologyHistoriesController < ApplicationController
 
   # GET /gynecology_histories/1/edit
   def edit
-    @patient = GynecologyHistory.find(params[:id]).patient
   end
 
   # POST /gynecology_histories
@@ -68,6 +67,7 @@ class GynecologyHistoriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_gynecology_history
       @gynecology_history = GynecologyHistory.find(params[:id])
+      @patient = @gynecology_history.patient
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

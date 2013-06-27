@@ -24,7 +24,6 @@ class VitalSignsController < ApplicationController
 
   # GET /vital_signs/1/edit
   def edit
-    @patient = VitalSign.find(params[:id]).visit.patient
   end
 
   # POST /vital_signs
@@ -71,6 +70,8 @@ class VitalSignsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
       def set_vital_sign
       @vital_sign = VitalSign.find(params[:id])
+      @patient = @vital_sign.visit.patient
+      
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

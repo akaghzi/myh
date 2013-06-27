@@ -19,7 +19,6 @@ class SocialHistoriesController < ApplicationController
 
   # GET /social_histories/1/edit
   def edit
-    @patient = SocialHistory.find(params[:id]).patient
   end
 
   # POST /social_histories
@@ -66,6 +65,7 @@ class SocialHistoriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_social_history
       @social_history = SocialHistory.find(params[:id])
+      @patient = @social_history.patient
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

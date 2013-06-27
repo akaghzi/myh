@@ -10,7 +10,6 @@ class ContactInfosController < ApplicationController
   # GET /contact_infos/1
   # GET /contact_infos/1.json
   def show
-    @patient = ContactInfo.find(params[:id]).patient
   end
 
   # GET /contact_infos/new
@@ -20,7 +19,6 @@ class ContactInfosController < ApplicationController
 
   # GET /contact_infos/1/edit
   def edit
-    @patient = ContactInfo.find(params[:id]).patient
   end
 
   # POST /contact_infos
@@ -67,6 +65,7 @@ class ContactInfosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_contact_info
       @contact_info = ContactInfo.find(params[:id])
+      @patient = @contact_info.patient
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

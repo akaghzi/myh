@@ -2,6 +2,7 @@ do_on_load = ->
 	$('.datepicker').datepicker
 		autoclose: true
 		format: 'yyyy-mm-dd'
+		todayHighlight: true
 
 		# startDate: new Date()
 		# weekStart: 1

@@ -2,11 +2,11 @@ class VisitLabTestXref < ActiveRecord::Base
   belongs_to :visit
   belongs_to :lab_test
   validates :lab_test_id, uniqueness: {scope: :visit_id}
-  # validates :conducted_at, presence: true, if: "received_at?"
-  # validates :received_at, presence: true, if: :reviewed_at
-  # validates :lab_note, presence: true, if: :received_at
-  # validate :check_received_date, if: :received_at
-  # validate :check_reviewed_date, if: :reviewed_at
+  validates :conducted_at, presence: true, if: "received_at?"
+  validates :received_at, presence: true, if: "reviewed_at?"
+  validates :lab_note, presence: true, if: "received_at?"
+  validate :check_received_date, if: "received_at?"
+  validate :check_reviewed_date, if: "reviewed_at?"
   validate :check_conducted_date, if: "conducted_at?"
   scope :ordered, -> {where("received_at is null")}
   scope :received, -> {where("received_at is not null and reviewed_at is null")}

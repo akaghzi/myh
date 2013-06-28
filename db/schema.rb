@@ -322,6 +322,7 @@ ActiveRecord::Schema.define(version: 20130613044731) do
     t.date     "reviewed_at"
     t.boolean  "alert_flag"
     t.text     "lab_note"
+    t.boolean  "followup_complete"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

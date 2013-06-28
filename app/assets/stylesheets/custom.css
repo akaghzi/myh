@@ -1,6 +1,9 @@
 .alert-flag{
 	color: red;
 }
+.success-flag{
+	color: green;
+}
 .bluehighlight{
 	background:lightblue;
 }

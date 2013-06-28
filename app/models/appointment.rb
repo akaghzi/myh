@@ -9,6 +9,7 @@ class Appointment < ActiveRecord::Base
   validates :cancellation_reason, presence: true, if: :cancelled
   validate :check_date
   scope :future, ->{where("appointment_date > ? and cancelled = false", Date.today)}
+  scope :nextweek, -> {where("appointment_date > ? and appointment_date < ? and cancelled = false", Date.today, Date.today+7 )}
   scope :todays, ->{where("appointment_date = ? and cancelled = false", Date.today)}
   def check_date
       self.errors.add(:appointment_date, "is invalid") if appointment_date < Date.today 

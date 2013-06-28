@@ -6,6 +6,7 @@ class StaticPagesController < ApplicationController
   def work
     @appointments = Appointment.todays
     @lab_tests = VisitLabTestXref.received.order("created_at")
+    @followup = VisitLabTestXref.follow
   end
   def help
   end

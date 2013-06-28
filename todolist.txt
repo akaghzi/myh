@@ -4,9 +4,10 @@ Add Reports
 Add Administative workflow for maintaining lookup tables
 Add lab work categorised on patient show page into ordered, received and reviewed
 Add tests done recently by other providers
-Add mechanism to call patient after reviewing the lab tests
 Add pagination to index page for patients
 Move Work from static pages controller to some other controller
+Make columns of VLTX readonly after the reviewed date
+Make lab tests readonly after the visit is complete
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Done:
 Add user authentication
@@ -52,6 +53,8 @@ Add color coding to vital signs for any abnormal readings
 Add to visit page patient summary with current medication, alergies etc
 Add appointment cancellation
 Reviewed lab test may not be edited
+Add mechanism to call patient after reviewing the lab tests
+
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Parking List:
 Add tests for visit type

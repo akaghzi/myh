@@ -11,6 +11,7 @@ class VisitLabTestXref < ActiveRecord::Base
   scope :ordered, -> {where("received_at is null")}
   scope :received, -> {where("received_at is not null and reviewed_at is null")}
   scope :reviewed, -> {where("reviewed_at is not null")}
+  scope :follow, -> {where("reviewed_at > '#{Date.today-21}'  and alert_flag = true and followup_complete is null")}
   def check_received_date
     self.errors.add(:received_at, "date is invalid") if received_at > Date.today
   end

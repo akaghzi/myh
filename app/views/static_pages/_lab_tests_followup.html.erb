@@ -1,0 +1,38 @@
+<h4 class="alert alert-info">
+	Lab tests to be followed up:
+</h4>
+<% if @followup.blank? %>
+<p>No Lab Tests to be followed up found on record</p>
+<% else %>
+<table class="table table-condensed">
+	<tr>
+		<th>Patient</th>
+		<th>Lab Test</th>
+		<th>Ordered at</th>
+		<th>Conducted at</th>
+		<th>Received at</th>
+		<th>Lab Notes</th>
+		<th></th>
+	</tr>
+	<% @followup.each do | lab_test |%>
+	<tr>
+		<td><%= lab_test.visit.patient.full_name.titleize %></td>
+		<td><%= lab_test.lab_test.full_name.titleize %></td>
+		<td><%= lab_test.created_at.to_date %></td>
+		<td><%= lab_test.conducted_at %></td>
+		<td><%= lab_test.received_at %></td>
+		<td><%= lab_test.lab_note %></td>
+		<td>
+			<% if lab_test.visit.patient.appointments.nextweek.blank? %>
+			<%= link_to 'Followup', new_appointment_path(patient_id: lab_test.visit.patient), class: "btn btn-mini btn-primary" %>
+			<% if lab_test.visit.patient.appointments.future %>
+			<i class="icon-asterisk success-flag"></i>
+			<% end%>
+			<% else %>
+			<p>Appointment made</p>
+			<% end %>
+		</td>
+		</tr>
+		<% end %>
+	</table>
+	<% end %>

@@ -11,6 +11,10 @@
 			<%= link_to lab_test.lab_test.full_name.titleize, visit_lab_test_xref_path(id: lab_test.id), class: "link" %>
 			<% else %>
 			<%= link_to lab_test.lab_test.full_name.titleize, edit_visit_lab_test_xref_path(id: lab_test.id), class: "link" %>
+			Ordered
+			<% if lab_test.created_at > Date.today+7 %>
+			<i class="icon-asterisk alert-flag"></i>
+			<% end %>
 			<% end %>
 			<% if lab_test.alert_flag %>
 			<i class="icon-asterisk alert-flag"></i>

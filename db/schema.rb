@@ -242,25 +242,6 @@ ActiveRecord::Schema.define(version: 20130613044731) do
 
   add_index "pregnancy_histories", ["patient_id"], name: "index_pregnancy_histories_on_patient_id", using: :btree
 
-  create_table "reg_answers", force: true do |t|
-    t.integer  "patient_id"
-    t.integer  "reg_question_id"
-    t.string   "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "reg_answers", ["patient_id"], name: "index_reg_answers_on_patient_id", using: :btree
-  add_index "reg_answers", ["reg_question_id"], name: "index_reg_answers_on_reg_question_id", using: :btree
-
-  create_table "reg_questions", force: true do |t|
-    t.string   "content"
-    t.string   "gender"
-    t.integer  "minimum_age"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "relationships", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -287,14 +268,6 @@ ActiveRecord::Schema.define(version: 20130613044731) do
   end
 
   add_index "social_histories", ["patient_id"], name: "index_social_histories_on_patient_id", using: :btree
-
-  create_table "surgeries", force: true do |t|
-    t.integer  "patient_id"
-    t.string   "surgery_type"
-    t.date     "surgery_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "users", force: true do |t|
     t.string   "first_name"

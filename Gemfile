@@ -40,7 +40,6 @@ gem 'bcrypt-ruby', '>= 3.0.0'
 
 # To use debugger
 group :development do
- gem 'debugger'
   gem 'annotate'
 end
 

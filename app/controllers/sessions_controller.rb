@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_username(params[:username])
     if user && user.authenticate(params[:password])
+      reset_session
       signin user
       # session[:user_id] = user.id
       # flash.now[:notice] = "You have logged in"
@@ -23,6 +24,7 @@ class SessionsController < ApplicationController
 
   def destroy
     # signout user
+    reset_session
     session[:user_id] = nil
     session[:user_type] = nil
     redirect_to root_url

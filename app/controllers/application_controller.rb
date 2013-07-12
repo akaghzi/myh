@@ -8,6 +8,14 @@ class ApplicationController < ActionController::Base
   def signin(user)
     session[:user_id] = user.id
     session[:user_type] = user.user_type
+    session[:expire_time] = Time.now + 15.minutes
+  end
+  
+  def signout
+    session[:user_id] = nil
+    session[:user_type] = nil
+    session[:expire_time] = nil
+    reset_session
   end
   
   def signedin?

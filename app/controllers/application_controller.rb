@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   def signin(user)
     session[:user_id] = user.id
     session[:user_type] = user.user_type
-    session[:expire_time] = Time.now + 15.minutes
+    session[:expire_time] = Time.now + 4.hours
   end
   
   def signout

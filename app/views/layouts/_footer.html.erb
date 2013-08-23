@@ -1,16 +1,11 @@
 <footer>
-	<!-- <div class="navbar"> -->
-		<!-- <div class="navbar-inner"> -->
-			<ul class="nav nav-pills">
-				<% if session[:user_id] %>
-				<li><%= link_to "Profile", edit_user_path(id: session[:user_id]) %></li>
-				<li><%= link_to "Logout", session_path(session[:user_id]), method: :delete %></li>
-				<% end %>
-				<li><%= link_to "Help", help_url %></li>
-				<li><%= link_to "Contact Us", contact_url %></li>
-				<li class="disabled pull-right"><a>&copy; &nbsp;(<%= Date.today.year %>) Jamila Kureshi, MD & Kaghzi Memorial Clinic</a></li>
-				</ul>
-				<!-- <span>&copy; &nbsp;<%= Date.today.year %>. Jamila Kureshi, MD & Kaghzi Memorial Clinic. </span> -->
-				<!-- </div> -->
-				<!-- </div> -->
-			</footer>
+	<ul class="nav nav-pills">
+		<% if session[:user_id] %>
+		<li><%= link_to "Profile", edit_user_path(id: session[:user_id]) %></li>
+		<li><%= link_to "Logout", session_path(session[:user_id]), method: :delete %></li>
+		<% end %>
+		<li><%= link_to "Help", help_url %></li>
+		<li><%= link_to "Contact Us", contact_url %></li>
+		<li class="disabled pull-right"><a>&copy; &nbsp;(<%= Date.today.year %>) Jamila Kureshi, MD & Kaghzi Memorial Clinic</a></li>
+	</ul>
+</footer>

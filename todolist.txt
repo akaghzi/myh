@@ -7,6 +7,7 @@ Add pagination to index page for patients
 Move Work from static pages controller to some other controller
 Make columns of VLTX readonly after the reviewed date
 Make lab tests readonly after the visit is complete
+Add session expiry
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Done:
 Add user authentication

@@ -34,6 +34,7 @@ Myh::Application.routes.draw do
   get "/help", to: "static_pages#help"
   get "/contact", to: "static_pages#contact"
   match "/signin", to: "sessions#new", via: :get
+  match "/signout", to: "sessions#destroy", via: :delete
   
   # match "/signup", to: "users#new", via: :get
   # get "users/create"
